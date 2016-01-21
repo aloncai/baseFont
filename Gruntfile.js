@@ -18,26 +18,26 @@ module.exports = function (grunt) {
         //合并文件
         concat: {
             js: {
-                src: ['app/modules/*/*.js'],
-                dest: 'dist/js/server.js'
+                src: ['app/modules/**.js'],
+                dest: 'dist/js/baseFont.js'
             },
             css: {
-                src: ['app/modules/*.css'],
-                dest: 'dist/css/server.css'
+                src: ['app/modules/**.css'],
+                dest: 'dist/css/baseFont.css'
             }
         },
         //js文件压缩
         uglify: {
             js: {
-                src: ['dist/js/server.js'],
-                dest: 'dist/js/server.min.js'
+                src: ['dist/js/baseFont.js'],
+                dest: 'dist/js/baseFont.min.js'
             }
         },
         //js文件压缩
         cssmin: {
             js: {
-                src: ['dist/css/server.css'],
-                dest: 'dist/css/server.min.css'
+                src: ['dist/css/baseFont.css'],
+                dest: 'dist/css/baseFont.min.css'
             }
         },
 
