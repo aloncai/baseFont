@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         //合并文件
         concat: {
             js: {
-                src: ['app/modules/**.js'],
+                src: ['app/modules/*.js','app/modules/*/*.js'],
                 dest: 'dist/js/baseFont.js'
             },
             css: {
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                 src: 'Gruntfile.js'
             },
             js: {
-                src: ['app/modules/*/*.js', 'dist/js/*.js']
+                src: [ '<%= uglify.js.src %>']
             }
         },
         //watch任务，实时监听文件的变化，并进行编译
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: '<%= concat.js.src %>',
-                tasks: ['jshint:js', 'concat:js', 'uglify']
+                tasks: ['concat:js', 'jshint:js']
             },
             css: {
                 files: '<%= concat.css.src %>',
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 
 
     //注册服务
-    grunt.registerTask('default', ['clean', 'jshint', 'concat', 'watch']);
-    grunt.registerTask('online', ['clean', 'jshint', 'concat', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['clean', 'concat', 'jshint', 'watch']);
+    grunt.registerTask('online', ['clean',  'concat', 'jshint', 'uglify', 'cssmin']);
 };
 

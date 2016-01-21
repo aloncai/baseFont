@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎登陆</title>
+    <script src="/js/angularJs/angular.js"></script>
+    <script src="/dist/js/baseFont.js"></script>
+</head>
+<body  ng-app="baseFontApp">
+    <div ng-controller="loginController">
+        <form>
+
+            <div>
+                <label>用户名：</label>
+                <input ng-model="entity.userId" type="text" placeholder="请输入用户名">
+            </div>
+            <div>
+                <label>密码：</label>
+                <input ng-model="entity.passwd" type="password" placeholder="请输入密码">
+            </div>
+            <div>
+                <input type="button" value="登陆" ng-click="login()">
+            </div>
+            <label ng-bind="entity.msg" ng-show="entity.msg" style="color: red;"></label>
+        </form>
+    </div>
+</body>
+</html>
