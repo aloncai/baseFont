@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                 dest: 'dist/js/baseFont.min.js'
             }
         },
-        //js文件压缩
+        //css文件压缩
         cssmin: {
             js: {
                 src: ['dist/css/baseFont.css'],
