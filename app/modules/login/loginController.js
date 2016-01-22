@@ -25,7 +25,7 @@ baseFontApp.controller("loginController", function ($scope, loginService) {
             $scope.entity.logining = false;
         }).error(function () {
             //$scope.alert("服务可能正在维护，请稍后重试！！");
-            $scope.entity.msg = "服务可能正在维护，请稍后重试！";
+            $scope.entity.msg = "网络连接失败，请检查网络。";
             $scope.entity.logining = false;
 
         });

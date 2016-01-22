@@ -3,26 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>欢迎登陆</title>
-    <script src="/js/angular/1.5.0-rc.1/angular.js"></script>
+    <script src="/js/jquery/1.12.0/jquery.min.js"></script>
+    <script src="/js/angular/1.5.0-rc.1/angular.min.js"></script>
+    <script src="/js/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/dist/js/baseFont.js"></script>
-</head>
-<body  ng-app="baseFontApp">
-    <div ng-controller="loginController">
-        <form>
 
-            <div>
-                <label>用户名：</label>
-                <input ng-model="entity.userId" type="text" placeholder="请输入用户名">
+    <link rel="stylesheet" href="/js/bootstrap/3.3.5/css/bootstrap.min.css"/>
+</head>
+<body ng-app="baseFontApp">
+<div class="container" ng-controller="loginController">
+    <br/><br/><br/><br/>
+    <form class="form-horizontal ">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">用户名：</label>
+            <div class="col-sm-4">
+                <input class="form-control" ng-model="entity.userId" type="text" placeholder="请输入用户名">
             </div>
-            <div>
-                <label>密码：</label>
-                <input ng-model="entity.passwd" type="password" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">密码：</label>
+            <div class="col-sm-4">
+                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="请输入密码">
             </div>
-            <div>
-                <input type="button" value="登陆" ng-click="login()">
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
             </div>
-            <label ng-bind="entity.msg" ng-show="entity.msg" style="color: red;"></label>
-        </form>
-    </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+                <label ng-bind="entity.msg" ng-if="entity.msg" class="form-control label label-danger"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="">
+                <input type="submit" class="btn btn-sm btn-primary col-sm-offset-4 col-sm-4" value="登陆" ng-click="login()">
+            </div>
+        </div>
+
+
+    </form>
+</div>
 </body>
 </html>
