@@ -3,5 +3,5 @@
 
 
 var dependencies = ['ngRoute'];
-var baseFontApp = angular.module("baseFontApp", ['ngRoute']);
+var baseFontApp = angular.module("baseFontApp", dependencies);
 
