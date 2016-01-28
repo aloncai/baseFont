@@ -29,10 +29,9 @@
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular.min.js"></script>
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular-route.min.js"></script>
     <script src="<%=staticHost %>/js/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="<%=staticHost %>/dist/js/baseFont.js"></script>
 
     <link rel="stylesheet" href="<%=staticHost %>/js/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <script src="<%=staticHost %>/qding/js/cleaner.min.js"></script>
+    <script src="<%=staticHost %>/dist/js/baseFont.js"></script>
 </head>
 <body cs-layout></body>
 </html>
