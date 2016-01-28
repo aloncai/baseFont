@@ -8,7 +8,7 @@ baseFontApp.config( function ($routeProvider) {
         })
         .when('/login', {
             controller:'loginController',
-            templateUrl:'/app/modules/login/htmls/Login.html'
+            templateUrl:'/app/modules/login/htmls/login.html'
         })
         .otherwise({
             templateUrl: "/app/modules/base/htmls/unknow.part.html"
