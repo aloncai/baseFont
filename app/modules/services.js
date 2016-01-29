@@ -6,7 +6,8 @@ baseFontApp.service("loginService", function ($http) {
         login : function (userId, passwd) {
             return $http({
                 url : '/easyShopping/login.json',
-                medhod : 'get',
+                method : 'get',
+                //headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 dataType : 'json',
                 params : {
                     userId : userId,
