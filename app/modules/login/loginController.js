@@ -13,7 +13,7 @@ baseFontApp.controller("loginController", function ($scope, loginService) {
         $scope.entity.logining = true;
 
         var userId = $scope.entity.userId;
-        var passwd = $scope.entity.passed;
+        var passwd = $scope.entity.passwd;
 
         loginService.login(userId, passwd).success(function (res) {
             if(res.code === 200){
