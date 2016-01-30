@@ -22,6 +22,7 @@
     "Hammer": true,
     "confirm": true,
     "prompt": true,
-    "alert": true
+    "alert": true,
+    "console": true
   }
 }
