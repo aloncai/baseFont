@@ -5,13 +5,24 @@
 var dependencies = ['ngRoute'];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
-// HTTP拦截器
+//$http拦截器
+baseFontApp.factory('httpInterceptor', [function() {
+    var httpInterceptor = {
+        request: function(config) {
+            console.log(config);
+            config.headers["Content-Type"] = "application/json;charset=UTF-8";
+            if(config.method == 'POST' || config.method == 'post'){
+            }else{
+
+            }
+            return config;
+        }
+    };
+    return httpInterceptor;
+
+}]);
+
+// 拦截器注入
 baseFontApp.config(function ($httpProvider) {
-    // POST method use x-www-form-urlencoded Content-Type
-
-    $httpProvider.defaults.headers.get = {"Content-Type" : "application/json;charset=utf-8"}
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-    console.log($httpProvider.defaults.headers);
-
+    $httpProvider.interceptors.push('httpInterceptor');
 });
