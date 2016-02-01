@@ -13,13 +13,6 @@
   "globals": {
     "$": true,
     "angular": true,
-    "IScroll": true,
-    "WeixinJSBridge": true,
-    "BMap": true,
-    "BMAP_STATUS_SUCCESS": true,
-    "CryptoJS": true,
-    "$LAB": true,
-    "Hammer": true,
     "confirm": true,
     "prompt": true,
     "alert": true,
