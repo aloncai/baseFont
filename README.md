@@ -1,5 +1,5 @@
 #baseFont
-这是一个使用angulaJs和grunt的前段项目模块。实现了以下功能：
+这是一个使用angulaJs和grunt的前段项目模块。实现了以下功能：<br/>
 1.多个js，css文件代码合并；
 2.js，css压缩；
 3.根据JSLint对js进行校验；
