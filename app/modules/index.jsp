@@ -14,7 +14,7 @@
         staticHost = "http://devfront.qdingnet.com";
     }else if(env.startsWith("localhost")){
         //本地环境
-        staticHost = "http://localhost";
+        staticHost = "http://localhost:9000";
     }
 %>
 <!DOCTYPE html>
@@ -28,10 +28,17 @@
     <script src="<%=staticHost %>/js/jquery/1.12.0/jquery.min.js"></script>
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular.min.js"></script>
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular-route.min.js"></script>
+    <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular-animate.min.js"></script>
+
+    <script src="<%=staticHost %>/js/angular-flash/angular-flash.min.js"></script>
     <script src="<%=staticHost %>/js/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+
     <link rel="stylesheet" href="<%=staticHost %>/js/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="<%=staticHost %>/js/angular-flash/angular-flash.min.css"/>
+
     <script src="<%=staticHost %>/dist/js/baseFont.js"></script>
+    <link rel="stylesheet" href="<%=staticHost %>/dist/css/baseFont.min.css"/>
 </head>
 <body cs-layout></body>
 </html>
