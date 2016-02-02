@@ -3,22 +3,22 @@
     <br/><br/><br/><br/>
     <form class="form-horizontal ">
         <div class="form-group">
-            <label class="col-sm-4 control-label">用户名：</label>
+            <label class="col-sm-4 control-label">{{label.userId}}：</label>
             <div class="col-sm-4">
-                <input class="form-control" ng-model="entity.userId" type="text" placeholder="请输入用户名">
+                <input class="form-control" ng-model="entity.userId" type="text" placeholder="{{holder.userId}}">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-4 control-label">密码：</label>
+            <label class="col-sm-4 control-label">{{label.passwd}}：</label>
             <div class="col-sm-4">
-                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="请输入密码">
+                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="{{holder.passwd}}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-4 col-sm-4">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Remember me
+                        <input type="checkbox"> {{label.remberMe}}
                     </label>
                 </div>
             </div>
@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <div class="">
-                <input type="submit" class="btn btn-sm btn-primary col-sm-offset-4 col-sm-4" value="登陆"
+                <input type="submit" class="btn btn-sm btn-primary col-sm-offset-4 col-sm-4" value="{{label.loginButton}}"
                        ng-click="login()">
             </div>
 

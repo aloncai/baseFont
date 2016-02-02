@@ -1,6 +1,9 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("loginController",['$scope', 'Flash', 'loginService', function ($scope, Flash, loginService) {
+baseFontApp.controller("loginController", function ($rootScope, $scope, dictionary, Flash, loginService) {
+    var local = dictionary.login;
+    $scope.label = local.label;
+    $scope.holder = local.holder;
 
     $scope.entity = {
         logining : false, //避免用户重复请求
@@ -18,18 +21,16 @@ baseFontApp.controller("loginController",['$scope', 'Flash', 'loginService', fun
         loginService.login(userId, passwd).success(function (res) {
             if(res.code === 200){
                 //$scope.alert("登陆成功");
-                $scope.entity.msg = res.data || "登陆成功";
+                $scope.entity.msg = local.login_success_msg;
             }else{
-                $scope.entity.msg = res.data || "登陆失败";
+                $scope.entity.msg = local.login_failed_msg;
             }
             $scope.entity.logining = false;
         }).error(function (res) {
-            //$scope.alert("服务可能正在维护，请稍后重试！！");
-            $scope.entity.msg = "网络连接失败，请检查网络。";
-
+            $scope.entity.msg = dictionary.request_error_tip;
             $scope.entity.logining = false;
 
         });
     };
 
-}]);
+});

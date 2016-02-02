@@ -1,0 +1,4 @@
+{
+    "session_timeout_tip":"the session has timeout, please login again.",
+    "request_error_tip":"server is unhappy！！！"
+}

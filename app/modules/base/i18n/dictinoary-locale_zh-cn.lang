@@ -1,0 +1,19 @@
+{
+
+    "session_timeout_tip":"回话已失效，请重新登陆。",
+    "request_error_tip":"服务器不开心！！！",
+    "login":{
+        "login_failed_msg":"用户名或者密码错误",
+        "login_success_msg":"登陆成功",
+        "label":{
+            "userId":"用户名",
+            "passwd":"密码",
+            "remberMe":"记住我",
+            "loginButton":"登陆"
+        },
+        "holder":{
+            "userId":"请输入用户ID",
+            "passwd":"请输入密码"
+        }
+    }
+}
