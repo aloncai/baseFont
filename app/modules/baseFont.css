@@ -1,6 +1,6 @@
-.body {
-    color: red
-
-
+.flashlayout {
+    width: 30%;
+    left:65%;
+    z-index:9999;
+    position:absolute;
 }
-

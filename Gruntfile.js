@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 
 
     //注册服务
-    grunt.registerTask('default', ['clean', 'concat', 'jshint', 'watch']);
+    grunt.registerTask('default', ['clean', 'concat', 'jshint', 'uglify', 'cssmin', 'watch']);
     grunt.registerTask('online', ['clean',  'concat', 'jshint', 'uglify', 'cssmin']);
 };
 
