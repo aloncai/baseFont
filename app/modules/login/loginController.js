@@ -28,7 +28,9 @@ baseFontApp.controller("loginController", function ($rootScope, $scope,$location
             if(res.code === 200){
                 //$scope.alert("登陆成功");
                 $scope.entity.msg = local.login_success_msg;
+                //显示导航栏
                 $rootScope.global.showHeader = true;
+                //增加cookie
                 document.cookie = "userId=" + $scope.entity.userId;
             }else{
                 $scope.entity.msg = local.login_failed_msg;
