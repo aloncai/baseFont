@@ -1,6 +1,12 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("loginController", function ($rootScope, $scope, dictionary, Flash, loginService) {
+baseFontApp.controller("loginController", function ($rootScope, $scope,$location, dictionary, Flash, loginService) {
+
+    //已经登陆，跳转到首页
+    if(document.cookie != ''){
+        $location.path("/");
+    }
+
     var local = dictionary.login;
     $scope.label = local.label;
     $scope.holder = local.holder;
@@ -23,6 +29,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, dictiona
                 //$scope.alert("登陆成功");
                 $scope.entity.msg = local.login_success_msg;
                 $rootScope.global.showHeader = true;
+                document.cookie = "userId=" + $scope.entity.userId;
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }

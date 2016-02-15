@@ -39,12 +39,13 @@ baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
         response: function (res) {
             //请求成功
             var returnData = res.data;
-            //未登录
+            //登录失效
             if (returnData.code === 10001) {
                 returnData.data = dictionary.session_timeout_tip;
                 //customAlert custom-class
                 Flash.create('danger', returnData.data, 5000);
                 $rootScope.global.showHeader = false;
+                document.cookie = '';
             }
             return res;
         },

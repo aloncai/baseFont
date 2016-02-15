@@ -26,7 +26,7 @@ baseFontApp.directive('csHeader', function () {
         templateUrl: '/app/modules/base/htmls/header.part.html',
         controller: function($rootScope,$scope){
             $scope.header = {};
-            $scope.header.isShow = true;
+            $scope.header.isShow = (document.cookie != '');
             $scope.showHeader = function(){
                 $scope.header.isShow = true;
             };
@@ -34,7 +34,9 @@ baseFontApp.directive('csHeader', function () {
                 $scope.header.isShow = false;
             };
             $rootScope.$watch('global.showHeader', function(){
-                $scope.header.isShow = $rootScope.global.showHeader;
+                if($rootScope.global.showHeader != null){
+                    $scope.header.isShow = $rootScope.global.showHeader;
+                }
             });
         }
     };
