@@ -6,7 +6,7 @@ var dependencies = ['ngRoute', 'flash', 'ngAnimate'];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
 
-// 方法 2
+//多语言支持
 baseFontApp.factory('dictionary', function ($rootScope) {
     $rootScope.lang = '/app/modules/base/i18n/dictinoary-locale_zh-cn.lang';
     var value={};
@@ -21,7 +21,8 @@ baseFontApp.factory('dictionary', function ($rootScope) {
             value.dictionary = res;
         }
     });
-    $rootScope.dictionary = value.dictionary;
+    $rootScope.global = {};
+    $rootScope.global.dictionary = value.dictionary;
     return  value.dictionary;
 });
 
@@ -43,6 +44,7 @@ baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
                 returnData.data = dictionary.session_timeout_tip;
                 //customAlert custom-class
                 Flash.create('danger', returnData.data, 5000);
+                $rootScope.global.showHeader = false;
             }
             return res;
         },

@@ -22,6 +22,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, dictiona
             if(res.code === 200){
                 //$scope.alert("登陆成功");
                 $scope.entity.msg = local.login_success_msg;
+                $rootScope.global.showHeader = true;
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }

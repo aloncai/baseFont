@@ -1,6 +1,12 @@
+body {
+    padding-bottom: 70px;
+}
+
 .flashlayout {
     width: 30%;
-    left:65%;
-    z-index:9999;
-    position:absolute;
+    left: 65%;
+    z-index: 9999;
+    position: absolute;
 }
+
+
