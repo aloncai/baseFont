@@ -2,13 +2,21 @@
     <div class="container-fluid ">
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{label.persionCenter}}<b class="caret"></b></a>
-                <ul class="dropdown-menu menu-top">
-                    <li><a href="">{{label.changePasswd}}</a></li>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{label.persionCenter}}<b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu multi-level">
+                    <li><a href="javascript:;">{{label.changePasswd}}</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="">{{label.changeLanguage}}</a></li>
+                    <li class="dropdown-submenu">
+                        <!--<a href="">{{label.changeLanguage}}</a>-->
+                        <a tabindex="-1" class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">一级菜单</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:;">三级菜单</a></li>
+                            <li><a href="javascript:;">三级菜单</a></li>
+                        </ul>
+                    </li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="" ng-click="logout()">{{label.logout}}</a></li>
+                    <li><a href="javascript:;" ng-click="logout()">{{label.logout}}</a></li>
                 </ul>
             </li>
         </ul>
