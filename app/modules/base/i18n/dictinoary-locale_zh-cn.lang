@@ -1,10 +1,22 @@
 {
 
     "session_timeout_tip":"回话已失效，请重新登陆。",
-    "request_error_tip":"服务器不开心！！！",
+    "response_error_tip":"服务器不开心。",
+    "request_error_tip":"连接异常，请假差网络。",
+
+    "header":{
+        "label":{
+            "changePasswd":"修改密码",
+            "logout":"退出",
+            "persionCenter":"个人中心",
+            "changeLanguage":"更改语言"
+        }
+    },
+
     "login":{
-        "login_failed_msg":"用户名或者密码错误",
-        "login_success_msg":"登陆成功",
+        "login_failed_msg":"用户名或者密码错误。",
+        "login_success_msg":"登陆成功。",
+        "logout_failed_msg":"登出失败。",
         "label":{
             "userId":"用户名",
             "passwd":"密码",

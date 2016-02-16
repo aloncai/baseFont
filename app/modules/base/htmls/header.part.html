@@ -2,14 +2,13 @@
     <div class="container-fluid ">
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <p class="dropdown-toggle navbar-text navbar-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心 <span class="caret"></span></p>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">查看历史订单</a></li>
-                    <li><a href="#">修改密码</a></li>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown">{{label.persionCenter}}<b class="caret"></b></a>
+                <ul class="dropdown-menu menu-top">
+                    <li><a href="">{{label.changePasswd}}</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a>退出</a></li>
+                    <li><a href="">{{label.changeLanguage}}</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="" ng-click="logout()">{{label.logout}}</a></li>
                 </ul>
             </li>
         </ul>

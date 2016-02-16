@@ -24,20 +24,32 @@ baseFontApp.directive('csHeader', function () {
     return {
         restrict: 'A',
         templateUrl: '/app/modules/base/htmls/header.part.html',
-        controller: function($rootScope,$scope){
+        controller: function($rootScope,$scope,$location,Flash,dictionary,loginService){
+            $scope.label = dictionary.header.label;
+            var loginLocal = dictionary.login;
             $scope.header = {};
-            $scope.header.isShow = (document.cookie != '');
-            $scope.showHeader = function(){
-                $scope.header.isShow = true;
-            };
-            $scope.hideHeader = function(){
-                $scope.header.isShow = false;
-            };
+            //只有在登陆的时候才显示导航栏
+            $scope.header.isShow = (getCookie("userId") !== '');
+            //监听是否显示导航栏
             $rootScope.$watch('global.showHeader', function(){
                 if($rootScope.global.showHeader != null){
                     $scope.header.isShow = $rootScope.global.showHeader;
                 }
             });
+
+            $scope.logout = function(){
+                loginService.logout().success(function (res) {
+                    if(res.code === 200){
+                        //隐藏导航栏
+                        $rootScope.global.showHeader = false;
+                        //消除cookie
+                        deleteCookie("userId");
+                        $location.path("/login");
+                    }else{
+                        Flash.create("danger", loginLocal.logout_failed_msg);
+                    }
+                });
+            }
         }
     };
 });

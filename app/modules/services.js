@@ -7,12 +7,19 @@ baseFontApp.service("loginService", function ($http) {
             return $http({
                 url : '/easyShopping/login.json',
                 method : 'get',
-                //headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
                 dataType : 'json',
                 params : {
                     userId : userId,
                     passwd : passwd
                 }
+            });
+        },
+        //登出
+        logout : function () {
+            return $http({
+                url : '/easyShopping/logout.json',
+                method : 'get',
+                dataType : 'json'
             });
         }
     };

@@ -3,7 +3,7 @@
 baseFontApp.controller("loginController", function ($rootScope, $scope,$location, dictionary, Flash, loginService) {
 
     //已经登陆，跳转到首页
-    if(document.cookie != ''){
+    if(getCookie("userId") != ''){
         $location.path("/");
     }
 
@@ -31,7 +31,10 @@ baseFontApp.controller("loginController", function ($rootScope, $scope,$location
                 //显示导航栏
                 $rootScope.global.showHeader = true;
                 //增加cookie
-                document.cookie = "userId=" + $scope.entity.userId;
+                addCookie("userId", $scope.entity.userId);
+
+                //跳转
+                $location.path("/");
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }

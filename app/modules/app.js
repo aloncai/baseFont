@@ -45,20 +45,26 @@ baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
                 //customAlert custom-class
                 Flash.create('danger', returnData.data, 5000);
                 $rootScope.global.showHeader = false;
-                document.cookie = '';
+                deleteCookie("userId");
             }
             return res;
         },
         requestError: function (rej) {
-            return rej;
-        },
-        responseError: function (rej) {
             var data = {
                 "code": 500,
                 "data": dictionary.request_error_tip
             };
             rej.data = data;
             Flash.create('danger', rej.data.data, 5000);
+            return rej;
+        },
+        responseError: function (rej) {
+            var data = {
+                "code": 500,
+                "data": dictionary.response_error_tip
+            };
+            rej.data = data;
+            //Flash.create('danger', rej.data.data, 5000);
             return rej;
         }
     };
@@ -70,3 +76,24 @@ baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
 baseFontApp.config(function ($httpProvider) {
     $httpProvider.interceptors.push('httpInterceptor');
 });
+
+
+function addCookie(key, value){
+    document.cookie = key + "=" + value;
+};
+
+function deleteCookie(key){
+    document.cookie = key + "=";
+};
+function getCookie(key){
+    var cookieEnty = document.cookie.split(";");
+    var value = "";
+    angular.forEach(cookieEnty,function(enty){
+        var tempCookie = enty.split("=");
+        if(key === tempCookie[0]){
+            value = tempCookie.length > 1 ? tempCookie[1] : "";
+            return;
+        }
+    });
+    return value;
+}
