@@ -3,7 +3,7 @@
 baseFontApp.controller("loginController", function ($rootScope, $scope,$location, dictionary, Flash, loginService) {
 
     //已经登陆，跳转到首页
-    if(getCookie("userId") != ''){
+    if(getCookie("userId") !== ''){
         $location.path("/");
     }
 
