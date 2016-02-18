@@ -24,12 +24,13 @@ baseFontApp.directive('csHeader', function () {
     return {
         restrict: 'A',
         templateUrl: '/app/modules/base/htmls/header.part.html',
-        controller: function($rootScope,$scope,$location,Flash,dictionary,loginService){
+        controller: function($rootScope, $scope, $cookieStore, $location, Flash, dictionary, loginService){
             $scope.label = dictionary.header.label;
             var loginLocal = dictionary.login;
             $scope.header = {};
             //只有在登陆的时候才显示导航栏
-            $scope.header.isShow = (getCookie("userId") !== '');
+            $scope.header.isShow = ($cookieStore.get("userId") !== undefined);
+            console.log($cookieStore.get("userId"));
             //监听是否显示导航栏
             $rootScope.$watch('global.showHeader', function(){
                 if($rootScope.global.showHeader != null){
@@ -43,13 +44,13 @@ baseFontApp.directive('csHeader', function () {
                         //隐藏导航栏
                         $rootScope.global.showHeader = false;
                         //消除cookie
-                        deleteCookie("userId");
+                        $cookieStore.remove("userId");
                         $location.path("/login");
                     }else{
                         Flash.create("danger", loginLocal.logout_failed_msg);
                     }
                 });
-            }
+            };
         }
     };
 });

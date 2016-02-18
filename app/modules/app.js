@@ -2,7 +2,7 @@
 //
 
 
-var dependencies = ['ngRoute', 'flash', 'ngAnimate'];
+var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies'];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
 
@@ -27,7 +27,7 @@ baseFontApp.factory('dictionary', function ($rootScope) {
 });
 
 //$http拦截器
-baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
+baseFontApp.factory('httpInterceptor', function ($rootScope, $cookieStore, dictionary, Flash) {
 
     var httpInterceptor = {
         //请求拦截
@@ -45,7 +45,7 @@ baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
                 //customAlert custom-class
                 Flash.create('danger', returnData.data, 5000);
                 $rootScope.global.showHeader = false;
-                deleteCookie("userId");
+                $cookieStore.remove("userId");
             }
             return res;
         },
@@ -76,24 +76,3 @@ baseFontApp.factory('httpInterceptor', function ($rootScope,dictionary, Flash) {
 baseFontApp.config(function ($httpProvider) {
     $httpProvider.interceptors.push('httpInterceptor');
 });
-
-
-function addCookie(key, value){
-    document.cookie = key + "=" + value;
-};
-
-function deleteCookie(key){
-    document.cookie = key + "=";
-};
-function getCookie(key){
-    var cookieEnty = document.cookie.split(";");
-    var value = "";
-    angular.forEach(cookieEnty,function(enty){
-        var tempCookie = enty.split("=");
-        if(key === tempCookie[0]){
-            value = tempCookie.length > 1 ? tempCookie[1] : "";
-            return;
-        }
-    });
-    return value;
-}

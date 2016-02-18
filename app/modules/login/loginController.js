@@ -1,9 +1,9 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("loginController", function ($rootScope, $scope,$location, dictionary, Flash, loginService) {
+baseFontApp.controller("loginController", function ($rootScope, $scope, $cookieStore, $location, dictionary, Flash, loginService) {
 
     //已经登陆，跳转到首页
-    if(getCookie("userId") !== ''){
+    if($cookieStore.get("userId") !== undefined){
         $location.path("/");
     }
 
@@ -31,7 +31,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope,$location
                 //显示导航栏
                 $rootScope.global.showHeader = true;
                 //增加cookie
-                addCookie("userId", $scope.entity.userId);
+                $cookieStore.put("userId", $scope.entity.userId);
 
                 //跳转
                 $location.path("/");
