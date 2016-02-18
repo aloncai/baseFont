@@ -1,4 +1,31 @@
 {
-    "session_timeout_tip":"the session has timeout, please login again.",
-    "request_error_tip":"server is unhappy！！！"
+
+    "session_timeout_tip":"Session has timeout,please relogin.",
+    "response_error_tip":"Service is unpappy!!!.",
+    "request_error_tip":"Connect error, please check you netword.",
+
+    "header":{
+        "label":{
+            "changePasswd":"Change Passward",
+            "logout":"Logou",
+            "persionCenter":"Persion Center",
+            "changeLanguage":"Langue"
+        }
+    },
+
+    "login":{
+        "login_failed_msg":"UserId or password is wrong.",
+        "login_success_msg":"Login success.",
+        "logout_failed_msg":"Logout error.",
+        "label":{
+            "userId":"UserId",
+            "passwd":"Password",
+            "remberMe":"Rember Me",
+            "loginButton":"Login"
+        },
+        "holder":{
+            "userId":"Please input userId",
+            "passwd":"Please input password"
+        }
+    }
 }

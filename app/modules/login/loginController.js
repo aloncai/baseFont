@@ -1,10 +1,11 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("loginController", function ($rootScope, $scope, $cookieStore, $location, dictionary, Flash, loginService) {
+baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies, $location, Flash, loginService) {
 
+    var dictionary = $rootScope.global.dictionary;
     //已经登陆，跳转到首页
-    if($cookieStore.get("userId") !== undefined){
-        $location.path("/");
+    if($cookies.getObject("userId") !== undefined){
+        $location.path("/welcome");
     }
 
     var local = dictionary.login;
@@ -31,10 +32,10 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookieS
                 //显示导航栏
                 $rootScope.global.showHeader = true;
                 //增加cookie
-                $cookieStore.put("userId", $scope.entity.userId);
+                $cookies.putObject("userId", $scope.entity.userId);
 
                 //跳转
-                $location.path("/");
+                $location.path("/welcome");
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }

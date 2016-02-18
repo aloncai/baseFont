@@ -7,28 +7,52 @@ var baseFontApp = angular.module("baseFontApp", dependencies);
 
 
 //多语言支持
-baseFontApp.factory('dictionary', function ($rootScope) {
-    $rootScope.lang = '/app/modules/base/i18n/dictinoary-locale_zh-cn.lang';
-    var value={};
-    $.ajax({
-        type: "get",
-        async: false,
-        url: $rootScope.lang,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        cache: true,
-        success: function (res) {
-            value.dictionary = res;
-        }
-    });
-    $rootScope.global = {};
-    $rootScope.global.dictionary = value.dictionary;
-    return  value.dictionary;
+baseFontApp.factory('langue', function ($rootScope, $cookies) {
+    
+    if($rootScope.global === undefined){
+        $rootScope.global = {};
+    }
+    
+    $rootScope.loadLangue = function(){
+        $.ajax({
+            type: "get",
+            // async: false,
+            url: $rootScope.lang.path,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (res) {
+                $rootScope.global.dictionary = res;
+            }
+        });
+    };
+
+    $rootScope.loadLangueList = function(){
+        $.ajax({
+            type: "get",
+            url: '/app/modules/base/i18n/langue-list.json',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: true,
+            success: function (res) {
+                $rootScope.global.langueList = res;
+                //$cookies.remove("lang");
+                $rootScope.lang = $cookies.getObject("lang");
+                if($rootScope.lang === undefined){
+                   $rootScope.lang = $rootScope.global.langueList[0]; 
+                }
+                $rootScope.loadLangue();
+            }
+        });
+    };
+    $rootScope.loadLangueList();
+    
+    return  '';
 });
 
 //$http拦截器
-baseFontApp.factory('httpInterceptor', function ($rootScope, $cookieStore, dictionary, Flash) {
-
+baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, Flash) {
+    var dictionary = $rootScope.global.dictionary;
     var httpInterceptor = {
         //请求拦截
         request: function (config) {
@@ -45,7 +69,7 @@ baseFontApp.factory('httpInterceptor', function ($rootScope, $cookieStore, dicti
                 //customAlert custom-class
                 Flash.create('danger', returnData.data, 5000);
                 $rootScope.global.showHeader = false;
-                $cookieStore.remove("userId");
+                $cookies.remove("userId");
             }
             return res;
         },

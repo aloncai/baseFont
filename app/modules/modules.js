@@ -4,11 +4,15 @@ baseFontApp.config( function ($routeProvider) {
 
     $routeProvider
         .when('/', {
-            templateUrl:'/app/modules/base/htmls/welcome.part.html'
+            controller:'loginController',
+            templateUrl:'/app/modules/login/htmls/login.html'
         })
         .when('/login', {
             controller:'loginController',
             templateUrl:'/app/modules/login/htmls/login.html'
+        })
+        .when('/welcome', {
+            templateUrl:'/app/modules/base/htmls/welcome.part.html'
         })
         .otherwise({
             templateUrl: "/app/modules/base/htmls/unknow.part.html"
