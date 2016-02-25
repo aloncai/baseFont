@@ -33,6 +33,10 @@ baseFontApp.directive('csHeader', function () {
 
             //只有在登陆的时候才显示导航栏
             $scope.header.isShow = ($cookies.getObject("userId") !== undefined);
+            if($cookies.getObject("userId") === undefined && $location.path() !== '/login'){
+                var msg = dictionary.session_timeout_tip + '<a class="btn btn-warning" href="#/login" role="button">重新登陆</a>';
+                Flash.create("warning", msg);
+            }
             //监听是否显示导航栏
             $rootScope.$watch('global.showHeader', function(){
                 if($rootScope.global.showHeader != null){
@@ -50,6 +54,11 @@ baseFontApp.directive('csHeader', function () {
                         $cookies.remove("userId");
                         $location.path("/login");
                     }else{
+                        //隐藏导航栏
+                        $rootScope.global.showHeader = false;
+                        //消除cookie
+                        $cookies.remove("userId");
+                        $location.path("/login");
                         Flash.create("danger", loginLocal.logout_failed_msg);
                     }
                 });

@@ -15,13 +15,12 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
     
     $rootScope.loadLangue = function(){
         $.ajax({
-            type: "get",
-            async: false,
+            type: "get",
+            async: false,
             url: $rootScope.lang.path,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
+            dataType: "json",
             cache: true,
-            success: function (res) {
+            success: function (res) {
                 $rootScope.global.dictionary = res;
             }
         });

@@ -32,7 +32,11 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
                 //显示导航栏
                 $rootScope.global.showHeader = true;
                 //增加cookie
-                $cookies.putObject("userId", $scope.entity.userId);
+                var expireDate = new Date();
+                expireDate.setDate(expireDate.getMinutes() + 1);
+
+                $cookies.putObject("userId", $scope.entity.userId, {'expires': expireDate});
+                $cookies.putObject("nickName", $scope.entity.nickName, {'expires': expireDate});
 
                 //跳转
                 $location.path("/welcome");
