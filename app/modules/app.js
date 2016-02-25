@@ -16,11 +16,11 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
     $rootScope.loadLangue = function(){
         $.ajax({
             type: "get",
-            // async: false,
+            async: false,
             url: $rootScope.lang.path,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            cache: false,
+            cache: true,
             success: function (res) {
                 $rootScope.global.dictionary = res;
             }
@@ -33,6 +33,7 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
             url: '/app/modules/base/i18n/langue-list.json',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+            async: false,
             cache: true,
             success: function (res) {
                 $rootScope.global.langueList = res;
@@ -46,7 +47,6 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
         });
     };
     $rootScope.loadLangueList();
-    
     return  '';
 });
 

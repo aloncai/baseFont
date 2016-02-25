@@ -14,7 +14,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
 
     $scope.entity = {
         logining : false, //避免用户重复请求
-        userId : 'admin',
+        userId : 'zhangkai',
         passwd: '123456'
     };
 

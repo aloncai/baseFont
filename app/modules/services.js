@@ -5,19 +5,19 @@ baseFontApp.service("loginService", function ($http) {
         //登陆
         login : function (userId, passwd) {
             return $http({
-                url : '/easyShopping/login.json',
+                url : '/easyShopping/user/login.json',
                 method : 'get',
                 dataType : 'json',
                 params : {
                     userId : userId,
-                    passwd : passwd
+                    password : passwd
                 }
             });
         },
         //登出
         logout : function () {
             return $http({
-                url : '/easyShopping/logout.json',
+                url : '/easyShopping/user/logout.json',
                 method : 'get',
                 dataType : 'json'
             });
