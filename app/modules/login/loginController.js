@@ -33,7 +33,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
                 $rootScope.global.showHeader = true;
                 //增加cookie
                 var expireDate = new Date();
-                expireDate.setDate(expireDate.getMinutes() + 1);
+                expireDate.setDate(expireDate.getMinutes() + 30);
 
                 $cookies.putObject("userId", $scope.entity.userId, {'expires': expireDate});
                 $cookies.putObject("nickName", $scope.entity.nickName, {'expires': expireDate});
