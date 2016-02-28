@@ -24,3 +24,17 @@ baseFontApp.service("loginService", function ($http) {
         }
     };
 });
+
+baseFontApp.service("userService", function ($http) {
+    return {
+        //登陆
+        query : function (params) {
+            return $http({
+                url : '/easyShopping/user/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        }
+    };
+});

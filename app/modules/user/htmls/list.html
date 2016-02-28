@@ -1,0 +1,68 @@
+<div >
+	<form class="form-horizontal">
+		<div class="form-group col-sm-3">
+			<label class="control-label col-sm-4">用户ID:</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="entity.userId" class="form-control" placeholder="">
+			</div>
+		</div>
+		<div class="form-group col-sm-3">
+			<label class="control-label col-sm-4">姓名:</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="entity.userName" class="form-control" placeholder="模糊查询">
+			</div>
+		</div>
+		<div class="form-group col-sm-3">
+			<label class="control-label col-sm-4">电话:</label>
+			<div class="col-sm-8">
+				<input type="text" ng-model="entity.userMobile" class="form-control" placeholder="模糊查询">
+			</div>
+		</div>
+		<div class="form-group col-sm-3">
+			<label class="control-label col-sm-4">状态:</label>
+			<div class="col-sm-8">
+				<select class="form-control" ng-model="entity.status">
+					<option value="0">正常</option>
+					<option value="1">冻结</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group col-sm-12">
+			<div class="col-sm-10"></div>
+			<div class="col-sm-2">
+				<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying">搜索</button>
+			</div>
+		</div>
+
+	</form>
+	<br />
+	<table class="table table-striped">
+		<header>
+			<th>#</th>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>昵称</th>
+			<th>电话</th>
+			<th>状态</th>
+			<th>创建人</th>
+			<th>创建时间</th>
+			<th>操作</th>
+		</header>
+		<tbody>
+			<tr ng-repeat="user in result.userList">
+				<td>{{$index + 1}}</td>
+				<td>{{user.userId}}</td>
+				<td>{{user.userName}}</td> 
+				<td>{{user.nickName}}</td> 
+				<td>{{user.userMobile}}</td> 
+				<td>{{user.status | userStatusFilter}}</td> 
+				<td>{{user.createBy}}</td> 
+				<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td></td> 
+			</tr>
+		</tbody>
+	</table>
+    <pagination total-items="111" ng-model="vm.page.index" max-size="5"
+                items-per-page="5"
+                class="pagination-sm pull-right" boundary-links="true"></pagination> 
+</div>

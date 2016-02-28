@@ -34,8 +34,8 @@ baseFontApp.directive('csHeader', function () {
             //只有在登陆的时候才显示导航栏
             $scope.header.isShow = ($cookies.getObject("userId") !== undefined);
             if($cookies.getObject("userId") === undefined && $location.path() !== '/login' && $location.path() !== '/'){
-                var msg = dictionary.session_timeout_tip + '<a class="btn btn-warning" href="#/login" role="button">重新登陆</a>';
-                Flash.create("warning", msg);
+                var msg = dictionary.session_timeout_tip + '<a class="btn btn-warning" href="#/login" ng-click="$dismiss()" role="button">重新登陆</a>';
+                Flash.create("warning", msg, 10000000);
             }
             //监听是否显示导航栏
             $rootScope.$watch('global.showHeader', function(){
