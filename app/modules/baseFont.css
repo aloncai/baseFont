@@ -74,6 +74,18 @@ body {
     vertical-align: bottom; 
     background: transparent url(/app/imgs/loading-sm.gif) center 0 no-repeat; 
 }
+.page-header { 
+    margin-top: 0; 
+}
+.page-header h1 { 
+    font-size: 20px; 
+    font-weight: normal; 
+    margin-top: 10px; 
+    border-left: 3px solid #ff6666; 
+    padding-left: 10px; 
+    -webkit-font-smoothing: antialiased; 
+}
+
 
 
 

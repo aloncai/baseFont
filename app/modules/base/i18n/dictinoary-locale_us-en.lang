@@ -3,6 +3,7 @@
     "session_timeout_tip":"Session has timeout,please relogin.",
     "response_error_tip":"Service is unpappy!!!.",
     "request_error_tip":"Connect error, please check you netword.",
+    "reLogin":"Login",
     "pagination" : {
         "label" : {
             "nextText": "Next",

@@ -66,9 +66,8 @@ baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, F
             if (returnData.code === 10001) {
                 returnData.data = dictionary.session_timeout_tip;
                 //customAlert custom-class
-                var msg = dictionary.session_timeout_tip + '<a class="btn btn-warning" href="#/login" ng-click="$dismiss()" role="button">重新登陆</a>';
+                var msg = dictionary.session_timeout_tip + '<a class="btn btn-warning" href="#/login" ng-click="$dismiss()" role="button">' + dictionary.login.label.loginButton + '</a>';
                 Flash.create("warning", msg, 10000);
-                $rootScope.global.showHeader = false;
                 $cookies.remove("userId");
             }
             return res;

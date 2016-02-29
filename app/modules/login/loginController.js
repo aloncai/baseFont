@@ -7,6 +7,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
     if($cookies.getObject("userId") !== undefined){
         $location.path("/welcome");
     }
+    $rootScope.global.showHeader = false;
 
     var local = dictionary.login;
     $scope.label = local.label;
