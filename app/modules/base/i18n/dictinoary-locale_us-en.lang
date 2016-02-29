@@ -3,6 +3,12 @@
     "session_timeout_tip":"Session has timeout,please relogin.",
     "response_error_tip":"Service is unpappy!!!.",
     "request_error_tip":"Connect error, please check you netword.",
+    "pagination" : {
+        "label" : {
+            "nextText": "Next",
+            "previousText" :"Previous"
+        }
+    },
 
     "header":{
         "label":{
@@ -26,6 +32,36 @@
         "holder":{
             "userId":"Please input userId",
             "passwd":"Please input password"
+        }
+    },
+    "user":{
+        "label":{
+            "userId":"ID:",
+            "userName":"UserName:",
+            "userMobile":"UserMobile:",
+            "status":"Status:",
+            "statusNormal":"Normal",
+            "statusFrozen":"Frozen",
+            "query":"Search",
+            "table" : {
+                "noData": "sorry, there is nothing",
+                "th":{
+                    "userId":"ID",
+                    "userName":"UserName",
+                    "nickName":"NickName",
+                    "userMobile":"UserMobile",
+                    "status":"Status",
+                    "createBy":"CreateBy",
+                    "createAt":"CreateAt",
+                    "option":"Option"
+                }
+
+            }
+        },
+        "holder":{
+            "userName":"Fuzzy Query",
+            "userId":"Fuzzy Query",
+            "userMobile":"Fuzzy Query"
         }
     }
 }

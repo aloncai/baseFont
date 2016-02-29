@@ -6,7 +6,7 @@
     "pagination" : {
         "label" : {
             "nextText": "下一页",
-            "previousText" :"下一页"
+            "previousText" :"上一页"
         }
     },
 
@@ -32,6 +32,36 @@
         "holder":{
             "userId":"请输入用户ID",
             "passwd":"请输入密码"
+        }
+    },
+    "user":{
+        "label":{
+            "userId":"ID:",
+            "userName":"姓名:",
+            "userMobile":"电话:",
+            "status":"状态:",
+            "statusNormal":"正常",
+            "statusFrozen":"冻结",
+            "query":"搜索",
+            "table" : {
+                "noData": "抱歉，没有相关数据",
+                "th":{
+                    "userId":"ID",
+                    "userName":"姓名",
+                    "nickName":"昵称",
+                    "userMobile":"电话",
+                    "status":"状态",
+                    "createBy":"创建人",
+                    "createAt":"创建时间",
+                    "option":"操作"
+                }
+
+            }
+        },
+        "holder":{
+            "userName":"模糊查询",
+            "userId":"模糊查询",
+            "userMobile":"模糊查询"
         }
     }
 }

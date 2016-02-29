@@ -2,12 +2,13 @@
 
 baseFontApp.controller("userController", function ($rootScope, $scope, $location, Flash, userService) {
 	var dictionary = $rootScope.global.dictionary;
+	$scope.label = dictionary.user.label;
+	$scope.holder = dictionary.user.holder;
 	$scope.entity = {
 		querying : false
 	};
 	$scope.result = {};
 	$scope.page = {
-		totalCount : 0,
 		pageSize : 15,
 		pageNo : 1,
 		label: dictionary.pagination.label
@@ -26,7 +27,7 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 	};
 
 	$scope.query = function(){
-		$scope.result.userList = [];
+		$scope.result.userList = null;
 		$scope.entity.querying = true;
 		var params = $scope.buildParams();
 		userService.query(params).success(function(res){
