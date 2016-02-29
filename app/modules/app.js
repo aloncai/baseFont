@@ -2,7 +2,7 @@
 //
 
 
-var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies', 'ui.bootstrap'];
+var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies', "ui.bootstrap"];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
 
@@ -19,7 +19,7 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
             async: false,
             url: $rootScope.lang.path,
             dataType: "json",
-            cache: true,
+            cache: false,
             success: function (res) {
                 $rootScope.global.dictionary = res;
             }

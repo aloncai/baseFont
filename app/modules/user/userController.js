@@ -6,6 +6,12 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 		querying : false
 	};
 	$scope.result = {};
+	$scope.page = {
+		totalCount : 0,
+		pageSize : 15,
+		pageNo : 1,
+		label: dictionary.pagination.label
+	};
 
 	$scope.buildParams = function(){
 
@@ -13,14 +19,11 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 			status : $scope.entity.status || null,
 			userNameLike : $scope.entity.userName || null,
 			userMobileLike : $scope.entity.userMobile || null,
-			userIdLike : $scope.entity.userId || null
+			userIdLike : $scope.entity.userId || null,
+			pageSize : $scope.page.pageSize,
+			pageNo : $scope.page.pageNo
 		};
 	};
-	$scope.maxSize = 7;    // ...上面都讲了 ， 往上找
-        $scope.totalItems = 99;
-        $scope.currentPage = 1;
-        $scope.bigTotalItems = 180;
-        $scope.bigCurrentPage = 1;
 
 	$scope.query = function(){
 		$scope.result.userList = [];
@@ -29,9 +32,9 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 		userService.query(params).success(function(res){
 			if(res.code === 200){
 				$scope.result.userList = res.data.itemList;
-				$scope.result.total = 10;
+				$scope.page.totalCount = res.data.total;
 			}else{
-				Flash.create('danger', res.message || dictionary.response_error_tip, 5000);
+				Flash.create('danger', res.message || dictionary.response_error_tip);
 			}
 			$scope.entity.querying = false;
 		}).error(function(rej){
@@ -40,4 +43,5 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 	};
 
 	$scope.query();
+
 });

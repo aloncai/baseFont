@@ -3,6 +3,12 @@
     "session_timeout_tip":"回话已失效，请重新登陆。",
     "response_error_tip":"服务器不开心。",
     "request_error_tip":"连接异常，请假差网络。",
+    "pagination" : {
+        "label" : {
+            "nextText": "下一页",
+            "previousText" :"下一页"
+        }
+    },
 
     "header":{
         "label":{
