@@ -102,7 +102,11 @@
 					<td>{{user.status | userStatusFilter}}</td> 
 					<td>{{user.createBy}}</td> 
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-					<td></td> 
+					<td>
+						<a href="javascript:;"> 详情</a>
+						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> 冻结</a>
+						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> 解冻</a>
+					</td> 
 				</tr>
 			</tbody>
 		</table>

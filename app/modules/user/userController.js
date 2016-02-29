@@ -25,7 +25,7 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 			pageNo : $scope.page.pageNo
 		};
 	};
-
+	//查询列表
 	$scope.query = function(){
 		$scope.result.userList = null;
 		$scope.entity.querying = true;
@@ -42,7 +42,18 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 			$scope.entity.querying = false;
 		});
 	};
-
 	$scope.query();
+
+	//更改状态
+	$scope.changeStatus = function(user, status){
+		userService.changeStatus(user.userId, status).success(function(res){
+			if(res.code === 200){
+				Flash.create('info', res.message);
+				$scope.query();
+			}else{
+				Flash.create('danger', res.message || dictionary.response_error_tip);
+			}
+		});
+	}
 
 });
