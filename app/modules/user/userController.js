@@ -54,6 +54,6 @@ baseFontApp.controller("userController", function ($rootScope, $scope, $location
 				Flash.create('danger', res.message || dictionary.response_error_tip);
 			}
 		});
-	}
+	};
 
 });
