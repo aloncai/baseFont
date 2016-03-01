@@ -53,27 +53,7 @@ body {
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
-.loadimg { 
-    background: transparent url(/app/imgs/loading-sm.gif) center center no-repeat; 
-}
-.loading-holder {
- padding: 50px !important; 
- background: #fff; 
-}
-.loading { 
-    display: inline-block; 
-    width: 24px; 
-    height: 24px; 
-    vertical-align: bottom; 
-    background: transparent url(/app/imgs/loading.gif) center 0 no-repeat; 
-}
-.loading-sm { 
-    display: inline-block; 
-    width: 24px; 
-    height: 16px; 
-    vertical-align: bottom; 
-    background: transparent url(/app/imgs/loading-sm.gif) center 0 no-repeat; 
-}
+
 .page-header { 
     margin-top: 0; 
 }
