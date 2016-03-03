@@ -79,7 +79,7 @@
 				<th>{{label.table.th.option}}</th>
 			</header>
 			<tbody>
-				<tr ng-if="!result.userList">
+				<tr ng-if="!result.userList  && page.totalCount !== 0">
 					<td class="loading-holder" colspan="40">
 						<div class="text-center">
 							<span ><i class="icon-spinner icon-spin"></i></span>
@@ -103,19 +103,19 @@
 					<td>{{user.createBy}}</td> 
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
-						<a href="javascript:;"> 详情</a>
+						<a href="#/user/userDetail/{{user.id}}"> 详情</a>
 
 						<i class="text-divider" ng-if="user.status == 0">|</i>
-						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> 冻结</a>
+						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> {{label.statusOptNormal}}</a>
 
 						<i class="text-divider" ng-if="user.status == 1">|</i>
-						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> 解冻</a>
+						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> {{label.statusOptFrozen}}</a>
 					</td> 
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="page-footer">
-		<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" max-size="page.pageSize" ng-change="query()" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" next-text="{{page.label.nextText}}" previous-text="{{page.label.previousText}}"></uib-pagination>
+		<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="query()"  max-size="5" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" next-text="{{page.label.nextText}}" previous-text="{{page.label.previousText}}"></uib-pagination>
 	</div>
 </div>

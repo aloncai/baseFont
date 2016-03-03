@@ -47,6 +47,26 @@ baseFontApp.service("userService", function ($http) {
                     "status" : status
                 }
             });
+        },
+        //修改状态 
+        detail : function(id){
+            return $http({
+                url : '/easyShopping/user/getById.json',
+                method : 'get',
+                dataType : 'json',
+                params : {
+                    "id" : id
+                }
+            });
+        },
+        //修改状态 
+        getUserLog : function(params){
+            return $http({
+                url : '/easyShopping/userLog/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
         }
     };
 });

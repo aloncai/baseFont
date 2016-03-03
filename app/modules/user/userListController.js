@@ -1,4 +1,4 @@
-/* 登陆使用的controller */
+/* 用户列表 */
 
 baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, userService) {
 	var dictionary = $rootScope.global.dictionary;
@@ -11,9 +11,9 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 	$scope.page = {
 		pageSize : 15,
 		pageNo : 1,
+		totalCount:0,
 		label: dictionary.pagination.label
 	};
-
 	$scope.buildParams = function(){
 
 		return {

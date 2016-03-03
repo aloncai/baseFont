@@ -18,6 +18,10 @@ baseFontApp.config( function ($routeProvider) {
             controller:'userListController',
             templateUrl:'/app/modules/user/htmls/user_list.html'
         })
+        .when('/user/userDetail/:id', {
+            controller:'userDetailController',
+            templateUrl:'/app/modules/user/htmls/user_detail.html'
+        })
         .otherwise({
             templateUrl: "/app/modules/base/htmls/unknow.part.html"
         })

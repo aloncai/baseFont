@@ -2,8 +2,6 @@
 	<div class="page-header">
 		<ol class="breadcrumb">
 			<li><a href="#/welcome"><h1>主页<h1></a></li>
-			<!-- 			<li><a href="#">用户管理</a></li>
-			<li class="active">用户管理</li> -->
 			<li>
 				<div class="btn-group" uib-dropdown>
 					<button type="button" class="btn btn-link" uib-dropdown-toggle>用户管理<span class="caret"></span>
@@ -31,91 +29,114 @@
 
 	<div class="page-body">
 		<form class="form-horizontal">
-			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.userId}}</label>
-				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userId" class="form-control" placeholder="{{holder.userId}}">
+			<div class="page-breadcrumb breadcrumb">{{label.userInfo}}</div>
+			<div class="form-group ">
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.userId}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-model="entity.userId" class="form-control" ng-disabled="true">
+					</div>
 				</div>
-			</div>
-			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.userName}}</label>
-				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userName" class="form-control" placeholder="{{holder.userName}}">
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.userName}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-model="entity.userName" class="form-control" ng-disabled="true">
+					</div>
 				</div>
-			</div>
-			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.userMobile}}</label>
-				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userMobile" class="form-control" placeholder="{{holder.userMobile}}">
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.nickName}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-model="entity.nickName" class="form-control" ng-disabled="true">
+					</div>
 				</div>
-			</div>
-			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.status}}</label>
-				<div class="col-sm-8">
-					<select class="form-control" ng-model="entity.status">
-						<option value="0">{{label.statusNormal}}</option>
-						<option value="1">{{label.statusFrozen}}</option>
-					</select>
+
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.userMobile}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-model="entity.userMobile" class="form-control" ng-disabled="true">
+					</div>
 				</div>
-			</div>
-			<div class="form-group col-sm-12">
-				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying">{{label.query}}</button>
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.userSex}}:</label>
+					<div class="col-sm-8">
+						<select class="form-control" ng-model="entity.userSex" ng-disabled="true">
+							<option value="0">{{label.userSexSecret}}</option>
+							<option value="1">{{label.userSexMale}}</option>
+							<option value="2">{{label.userSexFemale}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.userBirth}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-model="entity.userMobile" class="form-control" ng-disabled="true">
+					</div>
+				</div>
+
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.status}}:</label>
+					<div class="col-sm-8">
+						<select class="form-control" ng-model="entity.status" ng-disabled="true">
+							<option value="0">{{label.statusNormal}}</option>
+							<option value="1">{{label.statusFrozen}}</option>
+						</select>
+					</div>
 				</div>
 			</div>
 
+			<div class="page-breadcrumb breadcrumb">{{label.registerInfo}}</div>
+			<div class="form-group ">
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.registerAt}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-value="entity.createAt|date:'yyyy-MM-dd HH:mm:ss'" class="form-control" ng-disabled="true">
+					</div>
+				</div>
+				<div class="form-group col-sm-4">
+					<label class="control-label col-sm-4">{{label.registerName}}:</label>
+					<div class="col-sm-8">
+						<input type="text" ng-value="entity.createName || entity.userName" class="form-control" ng-disabled="true">
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="page-breadcrumb breadcrumb">{{label.logInfo}}</div>
+			<div class="col-sm-12">
+				<table class="table table-striped">
+					<header>
+						<th>#</th>
+						<th>{{label.table.th.logCreateName}}</th>
+						<th>{{label.table.th.logCreateAt}}</th>
+						<th>{{label.table.th.logType}}</th>
+						<th>{{label.table.th.logContent}}</th>
+					</header>
+					<tbody>
+						<tr ng-if="!result.logList  && page.totalCount !== 0">
+							<td class="loading-holder" colspan="40">
+								<div class="text-center">
+									<span ><i class="icon-spinner icon-spin"></i></span>
+								</div>
+							</td>
+						</tr>
+						<tr ng-if="page.totalCount === 0">
+							<td colspan="40">
+								<div class="text-center">{{label.table.noData}}</div>
+							</td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr ng-repeat="log in result.logList">
+							<td>{{$index + 1}}</td>
+							<td>{{log.createName }}</td>
+							<td>{{log.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td> 
+							<td>{{log.type | userLogType}}</td> 
+							<td>{{log.content}}</td> 
+						</tr>
+					</tbody>
+				</table>
+				<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="queryLog()"  max-size="5" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" next-text="{{page.label.nextText}}" previous-text="{{page.label.previousText}}"></uib-pagination>
+			</div>
 		</form>
-		<br />
-		<table class="table table-striped">
-			<header>
-				<th>#</th>
-				<th>{{label.table.th.userId}}</th>
-				<th>{{label.table.th.userName}}</th>
-				<th>{{label.table.th.nickName}}</th>
-				<th>{{label.table.th.userMobile}}</th>
-				<th>{{label.table.th.status}}</th>
-				<th>{{label.table.th.createBy}}</th>
-				<th>{{label.table.th.createAt}}</th>
-				<th>{{label.table.th.option}}</th>
-			</header>
-			<tbody>
-				<tr ng-if="!result.userList">
-					<td class="loading-holder" colspan="40">
-						<div class="text-center">
-							<span ><i class="icon-spinner icon-spin"></i></span>
-						</div>
-					</td>
-				</tr>
-				<tr ng-if="result.userList && page.totalCount === 0">
-					<td colspan="40">
-						<div class="text-center">{{label.table.noData}}</div>
-					</td>
-				</tr>
-			</tbody>
-			<tbody>
-				<tr ng-repeat="user in result.userList">
-					<td>{{$index + 1}}</td>
-					<td>{{user.userId}}</td>
-					<td>{{user.userName}}</td> 
-					<td>{{user.nickName}}</td> 
-					<td>{{user.userMobile}}</td> 
-					<td>{{user.status | userStatusFilter}}</td> 
-					<td>{{user.createBy}}</td> 
-					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-					<td>
-						<a href="javascript:;"> 详情</a>
-
-						<i class="text-divider" ng-if="user.status == 0">|</i>
-						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> 冻结</a>
-
-						<i class="text-divider" ng-if="user.status == 1">|</i>
-						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> 解冻</a>
-					</td> 
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div class="page-footer">
-		<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" max-size="page.pageSize" ng-change="query()" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" next-text="{{page.label.nextText}}" previous-text="{{page.label.previousText}}"></uib-pagination>
 	</div>
 </div>
