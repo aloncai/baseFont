@@ -1,6 +1,6 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("userController", function ($rootScope, $scope, $location, Flash, userService) {
+baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, userService) {
 	var dictionary = $rootScope.global.dictionary;
 	$scope.label = dictionary.user.label;
 	$scope.holder = dictionary.user.holder;
