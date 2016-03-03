@@ -56,4 +56,9 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 		});
 	};
 
+	//更改用户信息
+	$scope.changeStatus = function(user){
+		
+	};
+
 });

@@ -53,6 +53,7 @@
 				<label class="control-label col-sm-4">{{label.status}}</label>
 				<div class="col-sm-8">
 					<select class="form-control" ng-model="entity.status">
+						<option value="">&nbsp;</option>
 						<option value="0">{{label.statusNormal}}</option>
 						<option value="1">{{label.statusFrozen}}</option>
 					</select>
@@ -104,6 +105,9 @@
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
 						<a href="#/user/userDetail/{{user.id}}"> 详情</a>
+
+						<i class="text-divider">|</i>
+						<a href="javascript:;" ng-click="update(user)"> {{label.update}}</a>
 
 						<i class="text-divider" ng-if="user.status == 0">|</i>
 						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> {{label.statusOptNormal}}</a>

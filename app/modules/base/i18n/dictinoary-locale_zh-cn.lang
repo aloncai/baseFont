@@ -53,6 +53,7 @@
             "statusOptNormal":"冻结",
             "statusOptFrozen":"解冻",
             "query":"搜索",
+            "update":"修改",
             "userInfo":"用户信息",
             "registerInfo":"注册信息",
             "registerAt":"创建时间",
