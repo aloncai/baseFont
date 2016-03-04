@@ -1,6 +1,6 @@
 /* 用户列表 */
 
-baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, userService) {
+baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, $uibModal, userService) {
 	var dictionary = $rootScope.global.dictionary;
 	$scope.label = dictionary.user.label;
 	$scope.holder = dictionary.user.holder;
@@ -58,8 +58,27 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 	};
 
 	//更改用户信息
-	$scope.changeStatus = function(user){
-		
+	$scope.update = function(user){
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: '/app/modules/user/htmls/user_update.part.html',
+			controller: 'userUpdateController',
+			resolve: {
+				params: function () {
+					return {
+						id : user.id
+					};
+				}
+			}
+		});
+		//窗口响应函数
+		modalInstance.result.then(function (params) {
+			//确定按钮
+			$scope.query();
+		}, function () {
+			//q取消按钮
+		});
+
 	};
 
 });

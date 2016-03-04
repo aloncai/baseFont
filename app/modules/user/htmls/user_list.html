@@ -95,7 +95,7 @@
 			</tbody>
 			<tbody>
 				<tr ng-repeat="user in result.userList">
-					<td>{{$index + 1}}</td>
+					<td>{{$index + 1 + (page.pageNo - 1) * page.pageSize}}</td>
 					<td>{{user.userId}}</td>
 					<td>{{user.userName}}</td> 
 					<td>{{user.nickName}}</td> 

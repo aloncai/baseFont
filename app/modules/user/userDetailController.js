@@ -33,7 +33,7 @@ baseFontApp.controller("userDetailController", function ($rootScope, $scope, $ro
 
 	$scope.queryLog = function(){
 		var params = {
-			createBy : userId,
+			userId : userId,
 			pageSize : $scope.page.pageSize,
 			pageNo : $scope.page.pageNo
 		};

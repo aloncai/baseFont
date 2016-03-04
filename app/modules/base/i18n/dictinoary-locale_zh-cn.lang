@@ -23,7 +23,12 @@
             "type":"类型",
             "detail":"详情",
             "createName":"创建人",
-            "createAt":"创建时间"
+            "createAt":"创建时间",
+            "ok":"确定",
+            "cancel":"取消",
+            "successed":"成功",
+            "failed":"失败",
+            "noChange":"未做更改"
         },
         "holder":{
             "likeQuery":"模糊查询"

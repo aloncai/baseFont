@@ -66,6 +66,16 @@ body {
     -webkit-font-smoothing: antialiased; 
 }
 
+.modal-open {
+    overflow: inherit;
+}
+
+input.ng-invalid.ng-dirty {
+    border-color:red;
+}
+
+
+
 
 
 

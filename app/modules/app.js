@@ -50,13 +50,12 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
 });
 
 //$http拦截器
-baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, Flash) {
+baseFontApp.factory('httpInterceptor', function ($q, $rootScope, langue, $cookies, Flash) {
     var dictionary = $rootScope.global.dictionary;
     var httpInterceptor = {
         //请求拦截
         request: function (config) {
-            config.headers["charset"] = "UTF-8";
-            return config;
+            return $q.when(config);
         },
         //相应拦截
         response: function (res) {
@@ -70,7 +69,12 @@ baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, F
                 Flash.create("warning", msg, 10000);
                 $cookies.remove("userId");
             }
-            return res;
+            if(returnData.code === 200){
+               return res; 
+           }else{
+                return $q.when(res); 
+           }
+            
         },
         requestError: function (rej) {
             var data = {
@@ -79,7 +83,7 @@ baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, F
             };
             rej.data = data;
             Flash.create('danger', rej.data.data);
-            return rej;
+            return $q.reject(rej);
         },
         responseError: function (rej) {
             var data = {
@@ -88,7 +92,7 @@ baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, F
             };
             rej.data = data;
             //Flash.create('danger', rej.data.data, 5000);
-            return rej;
+            return $q.reject(rej);
         }
     };
     return httpInterceptor;
@@ -97,5 +101,8 @@ baseFontApp.factory('httpInterceptor', function ($rootScope, langue, $cookies, F
 
 // 拦截器注入
 baseFontApp.config(function ($httpProvider) {
+    // POST method use x-www-form-urlencoded Content-Type
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+
     $httpProvider.interceptors.push('httpInterceptor');
 });
