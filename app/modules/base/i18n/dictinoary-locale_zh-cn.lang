@@ -11,6 +11,25 @@
         }
     },
 
+    "public":{
+        "label":{
+            "query":"搜索",
+            "update":"修改",
+            "create":"创建",
+            "noData": "抱歉，没有相关数据",
+            "option":"操作",
+            "status":"状态",
+            "content":"内容",
+            "type":"类型",
+            "detail":"详情",
+            "createName":"创建人",
+            "createAt":"创建时间"
+        },
+        "holder":{
+            "likeQuery":"模糊查询"
+        }
+    },
+
     "header":{
         "label":{
             "changePasswd":"修改密码",
@@ -41,52 +60,27 @@
             "userName":"姓名",
             "nickName":"昵称",
             "userMobile":"电话",
+            "userBirth":"出生年月日",
+
             "userSex":"性别",
             "userSexMale":"男",
             "userSexFemale":"女",
             "userSexSecret":"保密",
-            "userBirth":"出生年月日",
-            "status":"状态",
+
             "statusNormal":"正常",
             "statusFrozen":"冻结",
             "statusUnknow":"未知",
             "statusOptNormal":"冻结",
             "statusOptFrozen":"解冻",
-            "query":"搜索",
-            "update":"修改",
+
             "userInfo":"用户信息",
             "registerInfo":"注册信息",
-            "registerAt":"创建时间",
-            "registerName":"创建人",
+
             "logInfo":"日志信息",
-            "logTypeUpdate":"修改",
-            "logTypeCreate":"创建",
             "logTypeChangePassword":"修改密码",
             "logTypeLogin":"登陆",
-            "table" : {
-                "noData": "抱歉，没有相关数据",
-                "th":{
-                    "userId":"ID",
-                    "userName":"姓名",
-                    "nickName":"昵称",
-                    "userMobile":"电话",
-                    "status":"状态",
-                    "createBy":"创建人",
-                    "createAt":"创建时间",
-                    "option":"操作",
-
-                    "logContent":"内容",
-                    "logCreateName":"操作人",
-                    "logCreateAt":"时间",
-                    "logType":"操作类型"
-                }
-
-            }
-        },
-        "holder":{
-            "userName":"模糊查询",
-            "userId":"模糊查询",
-            "userMobile":"模糊查询"
+            "logTypeUpdate":"更新用户信息",
+            "logTypeCreate":"创建用户"
         }
     }
 }

@@ -74,7 +74,7 @@
 				</div>
 
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.status}}:</label>
+					<label class="control-label col-sm-4">{{public.label.status}}:</label>
 					<div class="col-sm-8">
 						<select class="form-control" ng-model="entity.status" ng-disabled="true">
 							<option value="0">{{label.statusNormal}}</option>
@@ -87,13 +87,13 @@
 			<div class="page-breadcrumb breadcrumb">{{label.registerInfo}}</div>
 			<div class="form-group ">
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.registerAt}}:</label>
+					<label class="control-label col-sm-4">{{public.label.createAt}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-value="entity.createAt|date:'yyyy-MM-dd HH:mm:ss'" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.registerName}}:</label>
+					<label class="control-label col-sm-4">{{public.label.createName}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-value="entity.createName || entity.userName" class="form-control" ng-disabled="true">
 					</div>
@@ -106,10 +106,10 @@
 				<table class="table table-striped">
 					<header>
 						<th>#</th>
-						<th>{{label.table.th.logCreateName}}</th>
-						<th>{{label.table.th.logCreateAt}}</th>
-						<th>{{label.table.th.logType}}</th>
-						<th>{{label.table.th.logContent}}</th>
+						<th>{{public.label.createName}}</th>
+						<th>{{public.label.createAt}}</th>
+						<th>{{public.label.type}}</th>
+						<th>{{public.label.content}}</th>
 					</header>
 					<tbody>
 						<tr ng-if="!result.logList  && page.totalCount !== 0">
@@ -121,7 +121,7 @@
 						</tr>
 						<tr ng-if="page.totalCount === 0">
 							<td colspan="40">
-								<div class="text-center">{{label.table.noData}}</div>
+								<div class="text-center">{{public.label.noData}}</div>
 							</td>
 						</tr>
 					</tbody>

@@ -7,6 +7,7 @@ baseFontApp.controller("userDetailController", function ($rootScope, $scope, $ro
 	var dictionary = $rootScope.global.dictionary;
 	$scope.label = dictionary.user.label;
 	$scope.holder = dictionary.user.holder;
+	$scope.public = dictionary.public;
 	$scope.entity = {
 		querying : false
 	};

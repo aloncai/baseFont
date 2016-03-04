@@ -34,19 +34,19 @@
 			<div class="form-group col-sm-3">
 				<label class="control-label col-sm-4">{{label.userId}}</label>
 				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userId" class="form-control" placeholder="{{holder.userId}}">
+					<input type="text" ng-model="entity.userId" class="form-control" placeholder="{{public.holder.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-3">
 				<label class="control-label col-sm-4">{{label.userName}}</label>
 				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userName" class="form-control" placeholder="{{holder.userName}}">
+					<input type="text" ng-model="entity.userName" class="form-control" placeholder="{{public.holder.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-3">
 				<label class="control-label col-sm-4">{{label.userMobile}}</label>
 				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userMobile" class="form-control" placeholder="{{holder.userMobile}}">
+					<input type="text" ng-model="entity.userMobile" class="form-control" placeholder="{{public.holder.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-3">
@@ -61,7 +61,7 @@
 			</div>
 			<div class="form-group col-sm-12">
 				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying">{{label.query}}</button>
+					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying">{{public.label.query}}</button>
 				</div>
 			</div>
 
@@ -70,14 +70,14 @@
 		<table class="table table-striped">
 			<header>
 				<th>#</th>
-				<th>{{label.table.th.userId}}</th>
-				<th>{{label.table.th.userName}}</th>
-				<th>{{label.table.th.nickName}}</th>
-				<th>{{label.table.th.userMobile}}</th>
-				<th>{{label.table.th.status}}</th>
-				<th>{{label.table.th.createBy}}</th>
-				<th>{{label.table.th.createAt}}</th>
-				<th>{{label.table.th.option}}</th>
+				<th>{{label.userId}}</th>
+				<th>{{label.userName}}</th>
+				<th>{{label.nickName}}</th>
+				<th>{{label.userMobile}}</th>
+				<th>{{public.label.status}}</th>
+				<th>{{public.label.createBy}}</th>
+				<th>{{public.label.createAt}}</th>
+				<th>{{public.label.option}}</th>
 			</header>
 			<tbody>
 				<tr ng-if="!result.userList  && page.totalCount !== 0">
@@ -89,7 +89,7 @@
 				</tr>
 				<tr ng-if="result.userList && page.totalCount === 0">
 					<td colspan="40">
-						<div class="text-center">{{label.table.noData}}</div>
+						<div class="text-center">{{public.label.noData}}</div>
 					</td>
 				</tr>
 			</tbody>
@@ -104,10 +104,10 @@
 					<td>{{user.createBy}}</td> 
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
-						<a href="#/user/userDetail/{{user.id}}"> 详情</a>
+						<a href="#/user/userDetail/{{user.id}}"> {{public.label.detail}}</a>
 
 						<i class="text-divider">|</i>
-						<a href="javascript:;" ng-click="update(user)"> {{label.update}}</a>
+						<a href="javascript:;" ng-click="update(user)"> {{public.label.update}}</a>
 
 						<i class="text-divider" ng-if="user.status == 0">|</i>
 						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> {{label.statusOptNormal}}</a>
