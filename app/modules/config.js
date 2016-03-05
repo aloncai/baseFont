@@ -46,10 +46,10 @@ baseFontApp.factory('langue', function ($rootScope, $cookies) {
 baseFontApp.factory('httpInterceptor', function ($q, $rootScope, langue, $cookies, Flash) {
     var dictionary = $rootScope.global.dictionary;
     var httpInterceptor = {
-        //请求拦截
-        request: function (config) {
-            return $q.when(config);
-        },
+            //请求拦截
+            request: function (config) {
+                return $q.when(config);
+          },
         //相应拦截
         response: function (res) {
             //请求成功
@@ -63,12 +63,7 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope, langue, $cookie
                 Flash.create("warning", msg, 10000);
                 $cookies.remove("userId");
             }
-            if(returnData.code === 200){
-               return res; 
-           }else{
-                return $q.when(res); 
-           }
-            
+            return res; 
         },
         requestError: function (rej) {
             var data = {
@@ -85,7 +80,7 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope, langue, $cookie
                 "data": dictionary.response_error_tip
             };
             rej.data = data;
-            //Flash.create('danger', rej.data.data, 5000);
+            Flash.create('danger', rej.data.data);
             return $q.reject(rej);
         }
     };
