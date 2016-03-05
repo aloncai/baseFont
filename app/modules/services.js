@@ -42,10 +42,10 @@ baseFontApp.service("userService", function ($http) {
                 url : '/easyShopping/user/changeStatus.json',
                 method : 'post',
                 dataType : 'json',
-                data : JSON.stringify({
+                data : {
                     "userId" : userId,
                     "status" : status
-                })
+                }
             });
         },
         //修改信息 
@@ -54,7 +54,7 @@ baseFontApp.service("userService", function ($http) {
                 url : '/easyShopping/user/update.json',
                 method : 'post',
                 dataType : 'json',
-                params : params
+                data : params
             });
         },
         //获取详情
