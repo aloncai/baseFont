@@ -90,14 +90,15 @@ app.factory('Flash', ['$rootScope', '$timeout', function ($rootScope, $timeout) 
     dataFactory.dismiss = function (id) {
         var index = findIndexById(id);
         if (index !== -1) {
-            dataFactory.pause(index);
+            //dataFactory.pause(index);
             $rootScope.flashes.splice(index, 1);
-            $rootScope.$digest();
+            //$rootScope.$digest();
         }
     };
     dataFactory.clear = function () {
         while ($rootScope.flashes.length > 0) {
-            dataFactory.dismiss(0);
+            //dataFactory.dismiss(0);
+            $rootScope.flashes.splice(0, 1);
         }
     };
     dataFactory.reset = dataFactory.clear;

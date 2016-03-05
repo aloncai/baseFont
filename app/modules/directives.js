@@ -32,26 +32,17 @@ baseFontApp.directive('csHeader', function () {
             $scope.header.langueList = $rootScope.global.langueList;
 
             //只有在登陆的时候才显示导航栏
-            $scope.header.isShow = ($location.path() !== '/login' && $location.path() !== '/');
-            //监听是否显示导航栏
-            $rootScope.$watch('global.showHeader', function(){
-                if($rootScope.global.showHeader != null){
-                    $scope.header.isShow = $rootScope.global.showHeader;
-                }
-            });
+            $rootScope.global.header = {};
+            $rootScope.global.header.isShow = ($location.path() !== '/login' && $location.path() !== '/');
 
             //退出登陆
             $scope.logout = function(){
                 loginService.logout().success(function (res) {
                     if(res.code === 200){
-                        //隐藏导航栏
-                        $rootScope.global.showHeader = false;
                         //消除cookie
                         $cookies.remove("userId");
                         $location.path("/login");
                     }else{
-                        //隐藏导航栏
-                        $rootScope.global.showHeader = false;
                         //消除cookie
                         $cookies.remove("userId");
                         $location.path("/login");

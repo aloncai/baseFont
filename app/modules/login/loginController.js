@@ -2,12 +2,15 @@
 
 baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies, $location, Flash, loginService) {
 
-    var dictionary = $rootScope.global.dictionary;
+    Flash.clear();
     //已经登陆，跳转到首页
     if($cookies.getObject("userId") !== undefined){
         $location.path("/welcome");
     }
-    $rootScope.global.showHeader = false;
+    var dictionary = $rootScope.global.dictionary;
+
+    //隐藏导航栏
+    $rootScope.global.header.isShow = false;
 
     var local = dictionary.login;
     $scope.label = local.label;
@@ -37,7 +40,13 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
                 $cookies.putObject("nickName", $scope.entity.nickName);
 
                 //跳转
-                $location.path("/welcome");
+                var path = $location.search().path;
+                if(path === undefined || path === '' || path === null){
+                    path = "#/welcome";
+                }
+                $location.url(path);
+                //隐藏导航栏
+                $rootScope.global.header.isShow = true;
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }
