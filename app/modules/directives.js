@@ -34,7 +34,11 @@ baseFontApp.directive('csHeader', function () {
             //只有在登陆的时候才显示导航栏
             $rootScope.global.header = {};
             $rootScope.global.header.isShow = ($location.path() !== '/login' && $location.path() !== '/');
-
+            $rootScope.global.session = {
+                userId : $cookies.getObject("userId"),
+                nickName : $cookies.getObject("nickName"),
+                userName : $cookies.getObject("userName")
+            };
             //退出登陆
             $scope.logout = function(){
                 loginService.logout().success(function (res) {

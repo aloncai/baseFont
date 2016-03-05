@@ -36,17 +36,23 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
                 //显示导航栏
                 $rootScope.global.showHeader = true;
                 //增加cookie
-                $cookies.putObject("userId", $scope.entity.userId);
-                $cookies.putObject("nickName", $scope.entity.nickName);
+                $cookies.putObject("userId", res.data.userId);
+                $cookies.putObject("nickName", res.data.nickName);
+                $cookies.putObject("userName", res.data.userName);
 
                 //跳转
                 var path = $location.search().path;
                 if(path === undefined || path === '' || path === null){
-                    path = "#/welcome";
+                    path = "/welcome";
                 }
                 $location.url(path);
                 //隐藏导航栏
                 $rootScope.global.header.isShow = true;
+                $rootScope.global.session = {
+                    userId : $cookies.getObject("userId"),
+                    nickName : $cookies.getObject("nickName"),
+                    userName : $cookies.getObject("userName")
+                };
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }
