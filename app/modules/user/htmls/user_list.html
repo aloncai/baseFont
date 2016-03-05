@@ -1,31 +1,9 @@
 <div class="filter clearfix basis-module">
 	<div class="page-header">
 		<ol class="breadcrumb">
-			<li><a href="#/welcome"><h1>主页<h1></a></li>
-			<!-- 			<li><a href="#">用户管理</a></li>
-			<li class="active">用户管理</li> -->
-			<li>
-				<div class="btn-group" uib-dropdown>
-					<button type="button" class="btn btn-link" uib-dropdown-toggle>用户管理<span class="caret"></span>
-					</button>
-					<ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-						<li role="menuitem"><a href="#">菜单管理</a></li>
-					</ul>
-				</div>
-			</li>
-			<li>
-				<div class="btn-group" uib-dropdown>
-					<button type="button" class="btn btn-link" uib-dropdown-toggle>用户列表<span class="caret"></span>
-					</button>
-					<ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-						<li role="menuitem"><a href="#">Action</a></li>
-						<li role="menuitem"><a href="#">Another action</a></li>
-						<li role="menuitem"><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li role="menuitem"><a href="#">Separated link</a></li>
-					</ul>
-				</div>
-			</li>
+			<li><a href="#/welcome"><h1>{{$root.global.dictionary.home}}<h1></a></li>
+			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
+			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
 		</ol>
 	</div>
 

@@ -4,6 +4,7 @@
     "response_error_tip":"服务器不开心。",
     "request_error_tip":"连接异常，请假差网络。",
     "reLogin":"重新登陆",
+    "home":"主页",
     "pagination" : {
         "label" : {
             "nextText": "下一页",
@@ -85,7 +86,9 @@
             "logTypeChangePassword":"修改密码",
             "logTypeLogin":"登陆",
             "logTypeUpdate":"更新用户信息",
-            "logTypeCreate":"创建用户"
+            "logTypeCreate":"创建用户",
+
+            "userDetail":"用户详情"
         }
     }
 }

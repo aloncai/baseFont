@@ -24,7 +24,7 @@ baseFontApp.directive('csHeader', function () {
     return {
         restrict: 'A',
         templateUrl: '/app/modules/base/htmls/header.part.html',
-        controller: function($rootScope, $scope, $cookies, $location, $route, Flash, loginService){
+        controller: function($rootScope, $scope, $cookies, $location, $route, Flash, loginService, menuService){
             var dictionary = $rootScope.global.dictionary;
             $scope.label = dictionary.header.label;
             var loginLocal = dictionary.login;
@@ -59,7 +59,7 @@ baseFontApp.directive('csHeader', function () {
                 if($rootScope.lang.name !== langue.name){
                     $rootScope.lang = langue;
                     $rootScope.loadLangue();
-                    //cookie存100年
+                    //cookie存100年,持久化到本地
                     var expireDate = new Date();
                     expireDate.setDate(expireDate.getYear() + 100);
                     $cookies.putObject("lang", $rootScope.lang, {'expires': expireDate});
@@ -67,6 +67,39 @@ baseFontApp.directive('csHeader', function () {
                 }
                 
             };
+            menuService.query().success(function(res){
+                $rootScope.global.menu = {
+                    menuList : []
+                };
+                var menuList = res.data;
+                //目前只支持两级目录
+                angular.forEach(menuList, function(menu){
+                    if(menu.level === 1){
+                        $rootScope.global.menu.menuList.push(menu);
+                        menu.subMenuList = [];
+                        angular.forEach(menuList, function(subMenu){
+                            if(subMenu.parentId === menu.id){
+                                subMenu.parent = menu;
+                                menu.subMenuList.push(subMenu);
+                            }
+                        });
+                    }
+                });
+                //定位目前的菜单
+                var nowMenuId = $cookies.getObject("nowMenuId");
+                angular.forEach(menuList, function(menu){
+                    if(nowMenuId === menu.id){
+                        $rootScope.global.menu.nowMenu = menu;
+                    }
+                });
+            });
+            $scope.go = function(menu){
+                $rootScope.global.menu.nowMenu = menu;
+                //避免强制刷新，造成菜单失效
+                $cookies.putObject("nowMenuId", menu.id);
+                $location.path(menu.url);
+            };
+
         }
     };
 });

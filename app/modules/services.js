@@ -1,5 +1,6 @@
 /* 注册使用的service */
 
+//登陆信息
 baseFontApp.service("loginService", function ($http) {
     return {
         //登陆
@@ -25,6 +26,7 @@ baseFontApp.service("loginService", function ($http) {
     };
 });
 
+//用户信息
 baseFontApp.service("userService", function ($http) {
     return {
         //用户列表
@@ -72,6 +74,21 @@ baseFontApp.service("userService", function ($http) {
         getUserLog : function(params){
             return $http({
                 url : '/easyShopping/userLog/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        }
+    };
+});
+
+//菜单信息
+baseFontApp.service("menuService", function ($http) {
+    return {
+        //用户列表
+        query : function (params) {
+            return $http({
+                url : '/easyShopping/menu/list.json',
                 method : 'get',
                 dataType : 'json',
                 params : params
