@@ -78,6 +78,14 @@ baseFontApp.service("userService", function ($http) {
                 dataType : 'json',
                 params : params
             });
+        },
+        getUserMenu : function(params){
+            return $http({
+                url : '/easyShopping/menu/list.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
         }
     };
 });
@@ -88,10 +96,30 @@ baseFontApp.service("menuService", function ($http) {
         //用户列表
         query : function (params) {
             return $http({
+                url : '/easyShopping/menu/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        },
+        //用户列表
+        list : function (params) {
+            return $http({
                 url : '/easyShopping/menu/list.json',
                 method : 'get',
                 dataType : 'json',
                 params : params
+            });
+        },
+        //获取详情
+        detail : function(id){
+            return $http({
+                url : '/easyShopping/menu/getById.json',
+                method : 'get',
+                dataType : 'json',
+                params : {
+                    "id" : id
+                }
             });
         }
     };

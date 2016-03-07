@@ -1,7 +1,7 @@
 <div class="filter clearfix basis-module">
 	<div class="page-header">
 		<ol class="breadcrumb">
-			<li><a href="#/welcome"><h1>{{$root.global.dictionary.home}}<h1></a></li>
+			<li><a href="#/welcome"><h1><i class="icon-home"></i>{{$root.global.dictionary.home}}<h1></a></li>
 			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
 			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
 		</ol>
@@ -53,7 +53,7 @@
 				<th>{{label.nickName}}</th>
 				<th>{{label.userMobile}}</th>
 				<th>{{public.label.status}}</th>
-				<th>{{public.label.createBy}}</th>
+				<th>{{public.label.createName}}</th>
 				<th>{{public.label.createAt}}</th>
 				<th>{{public.label.option}}</th>
 			</header>
@@ -79,7 +79,7 @@
 					<td>{{user.nickName}}</td> 
 					<td>{{user.userMobile}}</td> 
 					<td>{{user.status | userStatusFilter}}</td> 
-					<td>{{user.createBy}}</td> 
+					<td>{{user.createName}}</td> 
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
 						<a href="#/user/userDetail/{{user.id}}"> {{public.label.detail}}</a>

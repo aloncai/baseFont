@@ -1,0 +1,23 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">层级关系</h4>
+</div>
+<div class="modal-body" >
+	<div >
+		<div style="width: 49%;float: left;"  ng-repeat="parentMenu in relationMenuList">
+			<dl class="dl-horizontal">
+				<dt >{{parentMenu.name}}
+					<i ng-if="parentMenu.status === 1" class="icon-trash icon-large"  uib-tooltip="已废弃"></i>
+				</dt>
+				<dd >&nbsp;</dd>
+				<dd ng-repeat="subMenu in parentMenu.subMenuList">{{subMenu.name}}&nbsp;(地址：{{subMenu.url}})
+					<i ng-if="subMenu.status === 1" class="icon-trash icon-large"  uib-tooltip="已废弃"></i>
+				</dd>
+			</dl>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="cancel()">{{$root.global.dictionary.public.label.ok}}</button>
+</div>

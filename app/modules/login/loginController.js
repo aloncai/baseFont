@@ -46,13 +46,15 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
                     path = "/welcome";
                 }
                 $location.url(path);
-                //隐藏导航栏
+                //显示导航栏
                 $rootScope.global.header.isShow = true;
                 $rootScope.global.session = {
                     userId : $cookies.getObject("userId"),
                     nickName : $cookies.getObject("nickName"),
                     userName : $cookies.getObject("userName")
                 };
+                //加载菜单
+                $rootScope.loadMenu();
             }else{
                 $scope.entity.msg = local.login_failed_msg;
             }
