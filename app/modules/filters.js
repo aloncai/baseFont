@@ -32,3 +32,18 @@ baseFontApp.filter('userLogType', function($rootScope) {
       }
    };  
  });
+
+// 菜单'状态[0-正常;1-已废除]'
+baseFontApp.filter('menuStatusFilter', function($rootScope) {  
+   return function(input) {
+      var label = $rootScope.global.dictionary.menu;
+      var status = Number(input);
+      if(status === 0){
+         return label.statusNormal;
+      }else if(status === 1){
+         return label.statusAbolish;
+      }else{
+         return $rootScope.global.dictionary.public.label.unKnow;
+      }
+   };  
+ }); 

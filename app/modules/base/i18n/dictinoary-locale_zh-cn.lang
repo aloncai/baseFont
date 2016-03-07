@@ -29,7 +29,8 @@
             "cancel":"取消",
             "successed":"成功",
             "failed":"失败",
-            "noChange":"未做更改"
+            "noChange":"未做更改",
+            "unKnow":"未知"
         },
         "holder":{
             "likeQuery":"模糊查询"
@@ -90,5 +91,9 @@
 
             "userDetail":"用户详情"
         }
+    },
+    "menu":{
+        "statusNormal":"正常",
+        "statusAbolish":"已废除"
     }
 }

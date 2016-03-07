@@ -80,7 +80,7 @@
 					<td >{{$index + 1 + (page.pageNo - 1) * page.pageSize}}</td>
 					<td>{{menu.name}}</td>
 					<td>{{menu.url}}</td> 
-					<td>{{menu.status }}</td> 
+					<td>{{menu.status | menuStatusFilter }}</td> 
 					<td>{{menu.level }}</td> 
 					<td>{{menu.createName}}</td> 
 					<td>{{menu.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
