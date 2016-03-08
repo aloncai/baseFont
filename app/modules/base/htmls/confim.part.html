@@ -6,6 +6,6 @@
 	<div data-ng-bind-html="msg"></div>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="ok()">{{okButton || "OK"}}</button>
-	<button class="btn btn-default" type="button" ng-click="cancel()">{{cancelButton || "Cancel"}}</button>
+	<button class="btn btn-primary" type="button" ng-click="ok()">{{$root.global.dictionary.public.label.ok}}</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">{{$root.global.dictionary.public.label.cancel}}</button>
 </div>

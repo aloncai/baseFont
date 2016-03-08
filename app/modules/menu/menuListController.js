@@ -53,10 +53,31 @@ baseFontApp.controller("menuListController", function ($rootScope, $scope, $loca
 			});
 		});
 	};
-
-	//新建菜单
-	$scope.create = function(){
-
+	//更改状态
+	$scope.delete = function(menu){
+		var msg = '删除后将不能恢复，确定将菜单：[<strong>' + menu.name + '</strong>]删除?';
+		popup.confim('删除菜单', msg).result.then(function(res){
+			menuService.delete(menu.id).success(function(res){
+				Flash.create('success', '修改成功');
+				$scope.query();
+			});
+		});
+	};
+	//新建+修改菜单
+	$scope.createUpdate = function(menu){
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: '/app/modules/menu/htmls/menu_create_update.part.html',
+			controller: 'menuCreateUpdateController',
+			resolve: {
+				params: function () {
+					return menu;
+				}
+			}
+		});
+		modalInstance.result.then(function(res){
+			$scope.query();
+		});
 	};
 	//层级关系
 	$scope.levelRelation = function(){
@@ -66,7 +87,6 @@ baseFontApp.controller("menuListController", function ($rootScope, $scope, $loca
 			controller: 'menuRelationController',
 			size : 'lg'
 		});
-	
 	};
 	//菜单级别
 	$scope.level = function(menu){

@@ -122,6 +122,26 @@ baseFontApp.service("menuService", function ($http) {
                 }
             });
         },
+        //获取详情
+        delete : function(id){
+            return $http({
+                url : '/easyShopping/menu/delete.json',
+                method : 'post',
+                dataType : 'json',
+                data : {
+                    "id" : id
+                }
+            });
+        },
+        //创建菜单
+        create : function(params){
+            return $http({
+                url : '/easyShopping/menu/create.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
+            });
+        },
         //修改状态 
         changeStatus : function(menuId, status){
             return $http({
@@ -132,6 +152,15 @@ baseFontApp.service("menuService", function ($http) {
                     "id" : menuId,
                     "status" : status
                 }
+            });
+        },
+        //修改状态 
+        update : function(params){
+            return $http({
+                url : '/easyShopping/menu/update.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
             });
         }
     };
