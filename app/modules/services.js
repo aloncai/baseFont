@@ -121,6 +121,18 @@ baseFontApp.service("menuService", function ($http) {
                     "id" : id
                 }
             });
+        },
+        //修改状态 
+        changeStatus : function(menuId, status){
+            return $http({
+                url : '/easyShopping/menu/update.json',
+                method : 'post',
+                dataType : 'json',
+                data : {
+                    "id" : menuId,
+                    "status" : status
+                }
+            });
         }
     };
 });

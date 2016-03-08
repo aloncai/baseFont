@@ -1,6 +1,6 @@
 /* 用户列表 */
 
-baseFontApp.controller("menuListController", function ($rootScope, $scope, $location, Flash, $uibModal, menuService) {
+baseFontApp.controller("menuListController", function ($rootScope, $scope, $location, Flash, popup, $uibModal, menuService) {
 
 	$scope.entity = {
 		querying : false
@@ -38,19 +38,22 @@ baseFontApp.controller("menuListController", function ($rootScope, $scope, $loca
 	};
 	$scope.query();
 
-	//菜单详情
-	$scope.detail = function(menu){
-		var modalInstance = $uibModal.open({
-			animation: true,
-			templateUrl: '/app/modules/menu/htmls/menu_level.part.html',
-			controller: 'menuLevelController',
-			resolve: {
-				params: function () {
-					return menu;
-				}
-			}
+	//更改状态
+	$scope.changeStatus = function(menu, targetStatus){
+		var msg = '确定将菜单：[<strong>' + menu.name + '</strong>]';
+		if(targetStatus === 0){
+			msg = msg + '启用?';
+		}else{
+			msg = msg + '废除?';
+		}
+		popup.confim('修改状态', msg).result.then(function(res){
+			menuService.changeStatus(menu.id, targetStatus).success(function(res){
+				Flash.create('success', '修改成功');
+				$scope.query();
+			});
 		});
 	};
+
 	//新建菜单
 	$scope.create = function(){
 
@@ -64,5 +67,18 @@ baseFontApp.controller("menuListController", function ($rootScope, $scope, $loca
 			size : 'lg'
 		});
 	
+	};
+	//菜单级别
+	$scope.level = function(menu){
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: '/app/modules/menu/htmls/menu_level.part.html',
+			controller: 'menuLevelController',
+			resolve: {
+				params: function () {
+					return menu;
+				}
+			}
+		});
 	};
 });

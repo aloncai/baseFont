@@ -16,7 +16,7 @@ baseFontApp.controller("menuLevelController", function ($rootScope, $scope, $loc
 		//父菜单
 		$scope.parentMenu = $scope.nowMenu;
 		//子菜单
-		menuService.list({parentId : $scope.nowMenu.parentId}).success(function(res){
+		menuService.list({parentId : $scope.nowMenu.id}).success(function(res){
 			$scope.subMenuList = res.data;
 		});
 	}else{

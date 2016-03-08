@@ -2,7 +2,7 @@
 //
 
 
-var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies', "ui.bootstrap"];
+var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies', "ui.bootstrap", "ngSanitize"];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
 

@@ -87,3 +87,28 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope, langue, $cookie
     return httpInterceptor;
 
 });
+
+//确认框
+baseFontApp.factory('popup', function ($uibModal) {
+    return {
+        confim : function(title,msg){
+            return $uibModal.open({
+                animation : true,
+                templateUrl : '/app/modules/base/htmls/confim.part.html',
+                controller : function($scope, $uibModalInstance){
+                    $scope.title = title;
+                    $scope.msg = msg;
+
+                    $scope.ok = function () {
+                        $uibModalInstance.close("ok");
+                    };
+
+                    $scope.cancel = function () {
+                        $uibModalInstance.dismiss('cancel');
+                    };
+
+                    }
+            });
+        }
+};
+});

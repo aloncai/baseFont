@@ -93,7 +93,7 @@
         }
     },
     "menu":{
-        "statusNormal":"正常",
+        "statusNormal":"已启用",
         "statusAbolish":"已废除"
     }
 }

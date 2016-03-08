@@ -1,6 +1,6 @@
 /* 用户列表 */
 
-baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, $uibModal, userService) {
+baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, popup, $uibModal, userService) {
 	var dictionary = $rootScope.global.dictionary;
 	$scope.label = dictionary.user.label;
 	$scope.holder = dictionary.user.holder;
@@ -47,14 +47,19 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 
 	//更改状态
 	$scope.changeStatus = function(user, status){
-		userService.changeStatus(user.userId, status).success(function(res){
-			if(res.code === 200){
+		var msg = '确定将用户：[<strong>' + user.userName + '</strong>]';
+		if(status === 0){
+			msg = msg + '解冻?';
+		}else{
+			msg = msg + '冻结?';
+		}
+		popup.confim('修改状态', msg).result.then(function(res){
+			userService.changeStatus(user.userId, status).success(function(res){
 				Flash.create('info', res.message);
 				$scope.query();
-			}else{
-				Flash.create('danger', res.message || dictionary.response_error_tip);
-			}
+			});
 		});
+		
 	};
 
 	//更改用户信息
