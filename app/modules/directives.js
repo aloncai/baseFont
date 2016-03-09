@@ -30,7 +30,6 @@ baseFontApp.directive('csHeader', function () {
             var loginLocal = dictionary.login;
             $scope.header = {};
             $scope.header.langueList = $rootScope.global.langueList;
-
             //只有在登陆的时候才显示导航栏
             $rootScope.global.header = {};
             $rootScope.global.header.isShow = ($location.path() !== '/login' && $location.path() !== '/');

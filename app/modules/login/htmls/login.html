@@ -1,21 +1,25 @@
 
-<div class="container center-block">
-    <br/><br/><br/><br/>
-    <form class="form-horizontal ">
+<div class="container center-block login">
+    <div class="form-horizontal content" >
+        <div class="form-group"></div>
+        <div class="form-group">
+            <img src="/app/imgs/favicon_min.jpg"  class="img-rounded"/>
+            <h1>直销管理平台</h1>
+        </div>
         <div class="form-group">
             <label class="col-sm-4 control-label">{{label.userId}}：</label>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <input class="form-control" ng-model="entity.userId" type="text" placeholder="{{holder.userId}}">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-4 control-label">{{label.passwd}}：</label>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <input class="form-control" ng-model="entity.passwd" type="password" placeholder="{{holder.passwd}}">
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-4">
+            <div class="col-sm-offset-4 col-sm-6">
                 <div class="checkbox">
                     <label>
                         <input type="checkbox"> {{label.remberMe}}
@@ -24,19 +28,16 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-4">
+            <div class="col-sm-offset-4 col-sm-6">
                 <label ng-bind="entity.msg" ng-if="entity.msg" class="form-control label label-danger"></label>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="">
-                <input type="submit" class="btn btn-sm btn-primary col-sm-offset-4 col-sm-4" value="{{label.loginButton}}"
-                       ng-click="login()">
-            </div>
-
+            <input type="submit" class="btn btn-sm btn-primary col-sm-10 col-sm-offset-1" value="{{label.loginButton}}"
+            ng-click="login()">
         </div>
+        <div class="form-group clearfix text-center">2016&copy;张凯（970776893@qq.com）</div>
 
-
-    </form>
+    </div>
 </div>

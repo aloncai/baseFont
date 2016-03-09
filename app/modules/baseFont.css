@@ -1,6 +1,11 @@
 body {
     padding-bottom: 70px;
 }
+.body-img {
+    background-image : url("/app/imgs/background_001.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+}
 
 .flashlayout {
     width: 30%;
@@ -78,6 +83,34 @@ input.ng-invalid.ng-dirty:focus, textarea.ng-invalid.ng-dirty:focus { border-col
 .icon {
     margin-left: 1px;
     margin-right: 6px;
+}
+
+.login .content {
+    margin: auto ;
+    width: 30%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+    position: absolute;
+    background-color: white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login h1 {
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: block;
+    float: left;
+}
+
+.login img {
+    display: block;
+    float: left;
+    width: 14%;
+    margin-right: 8%;
+    margin-left: 18%;
 }
 
 
