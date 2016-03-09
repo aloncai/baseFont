@@ -59,6 +59,15 @@ baseFontApp.service("userService", function ($http) {
                 data : params
             });
         },
+        //创建用户 
+        create : function(params){
+            return $http({
+                url : '/easyShopping/user/create.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
+            });
+        },
         //获取详情
         detail : function(id){
             return $http({

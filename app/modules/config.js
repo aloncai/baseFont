@@ -63,7 +63,11 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope, langue, $cookie
                 Flash.create("warning", msg, 10000);
                 $cookies.remove("userId");
             }
-            return res; 
+            if(returnData.code === undefined || returnData.code === 200){
+                return res; 
+            }else{
+                 return $q.reject(res);
+            }
         },
         requestError: function (rej) {
             var data = {

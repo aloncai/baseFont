@@ -19,9 +19,9 @@ baseFontApp.controller("menuCreateUpdateController", function ($rootScope, $scop
 	menuService.list({level:1}).success(function(res){
 		$scope.topMenu = {
 			list : res.data
-		}
+		};
 		if(!$scope.isCreate){
-			angular.forEach($scope.topMenuList, function(top){
+			angular.forEach($scope.topMenu.list, function(top){
 				if(top.id === $scope.nowMenu.parentId){
 					$scope.topMenu.top = top;
 					return;

@@ -70,7 +70,7 @@ body {
     overflow: inherit;
 }
 
-input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty { border-color: #5cb85c; }
+#input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty { border-color: #5cb85c; }
 input.ng-valid.ng-dirty:focus, textarea.ng-valid.ng-dirty:focus { border-color: #579935; }
 input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty { border-color: #e40; }
 input.ng-invalid.ng-dirty:focus, textarea.ng-invalid.ng-dirty:focus { border-color: #FF9900; }

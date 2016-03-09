@@ -86,4 +86,22 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 
 	};
 
+	//更改用户信息
+	$scope.create = function(){
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: '/app/modules/user/htmls/user_create.part.html',
+			controller: 'userCreateController'
+		});
+		//窗口响应函数
+		modalInstance.result.then(function (params) {
+			//确定按钮
+			$scope.query();
+		}, function () {
+			//q取消按钮
+		});
+
+	};
+
+
 });
