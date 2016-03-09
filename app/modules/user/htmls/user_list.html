@@ -1,7 +1,7 @@
 <div class="filter clearfix basis-module">
 	<div class="page-header">
 		<ol class="breadcrumb">
-			<li><a href="#/welcome"><h1><i class="icon-home"></i>{{$root.global.dictionary.home}}<h1></a></li>
+			<li><a href="#/welcome"><h1><i class="icon icon-home"></i>{{$root.global.dictionary.home}}<h1></a></li>
 			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
 			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
 		</ol>
@@ -39,10 +39,10 @@
 			</div>
 			<div class="form-group col-sm-12">
 				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying">{{public.label.query}}</button>
+					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying"><i class="icon icon-search"></i>{{public.label.query}}</button>
 				</div>
 				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="create()" ng-disabled="entity.querying">{{public.label.create}}</button>
+					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="create()" ng-disabled="entity.querying"><i class="icon icon-plus"></i>{{public.label.create}}</button>
 				</div>
 			</div>
 
@@ -64,7 +64,7 @@
 				<tr ng-if="!result.userList  && page.totalCount !== 0">
 					<td class="loading-holder" colspan="40">
 						<div class="text-center">
-							<span ><i class="icon-spinner icon-spin"></i></span>
+							<span ><i class="icon icon-spinner icon-spin"></i></span>
 						</div>
 					</td>
 				</tr>

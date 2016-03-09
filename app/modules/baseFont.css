@@ -75,6 +75,11 @@ input.ng-valid.ng-dirty:focus, textarea.ng-valid.ng-dirty:focus { border-color: 
 input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty { border-color: #e40; }
 input.ng-invalid.ng-dirty:focus, textarea.ng-invalid.ng-dirty:focus { border-color: #FF9900; }
 
+.icon {
+    margin-left: 1px;
+    margin-right: 6px;
+}
+
 
 
 
