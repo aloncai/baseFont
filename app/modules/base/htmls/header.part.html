@@ -13,20 +13,20 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon icon-user"></i>{{$root.global.session.userName || label.persionCenter}}<b
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon icon-user"></i>{{$root.global.session.userName || $root.i18n.header.persionCenter}}<b
                         class="caret"></b></a>
                 <ul class="dropdown-menu multi-level">
-                    <li><a href="javascript:;"><i class="icon icon-key" ></i>{{label.changePasswd}}</a></li>
+                    <li><a href="javascript:;"><i class="icon icon-key" ></i>{{$root.i18n.header.changePasswd}}</a></li>
                     <li role="separator" class="divider"></li>
                     <li class="dropdown-submenu">
                         <!--<a href="">{{label.changeLanguage}}</a>-->
-                        <a tabindex="-1" class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="icon icon-exchange" ></i>{{label.changeLanguage}}</a>
+                        <a tabindex="-1" class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><i class="icon icon-exchange" ></i>{{$root.i18n.header.changeLanguage}}</a>
                         <ul class="dropdown-menu" style="left:-100%;margin-right:100%">
-                            <li><a href="javascript:;" ng-click="changeLangue(langue)" ng-repeat="langue in header.langueList">{{langue.name}}</a></li>
+                            <li><a href="javascript:;" ng-click="changeLangue(langue)" ng-repeat="langue in $root.global.langueList">{{langue.name}}</a></li>
                         </ul>
                     </li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="javascript:;" ng-click="logout()"><i class="icon icon-signout" ></i>{{label.logout}}</a></li>
+                    <li><a href="javascript:;" ng-click="logout()"><i class="icon icon-signout" ></i>{{$root.i18n.header.logout}}</a></li>
                 </ul>
             </li>
         </ul>

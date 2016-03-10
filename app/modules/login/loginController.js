@@ -1,20 +1,15 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies, $location, Flash, loginService) {
+baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies, $location, $locale, Flash, loginService) {
 
     Flash.clear();
     //已经登陆，跳转到首页
     if($cookies.getObject("userId") !== undefined){
         $location.path("/welcome");
     }
-    var dictionary = $rootScope.global.dictionary;
 
     //隐藏导航栏
     $rootScope.global.header.isShow = false;
-
-    var local = dictionary.login;
-    $scope.label = local.label;
-    $scope.holder = local.holder;
 
     $scope.entity = {
         logining : false, //避免用户重复请求
@@ -34,7 +29,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
 
         loginService.login(userId, passwd).success(function (res) {
             //$scope.alert("登陆成功");
-            $scope.entity.msg = local.login_success_msg;
+            $scope.entity.msg = $rootScope.i18n.login.login_success_msg;
             //显示导航栏
             $rootScope.global.showHeader = true;
             //增加cookie
@@ -63,11 +58,11 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
             $scope.entity.logining = false;
         }).error(function (rej) {
             if(rej.code === 1){
-                $scope.entity.msg = '用户名或者密码不能为空';
+                $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_empty;
             }else if(rej.code === 2){
-                $scope.entity.msg = '用户名或者密码错误';
+                $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_error;
             }else if(rej.code === 3){
-                $scope.entity.msg = '账户已被冻结';
+                $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_frozen;
             }
             $scope.entity.logining = false;
 

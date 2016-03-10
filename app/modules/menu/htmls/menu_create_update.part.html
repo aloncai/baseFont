@@ -14,8 +14,8 @@
 				<label class="control-label col-sm-4">状态:</label>
 				<div class="col-sm-6">
 					<select class="form-control" ng-model="entity.status" ng-required="true">
-						<option value="0">{{$root.global.dictionary.menu.statusNormal}}</option>
-						<option value="1">{{$root.global.dictionary.menu.statusAbolish}}</option>
+						<option value="0">{{$root.i18n.menu.statusNormal}}</option>
+						<option value="1">{{$root.i18n.menu.statusAbolish}}</option>
 					</select>
 				</div>
 			</div>
@@ -46,6 +46,6 @@
 		</form>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled="form.$invalid">{{$root.global.dictionary.public.label.ok}}</button>
-	<button class="btn btn-default" type="button" ng-click="cancel()">{{$root.global.dictionary.public.label.cancel}}</button>
+	<button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled="form.$invalid">{{$root.i18n.public.ok}}</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">{{$root.i18n.public.cancel}}</button>
 </div>

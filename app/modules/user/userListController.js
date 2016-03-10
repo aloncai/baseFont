@@ -1,10 +1,7 @@
 /* 用户列表 */
 
 baseFontApp.controller("userListController", function ($rootScope, $scope, $location, Flash, popup, $uibModal, userService) {
-	var dictionary = $rootScope.global.dictionary;
-	$scope.label = dictionary.user.label;
-	$scope.holder = dictionary.user.holder;
-	$scope.public = dictionary.public;
+
 	$scope.entity = {
 		querying : false
 	};
@@ -12,8 +9,7 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 	$scope.page = {
 		pageSize : 15,
 		pageNo : 1,
-		totalCount:0,
-		label: dictionary.pagination.label
+		totalCount:0
 	};
 	$scope.buildParams = function(){
 
@@ -32,12 +28,8 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 		$scope.entity.querying = true;
 		var params = $scope.buildParams();
 		userService.query(params).success(function(res){
-			if(res.code === 200){
-				$scope.result.userList = res.data.itemList;
-				$scope.page.totalCount = res.data.total;
-			}else{
-				Flash.create('danger', res.message || dictionary.response_error_tip);
-			}
+			$scope.result.userList = res.data.itemList;
+			$scope.page.totalCount = res.data.total;
 			$scope.entity.querying = false;
 		}).error(function(rej){
 			$scope.entity.querying = false;

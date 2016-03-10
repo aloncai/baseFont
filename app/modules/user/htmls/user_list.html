@@ -1,7 +1,7 @@
 <div class="filter clearfix basis-module">
 	<div class="page-header">
 		<ol class="breadcrumb">
-			<li><a href="#/welcome"><h1><i class="icon icon-home"></i>{{$root.global.dictionary.home}}<h1></a></li>
+			<li><a href="#/welcome"><h1><i class="icon icon-home"></i>{{$root.i18n.public.home}}<h1></a></li>
 			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
 			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
 		</ol>
@@ -10,39 +10,39 @@
 	<div class="page-body">
 		<form class="form-horizontal">
 			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.userId}}</label>
+				<label class="control-label col-sm-4">{{$root.i18n.user.userId}}</label>
 				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userId" class="form-control" placeholder="{{public.holder.likeQuery}}">
+					<input type="text" ng-model="entity.userId" class="form-control" placeholder="{{$root.i18n.public.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.userName}}</label>
+				<label class="control-label col-sm-4">{{$root.i18n.user.userName}}</label>
 				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userName" class="form-control" placeholder="{{public.holder.likeQuery}}">
+					<input type="text" ng-model="entity.userName" class="form-control" placeholder="{{$root.i18n.public.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.userMobile}}</label>
+				<label class="control-label col-sm-4">{{$root.i18n.user.userMobile}}</label>
 				<div class="col-sm-8">
-					<input type="text" ng-model="entity.userMobile" class="form-control" placeholder="{{public.holder.likeQuery}}">
+					<input type="text" ng-model="entity.userMobile" class="form-control" placeholder="{{$root.i18n.public.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-3">
-				<label class="control-label col-sm-4">{{label.status}}</label>
+				<label class="control-label col-sm-4">{{$root.i18n.public.status}}</label>
 				<div class="col-sm-8">
 					<select class="form-control" ng-model="entity.status">
 						<option value="">&nbsp;</option>
-						<option value="0">{{label.statusNormal}}</option>
-						<option value="1">{{label.statusFrozen}}</option>
+						<option value="0">{{$root.i18n.user.statusNormal}}</option>
+						<option value="1">{{$root.i18n.user.statusFrozen}}</option>
 					</select>
 				</div>
 			</div>
 			<div class="form-group col-sm-12">
 				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying"><i class="icon icon-search"></i>{{public.label.query}}</button>
+					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="query()" ng-disabled="entity.querying"><i class="icon icon-search"></i>{{$root.i18n.public.query}}</button>
 				</div>
 				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="create()" ng-disabled="entity.querying"><i class="icon icon-plus"></i>{{public.label.create}}</button>
+					<button type="submit" class="btn btn-primary form-control col-sm-3" ng-click="create()" ng-disabled="entity.querying"><i class="icon icon-plus"></i>{{$root.i18n.public.create}}</button>
 				</div>
 			</div>
 
@@ -51,14 +51,14 @@
 		<table class="table table-striped">
 			<header>
 				<th>#</th>
-				<th>{{label.userId}}</th>
-				<th>{{label.userName}}</th>
-				<th>{{label.nickName}}</th>
-				<th>{{label.userMobile}}</th>
-				<th>{{public.label.status}}</th>
-				<th>{{public.label.createName}}</th>
-				<th>{{public.label.createAt}}</th>
-				<th>{{public.label.option}}</th>
+				<th>{{$root.i18n.user.userId}}</th>
+				<th>{{$root.i18n.user.userName}}</th>
+				<th>{{$root.i18n.user.nickName}}</th>
+				<th>{{$root.i18n.user.userMobile}}</th>
+				<th>{{$root.i18n.public.status}}</th>
+				<th>{{$root.i18n.public.createName}}</th>
+				<th>{{$root.i18n.public.createAt}}</th>
+				<th>{{$root.i18n.public.option}}</th>
 			</header>
 			<tbody>
 				<tr ng-if="!result.userList  && page.totalCount !== 0">
@@ -70,7 +70,7 @@
 				</tr>
 				<tr ng-if="result.userList && page.totalCount === 0">
 					<td colspan="40">
-						<div class="text-center">{{public.label.noData}}</div>
+						<div class="text-center">{{$root.i18n.public.noData}}</div>
 					</td>
 				</tr>
 			</tbody>
@@ -85,22 +85,22 @@
 					<td>{{user.createName}}</td> 
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
-						<a href="#/user/userDetail/{{user.id}}"> {{public.label.detail}}</a>
+						<a href="#/user/userDetail/{{user.id}}"> {{$root.i18n.public.detail}}</a>
 
 						<i class="text-divider">|</i>
-						<a href="javascript:;" ng-click="update(user)"> {{public.label.update}}</a>
+						<a href="javascript:;" ng-click="update(user)"> {{$root.i18n.public.update}}</a>
 
 						<i class="text-divider" ng-if="user.status == 0">|</i>
-						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> {{label.statusOptNormal}}</a>
+						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> {{$root.i18n.user.statusOptNormal}}</a>
 
 						<i class="text-divider" ng-if="user.status == 1">|</i>
-						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> {{label.statusOptFrozen}}</a>
+						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> {{$root.i18n.user.statusOptFrozen}}</a>
 					</td> 
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="page-footer">
-		<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="query()"  max-size="5" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" next-text="{{page.label.nextText}}" previous-text="{{page.label.previousText}}"></uib-pagination>
+		<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="query()"  max-size="5" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true"></uib-pagination>
 	</div>
 </div>

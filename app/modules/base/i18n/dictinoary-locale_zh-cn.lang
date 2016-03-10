@@ -1,99 +1,198 @@
 {
-
-    "session_timeout_tip":"回话已失效，请重新登陆。",
-    "response_error_tip":"服务器不开心。",
-    "request_error_tip":"连接异常，请假差网络。",
-    "reLogin":"重新登陆",
-    "home":"主页",
-    "pagination" : {
-        "label" : {
-            "nextText": "下一页",
-            "previousText" :"上一页"
-        }
+  "my": {
+    "system":"直销管理平台",
+    "public": {
+      "home": "主页",
+      "noChange": "未做更改",
+      "unKnow": "未知",
+      "ok": "确定",
+      "cancel": "取消",
+      "successed": "成功",
+      "failed": "失败",
+      "noData": "抱歉，没有相关数据",
+      "query": "搜索",
+      "update": "修改",
+      "create": "创建",
+      "option": "操作",
+      "status": "状态",
+      "content": "内容",
+      "type": "类型",
+      "detail": "详情",
+      "createName": "创建人",
+      "createAt": "创建时间",
+      "likeQuery": "模糊查询"
     },
-
-    "public":{
-        "label":{
-            "query":"搜索",
-            "update":"修改",
-            "create":"创建",
-            "noData": "抱歉，没有相关数据",
-            "option":"操作",
-            "status":"状态",
-            "content":"内容",
-            "type":"类型",
-            "detail":"详情",
-            "createName":"创建人",
-            "createAt":"创建时间",
-            "ok":"确定",
-            "cancel":"取消",
-            "successed":"成功",
-            "failed":"失败",
-            "noChange":"未做更改",
-            "unKnow":"未知"
-        },
-        "holder":{
-            "likeQuery":"模糊查询"
-        }
+    "network": {
+      "session_timeout_tip": "回话已失效，请重新登陆。",
+      "response_error_tip": "服务器不开心。",
+      "request_error_tip": "连接异常，请假差网络。",
+      "reLogin": "重新登陆"
     },
-
-    "header":{
-        "label":{
-            "changePasswd":"修改密码",
-            "logout":"退出",
-            "persionCenter":"个人中心",
-            "changeLanguage":"更改语言"
-        }
+    "header": {
+      "changePasswd": "修改密码",
+      "logout": "退出",
+      "persionCenter": "个人中心",
+      "changeLanguage": "更改语言"
     },
-
-    "login":{
-        "login_failed_msg":"用户名或者密码错误。",
-        "login_success_msg":"登陆成功。",
-        "logout_failed_msg":"登出失败。",
-        "label":{
-            "userId":"用户名",
-            "passwd":"密码",
-            "remberMe":"记住我",
-            "loginButton":"登陆"
-        },
-        "holder":{
-            "userId":"请输入用户ID",
-            "passwd":"请输入密码"
-        }
+    "login": {
+      "login_failed_msg_empty": "用户名或者密码不能为空",
+      "login_failed_msg_error": "用户名或者密码错误。",
+      "login_failed_msg_frozen": "账户已被冻结",
+      "login_success_msg": "登陆成功。",
+      "logout_failed_msg": "登出失败。",
+      "userId": "用户名",
+      "passwd": "密码",
+      "userIdHolder": "请输入用户名",
+      "passwdHolder": "请输入密码",
+      "remberMe": "记住我",
+      "loginButton": "登陆"
     },
-    "user":{
-        "label":{
-            "userId":"ID",
-            "userName":"姓名",
-            "nickName":"昵称",
-            "userMobile":"电话",
-            "userBirth":"出生年月日",
-
-            "userSex":"性别",
-            "userSexMale":"男",
-            "userSexFemale":"女",
-            "userSexSecret":"保密",
-
-            "statusNormal":"正常",
-            "statusFrozen":"冻结",
-            "statusUnknow":"未知",
-            "statusOptNormal":"冻结",
-            "statusOptFrozen":"解冻",
-
-            "userInfo":"用户信息",
-            "registerInfo":"注册信息",
-
-            "logInfo":"日志信息",
-            "logTypeChangePassword":"修改密码",
-            "logTypeLogin":"登陆",
-            "logTypeUpdate":"更新用户信息",
-            "logTypeCreate":"创建用户",
-
-            "userDetail":"用户详情"
-        }
+    "user": {
+      "userId": "ID",
+      "userName": "姓名",
+      "nickName": "昵称",
+      "userMobile": "电话",
+      "userBirth": "出生年月日",
+      "userSex": "性别",
+      "userSexMale": "男",
+      "userSexFemale": "女",
+      "userSexSecret": "保密",
+      "statusNormal": "正常",
+      "statusFrozen": "冻结",
+      "statusUnknow": "未知",
+      "statusOptNormal": "冻结",
+      "statusOptFrozen": "解冻",
+      "userInfo": "用户信息",
+      "registerInfo": "注册信息",
+      "logInfo": "日志信息",
+      "logTypeChangePassword": "修改密码",
+      "logTypeLogin": "登陆",
+      "logTypeUpdate": "更新用户信息",
+      "logTypeCreate": "创建用户",
+      "userDetail": "用户详情",
+      "userIdCreateHodler":"建议使用邮箱，手机号"
     },
-    "menu":{
-        "statusNormal":"已启用",
-        "statusAbolish":"已废除"
+    "menu": {
+      "statusNormal": "已启用",
+      "statusAbolish": "已废除"
     }
+  },
+  "angular": {
+    "DATETIME_FORMATS": {
+      "AMPMS": [
+        "上午",
+        "下午"
+      ],
+      "DAY": [
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六"
+      ],
+      "ERANAMES": [
+        "公元前",
+        "公元"
+      ],
+      "ERAS": [
+        "公元前",
+        "公元"
+      ],
+      "FIRSTDAYOFWEEK": 6,
+      "MONTH": [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ],
+      "SHORTDAY": [
+        "周日",
+        "周一",
+        "周二",
+        "周三",
+        "周四",
+        "周五",
+        "周六"
+      ],
+      "SHORTMONTH": [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月",
+        "7月",
+        "8月",
+        "9月",
+        "10月",
+        "11月",
+        "12月"
+      ],
+      "STANDALONEMONTH": [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ],
+      "WEEKENDRANGE": [
+        5,
+        6
+      ],
+      "fullDate": "y年M月d日EEEE",
+      "longDate": "y年M月d日",
+      "medium": "y年M月d日 ah:mm:ss",
+      "mediumDate": "y年M月d日",
+      "mediumTime": "ah:mm:ss",
+      "short": "yy/M/d ah:mm",
+      "shortDate": "yy/M/d",
+      "shortTime": "ah:mm"
+    },
+    "NUMBER_FORMATS": {
+      "CURRENCY_SYM": "¥",
+      "DECIMAL_SEP": ".",
+      "GROUP_SEP": ",",
+      "PATTERNS": [
+        {
+          "gSize": 3,
+          "lgSize": 3,
+          "maxFrac": 3,
+          "minFrac": 0,
+          "minInt": 1,
+          "negPre": "-",
+          "negSuf": "",
+          "posPre": "",
+          "posSuf": ""
+        },
+        {
+          "gSize": 3,
+          "lgSize": 3,
+          "maxFrac": 2,
+          "minFrac": 2,
+          "minInt": 1,
+          "negPre": "-¤ ",
+          "negSuf": "",
+          "posPre": "¤ ",
+          "posSuf": ""
+        }
+      ]
+    }
+  }
 }

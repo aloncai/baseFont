@@ -4,25 +4,25 @@
         <div class="form-group"></div>
         <div class="form-group">
             <img src="/app/imgs/favicon_min.jpg"  class="img-rounded"/>
-            <h1>直销管理平台</h1>
+            <h1>{{$root.i18n.system}}</h1>
         </div>
         <div class="form-group">
-            <label class="col-sm-4 control-label">{{label.userId}}：</label>
+            <label class="col-sm-4 control-label">{{$root.i18n.login.userId}}：</label>
             <div class="col-sm-6">
-                <input class="form-control" ng-model="entity.userId" type="text" placeholder="{{holder.userId}}">
+                <input class="form-control" ng-model="entity.userId" type="text" placeholder="{{$root.i18n.login.userIdHolder}}">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-4 control-label">{{label.passwd}}：</label>
+            <label class="col-sm-4 control-label">{{$root.i18n.login.passwd}}：</label>
             <div class="col-sm-6">
-                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="{{holder.passwd}}">
+                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="{{$root.i18n.login.passwdHolder}}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-4 col-sm-6">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> {{label.remberMe}}
+                        <input type="checkbox"> {{$root.i18n.login.remberMe}}
                     </label>
                 </div>
             </div>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-sm btn-primary col-sm-10 col-sm-offset-1" value="{{label.loginButton}}"
+            <input type="submit" class="btn btn-sm btn-primary col-sm-10 col-sm-offset-1" value="{{$root.i18n.login.loginButton}}"
             ng-click="login()">
         </div>
         <div class="form-group clearfix text-center">2016&copy;张凯（970776893@qq.com）</div>

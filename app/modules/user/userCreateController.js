@@ -1,10 +1,7 @@
 /* 修改用户信息 */
 
 baseFontApp.controller("userCreateController", function ($rootScope, $scope, $location, Flash, userService, $uibModalInstance) {
-	var dictionary = $rootScope.global.dictionary;
-	$scope.label = dictionary.user.label;
-	$scope.holder = dictionary.user.holder;
-	$scope.public = dictionary.public;
+
 	
 	$scope.ok = function () {
 		$scope.create();

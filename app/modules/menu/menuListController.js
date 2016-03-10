@@ -1,6 +1,6 @@
 /* 用户列表 */
 
-baseFontApp.controller("menuListController", function ($rootScope, $scope, $location, Flash, popup, $uibModal, menuService) {
+baseFontApp.controller("menuListController", function ($rootScope, $scope, $location, $locale, Flash, popup, $uibModal, menuService) {
 
 	$scope.entity = {
 		querying : false

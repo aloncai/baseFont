@@ -4,10 +4,6 @@ baseFontApp.controller("userDetailController", function ($rootScope, $scope, $ro
 	var userDbId = $routeParams.id;
 	var userId = '';
 
-	var dictionary = $rootScope.global.dictionary;
-	$scope.label = dictionary.user.label;
-	$scope.holder = dictionary.user.holder;
-	$scope.public = dictionary.public;
 	$scope.entity = {
 		querying : false
 	};
@@ -15,8 +11,7 @@ baseFontApp.controller("userDetailController", function ($rootScope, $scope, $ro
 	$scope.page = {
 		pageSize : 5,
 		pageNo : 1,
-		totalCount: 0,
-		label: dictionary.pagination.label
+		totalCount: 0
 	};
 
 	$scope.query = function(){

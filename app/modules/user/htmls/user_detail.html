@@ -1,7 +1,7 @@
 <div class="filter clearfix basis-module">
 	<div class="page-header">
 		<ol class="breadcrumb">
-			<li><a href="#/welcome"><h1><i class="icon-home"></i>{{$root.global.dictionary.home}}<h1></a></li>
+			<li><a href="#/welcome"><h1><i class="icon-home"></i>{{$root.i18n.public.home}}<h1></a></li>
 			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
 			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
 			<li>{{$root.global.dictionary.user.label.userDetail}}</li>
@@ -10,71 +10,71 @@
 
 	<div class="page-body">
 		<form class="form-horizontal">
-			<div class="page-breadcrumb breadcrumb">{{label.userInfo}}</div>
+			<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.userInfo}}</div>
 			<div class="form-group ">
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.userId}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.user.userId}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-model="entity.userId" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.userName}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.user.userName}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-model="entity.userName" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.nickName}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.user.nickName}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-model="entity.nickName" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.userMobile}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.user.userMobile}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-model="entity.userMobile" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.userSex}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.user.userSex}}:</label>
 					<div class="col-sm-8">
 						<select class="form-control" ng-model="entity.userSex" ng-disabled="true">
-							<option value="0">{{label.userSexSecret}}</option>
-							<option value="1">{{label.userSexMale}}</option>
-							<option value="2">{{label.userSexFemale}}</option>
+							<option value="0">{{$root.i18n.user.userSexSecret}}</option>
+							<option value="1">{{$root.i18n.user.userSexMale}}</option>
+							<option value="2">{{$root.i18n.user.userSexFemale}}</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{label.userBirth}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.user.userBirth}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-value="entity.userBirth | date :'yyyy-MM-dd'" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{public.label.status}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.public.status}}:</label>
 					<div class="col-sm-8">
 						<select class="form-control" ng-model="entity.status" ng-disabled="true">
-							<option value="0">{{label.statusNormal}}</option>
-							<option value="1">{{label.statusFrozen}}</option>
+							<option value="0">{{$root.i18n.user.statusNormal}}</option>
+							<option value="1">{{$root.i18n.user.statusFrozen}}</option>
 						</select>
 					</div>
 				</div>
 			</div>
 
-			<div class="page-breadcrumb breadcrumb">{{label.registerInfo}}</div>
+			<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.registerInfo}}</div>
 			<div class="form-group ">
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{public.label.createAt}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.public.createAt}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-value="entity.createAt|date:'yyyy-MM-dd HH:mm:ss'" class="form-control" ng-disabled="true">
 					</div>
 				</div>
 				<div class="form-group col-sm-4">
-					<label class="control-label col-sm-4">{{public.label.createName}}:</label>
+					<label class="control-label col-sm-4">{{$root.i18n.public.createName}}:</label>
 					<div class="col-sm-8">
 						<input type="text" ng-value="entity.createName || entity.userName" class="form-control" ng-disabled="true">
 					</div>
@@ -87,10 +87,10 @@
 				<table class="table table-striped">
 					<header>
 						<th>#</th>
-						<th>{{public.label.createName}}</th>
-						<th>{{public.label.createAt}}</th>
-						<th>{{public.label.type}}</th>
-						<th>{{public.label.content}}</th>
+						<th>{{$root.i18n.public.createName}}</th>
+						<th>{{$root.i18n.public.createAt}}</th>
+						<th>{{$root.i18n.public.type}}</th>
+						<th>{{$root.i18n.public.content}}</th>
 					</header>
 					<tbody>
 						<tr ng-if="!result.logList  && page.totalCount !== 0">
@@ -102,7 +102,7 @@
 						</tr>
 						<tr ng-if="page.totalCount === 0">
 							<td colspan="40">
-								<div class="text-center">{{public.label.noData}}</div>
+								<div class="text-center">{{$root.i18n.public.noData}}</div>
 							</td>
 						</tr>
 					</tbody>
@@ -116,7 +116,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="queryLog()"  max-size="5" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" next-text="{{page.label.nextText}}" previous-text="{{page.label.previousText}}"></uib-pagination>
+				<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="queryLog()"  max-size="5" class="pagination-sm pull-right" boundary-link-numbers="true" rotate="true" ></uib-pagination>
 			</div>
 		</form>
 	</div>
