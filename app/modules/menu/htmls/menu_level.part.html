@@ -1,20 +1,22 @@
 
 <div class="modal-header">
-	<h4 class="modal-title">所属层级</h4>
+	<h4 class="modal-title">{{$root.i18n.menu.levelRelation}}</h4>
 </div>
 <div class="modal-body">
 	<dl class="dl-horizontal">
-		<dt >{{parentMenu.name}}
-			<i ng-if="parentMenu.id === nowMenu.id" class="icon-map-marker icon-large"  uib-tooltip="查看的菜单"></i>&nbsp;
-			<i ng-if="parentMenu.status === 1" class="icon-trash icon-large"  uib-tooltip="已废弃"></i>
+		<dt ng-class="parentMenu.status === 1 ? 'text-danger' : ''">
+			{{parentMenu.name}}
+			<i ng-if="parentMenu.id === nowMenu.id" class="icon-map-marker icon-large"  uib-tooltip="{{$root.i18n.menu.thisMenu}}"></i>&nbsp;
+			<i ng-if="parentMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
 		</dt>
 		<dd >&nbsp;</dd>
-		<dd ng-repeat="subMenu in subMenuList">{{subMenu.name}}&nbsp;(地址：{{subMenu.url}})
-			<i ng-if="subMenu.id === nowMenu.id" class="icon-map-marker icon-large"  uib-tooltip="查看的菜单"></i>&nbsp;
-			<i ng-if="subMenu.status === 1" class="icon-trash icon-large"  uib-tooltip="已废弃"></i>
+		<dd ng-repeat="subMenu in subMenuList" ng-class="subMenu.status === 1 ? 'text-danger' : ''">
+			{{subMenu.name + "  ( " + subMenu.url + " )"}}
+			<i ng-if="subMenu.id === nowMenu.id" class="icon-map-marker icon-large"  uib-tooltip="{{$root.i18n.menu.thisMenu}}"></i>&nbsp;
+			<i ng-if="subMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
 		</dd>
 	</dl>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="cancel()">{{$root.global.dictionary.public.label.ok}}</button>
+	<button class="btn btn-primary" type="button" ng-click="cancel()">{{$root.i18n.public.ok}}</button>
 </div>

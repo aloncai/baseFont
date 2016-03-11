@@ -31,14 +31,14 @@ baseFontApp.controller("menuCreateUpdateController", function ($rootScope, $scop
 	});
 	if($scope.isCreate){
 		//新增菜单
-		$scope.title = '新增菜单';
+		$scope.title = $rootScope.i18n.public.create + $rootScope.i18n.menu.menu;
 		$scope.entity = {
 			level : '1',
 			status : '0'
 		};
 	}else{
 		//修改菜单
-		$scope.title = '修改菜单';
+		$scope.title = $rootScope.i18n.public.update + $rootScope.i18n.menu.menu;
 		menuService.detail($scope.nowMenu.id).success(function(res){
 			$scope.entity = res.data;
 			$scope.entity.level = String($scope.entity.level);
@@ -58,10 +58,10 @@ baseFontApp.controller("menuCreateUpdateController", function ($rootScope, $scop
 			status: Number($scope.entity.status)
 		};
 		menuService.create(userParam).success(function(res){
-			Flash.create('success',res.message);
+			Flash.create('success', $rootScope.i18n.public.create + $rootScope.i18n.public.successed);
 			$uibModalInstance.close();
 		}).error(function(rej){
-			Flash.create('danger',rej.message);
+			//Flash.create('danger',rej.message);
 		});
 	};
 	$scope.update = function(){
@@ -81,13 +81,13 @@ baseFontApp.controller("menuCreateUpdateController", function ($rootScope, $scop
 			}
 		});
 		if(noChange){
-			Flash.create("info", "信息未更改");
+			Flash.create("info", $rootScope.i18n.public.noChange);
 			$uibModalInstance.close();
 			return;
 		}
 		params.id = $scope.entity.id;
 		menuService.update(params).success(function(res){
-			Flash.create('success',res.message);
+			Flash.create('success', $rootScope.i18n.public.update + $rootScope.i18n.public.successed);
 			$uibModalInstance.close();
 		}).error(function(rej){
 			Flash.create('danger',rej.message);

@@ -137,9 +137,7 @@ baseFontApp.service("menuService", function ($http) {
                 url : '/easyShopping/menu/delete.json',
                 method : 'post',
                 dataType : 'json',
-                data : {
-                    "id" : id
-                }
+                data : id
             });
         },
         //创建菜单

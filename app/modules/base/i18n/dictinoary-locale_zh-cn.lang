@@ -13,6 +13,7 @@
       "query": "搜索",
       "update": "修改",
       "create": "创建",
+      "delete": "删除",
       "option": "操作",
       "status": "状态",
       "content": "内容",
@@ -20,7 +21,8 @@
       "detail": "详情",
       "createName": "创建人",
       "createAt": "创建时间",
-      "likeQuery": "模糊查询"
+      "likeQuery": "模糊查询",
+      "notExist": "不存在"
     },
     "network": {
       "session_timeout_tip": "回话已失效，请重新登陆。",
@@ -73,126 +75,27 @@
       "userIdCreateHodler":"建议使用邮箱，手机号"
     },
     "menu": {
+      "menu":"菜单",
       "statusNormal": "已启用",
-      "statusAbolish": "已废除"
-    }
-  },
-  "angular": {
-    "DATETIME_FORMATS": {
-      "AMPMS": [
-        "上午",
-        "下午"
-      ],
-      "DAY": [
-        "星期日",
-        "星期一",
-        "星期二",
-        "星期三",
-        "星期四",
-        "星期五",
-        "星期六"
-      ],
-      "ERANAMES": [
-        "公元前",
-        "公元"
-      ],
-      "ERAS": [
-        "公元前",
-        "公元"
-      ],
-      "FIRSTDAYOFWEEK": 6,
-      "MONTH": [
-        "一月",
-        "二月",
-        "三月",
-        "四月",
-        "五月",
-        "六月",
-        "七月",
-        "八月",
-        "九月",
-        "十月",
-        "十一月",
-        "十二月"
-      ],
-      "SHORTDAY": [
-        "周日",
-        "周一",
-        "周二",
-        "周三",
-        "周四",
-        "周五",
-        "周六"
-      ],
-      "SHORTMONTH": [
-        "1月",
-        "2月",
-        "3月",
-        "4月",
-        "5月",
-        "6月",
-        "7月",
-        "8月",
-        "9月",
-        "10月",
-        "11月",
-        "12月"
-      ],
-      "STANDALONEMONTH": [
-        "一月",
-        "二月",
-        "三月",
-        "四月",
-        "五月",
-        "六月",
-        "七月",
-        "八月",
-        "九月",
-        "十月",
-        "十一月",
-        "十二月"
-      ],
-      "WEEKENDRANGE": [
-        5,
-        6
-      ],
-      "fullDate": "y年M月d日EEEE",
-      "longDate": "y年M月d日",
-      "medium": "y年M月d日 ah:mm:ss",
-      "mediumDate": "y年M月d日",
-      "mediumTime": "ah:mm:ss",
-      "short": "yy/M/d ah:mm",
-      "shortDate": "yy/M/d",
-      "shortTime": "ah:mm"
-    },
-    "NUMBER_FORMATS": {
-      "CURRENCY_SYM": "¥",
-      "DECIMAL_SEP": ".",
-      "GROUP_SEP": ",",
-      "PATTERNS": [
-        {
-          "gSize": 3,
-          "lgSize": 3,
-          "maxFrac": 3,
-          "minFrac": 0,
-          "minInt": 1,
-          "negPre": "-",
-          "negSuf": "",
-          "posPre": "",
-          "posSuf": ""
-        },
-        {
-          "gSize": 3,
-          "lgSize": 3,
-          "maxFrac": 2,
-          "minFrac": 2,
-          "minInt": 1,
-          "negPre": "-¤ ",
-          "negSuf": "",
-          "posPre": "¤ ",
-          "posSuf": ""
-        }
-      ]
+      "statusAbolish": "已废弃",
+      "changeConfirm": "确定将菜单",
+      "deleteConfirm": "删除后将不能恢复",
+      "statusNormal": "已启用",
+      "name":"菜单名",
+      "url":"菜单地址",
+      "urlHolder":"#号后面的部分(eg:/user/userList)",
+      "level":"级别",
+      "levelOne":"一级",
+      "levelTwo":"二级",
+      "levelRelation":"层级关系",
+      "parentMenu":"父菜单",
+      "optAbolish":"废弃",
+      "optNormal":"启用",
+      "optLevel":"层级",
+      "thisMenu":"当前菜单",
+      "deleteNotExist":"菜单不存在",
+      "deleteCanntNormal":"不允许删除：已启动菜单",
+      "deleteCanntSubMenu":"不允许删除：存在子菜单"
     }
   }
 }

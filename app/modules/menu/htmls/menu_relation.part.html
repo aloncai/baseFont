@@ -1,16 +1,18 @@
 
 <div class="modal-header">
-	<h4 class="modal-title">层级关系</h4>
+	<h4 class="modal-title">{{$root.i18n.menu.levelRelation}}</h4>
 </div>
 <div class="modal-body" >
 	<form class="form-horizontal">
 		<div class="col-sm-4 col-sm-offset-1" ng-repeat="parentMenu in relationMenuList">
 			<dl class="list-inline">
-				<dt >{{parentMenu.name}}
-					<i ng-if="parentMenu.status === 1" class="icon-trash icon-large"  uib-tooltip="已废弃"></i>
+				<dt  ng-class="parentMenu.status === 1 ? 'text-danger' : ''">
+					{{parentMenu.name}}
+					<i ng-if="parentMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
 				</dt>
-				<dd ng-repeat="subMenu in parentMenu.subMenuList">{{subMenu.name}}&nbsp;(地址：{{subMenu.url}})
-					<i ng-if="subMenu.status === 1" class="icon-trash icon-large"  uib-tooltip="已废弃"></i>
+				<dd ng-repeat="subMenu in parentMenu.subMenuList" ng-class="subMenu.status === 1 ? 'text-danger' : ''">
+					{{subMenu.name + ' ( ' + subMenu.url + ' )'}}
+					<i ng-if="subMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
 				</dd>
 			</dl>
 		</div>
@@ -18,5 +20,5 @@
 	</form>
 </div>
 <div class="modal-footer">
-	<button class="btn btn-primary" type="button" ng-click="cancel()">{{$root.global.dictionary.public.label.ok}}</button>
+	<button class="btn btn-primary" type="button" ng-click="cancel()">{{$root.i18n.public.ok}}</button>
 </div>

@@ -10,19 +10,19 @@
 	<div class="page-body">
 		<form class="form-horizontal">
 			<div class="form-group col-sm-4">
-				<label class="control-label col-sm-4">菜单名:</label>
+				<label class="control-label col-sm-4">{{$root.i18n.menu.name}}:</label>
 				<div class="col-sm-8">
 					<input type="text" ng-model="entity.name" class="form-control" placeholder="{{$root.i18n.public.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-4">
-				<label class="control-label col-sm-4">菜单地址:</label>
+				<label class="control-label col-sm-4">{{$root.i18n.menu.url}}:</label>
 				<div class="col-sm-8">
 					<input type="text" ng-model="entity.url" class="form-control" placeholder="{{$root.i18n.public.likeQuery}}">
 				</div>
 			</div>
 			<div class="form-group col-sm-4">
-				<label class="control-label col-sm-4">状态:</label>
+				<label class="control-label col-sm-4">{{$root.i18n.public.status}}:</label>
 				<div class="col-sm-8">
 					<select class="form-control" ng-model="entity.status">
 						<option value="">&nbsp;</option>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="form-group col-sm-4">
-				<label class="control-label col-sm-4">级别:</label>
+				<label class="control-label col-sm-4">{{$root.i18n.menu.level}}:</label>
 				<div class="col-sm-8">
 					<input type="number" ng-model="entity.level" class="form-control">
 				</div>
@@ -45,7 +45,7 @@
 					<button type="submit" class="btn btn-primary form-control" ng-click="createUpdate()" ><i class="icon icon-plus"></i>{{$root.i18n.public.create}}</button>
 				</div>
 				<div class="col-sm-2 pull-right">
-					<button type="submit" class="btn btn-primary form-control" ng-click="levelRelation()" ><i class="icon icon-sitemap"></i>层级关系</button>
+					<button type="submit" class="btn btn-primary form-control" ng-click="levelRelation()" ><i class="icon icon-sitemap"></i>{{$root.i18n.menu.levelRelation}}</button>
 				</div>
 			</div>
 		</form>
@@ -53,14 +53,14 @@
 		<table class="table table-striped">
 			<header>
 				<th>#</th>
-				<th>菜单名</th>
-				<th>菜单地址</th>
-				<th>状态</th>
-				<th>级别</th>
-				<th>父菜单</th>
-				<th>创建人</th>
-				<th>创建时间</th>
-				<th>操作</th>
+				<th>{{$root.i18n.menu.name}}</th>
+				<th>{{$root.i18n.menu.url}}</th>
+				<th>{{$root.i18n.public.status}}</th>
+				<th>{{$root.i18n.menu.level}}</th>
+				<th>{{$root.i18n.menu.parentMenu}}</th>
+				<th>{{$root.i18n.public.createName}}</th>
+				<th>{{$root.i18n.public.createAt}}</th>
+				<th>{{$root.i18n.public.option}}</th>
 			</header>
 			<tbody>
 				<tr ng-if="!result.menuList  && page.totalCount !== 0">
@@ -72,7 +72,7 @@
 				</tr>
 				<tr ng-if="page.totalCount === 0">
 					<td colspan="40">
-						<div class="text-center">{{$root.global.dictionary.public.label.noData}}</div>
+						<div class="text-center">{{$root.i18n.public.noData}}</div>
 					</td>
 				</tr>
 			</tbody>
@@ -87,19 +87,19 @@
 					<td>{{menu.createName}}</td> 
 					<td>{{menu.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
 					<td>
-						<a href="javascript:;" ng-click="level(menu)">层级</a>
+						<a href="javascript:;" ng-click="level(menu)">{{$root.i18n.menu.optLevel}}</a>
 						<span ng-if="menu.status == 0">
 							<i class="text-divider">|</i>
-							<a href="javascript:;"  ng-click="changeStatus(menu,1)">废除</a>
+							<a href="javascript:;"  ng-click="changeStatus(menu,1)">{{$root.i18n.menu.optAbolish}}</a>
 						</span>
 						<span ng-if="menu.status == 1">
 							<i class="text-divider">|</i>
-							<a href="javascript:;"  ng-click="changeStatus(menu,0)">启用</a> 
-							<!--<i class="text-divider">|</i>
-							<a href="javascript:;"  ng-click="delete(menu)">删除</a> -->
+							<a href="javascript:;"  ng-click="changeStatus(menu,0)">{{$root.i18n.menu.optNormal}}</a> 
+							<i class="text-divider">|</i>
+							<a href="javascript:;"  ng-click="delete(menu)">删除</a>
 						</span>
 						<i class="text-divider">|</i>
-						<a href="javascript:;"  ng-click="createUpdate(menu)">修改</a>
+						<a href="javascript:;"  ng-click="createUpdate(menu)">{{$root.i18n.public.update}}</a>
 					</td>
 				</tr>
 			</tbody>
