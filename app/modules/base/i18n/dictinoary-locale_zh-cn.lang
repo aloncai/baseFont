@@ -1,6 +1,6 @@
 {
   "my": {
-    "system":"直销管理平台",
+    "system": "直销管理平台",
     "public": {
       "home": "主页",
       "noChange": "未做更改",
@@ -72,30 +72,42 @@
       "logTypeUpdate": "更新用户信息",
       "logTypeCreate": "创建用户",
       "userDetail": "用户详情",
-      "userIdCreateHodler":"建议使用邮箱，手机号"
+      "userIdCreateHodler": "建议使用邮箱，手机号"
     },
     "menu": {
-      "menu":"菜单",
+      "menu": "菜单",
       "statusNormal": "已启用",
       "statusAbolish": "已废弃",
       "changeConfirm": "确定将菜单",
       "deleteConfirm": "删除后将不能恢复",
-      "statusNormal": "已启用",
-      "name":"菜单名",
-      "url":"菜单地址",
-      "urlHolder":"#号后面的部分(eg:/user/userList)",
-      "level":"级别",
-      "levelOne":"一级",
-      "levelTwo":"二级",
-      "levelRelation":"层级关系",
-      "parentMenu":"父菜单",
-      "optAbolish":"废弃",
-      "optNormal":"启用",
-      "optLevel":"层级",
-      "thisMenu":"当前菜单",
-      "deleteNotExist":"菜单不存在",
-      "deleteCanntNormal":"不允许删除：已启动菜单",
-      "deleteCanntSubMenu":"不允许删除：存在子菜单"
+      "name": "菜单名",
+      "url": "菜单地址",
+      "urlHolder": "#号后面的部分(eg:/user/userList)",
+      "level": "级别",
+      "levelOne": "一级",
+      "levelTwo": "二级",
+      "levelRelation": "层级关系",
+      "parentMenu": "父菜单",
+      "optAbolish": "废弃",
+      "optNormal": "启用",
+      "optLevel": "层级",
+      "thisMenu": "当前菜单",
+      "deleteNotExist": "菜单不存在",
+      "deleteCanntNormal": "不允许删除：已启动菜单",
+      "deleteCanntSubMenu": "不允许删除：存在子菜单"
+    }
+  },
+  "lib": {
+    "uibPagination": {
+      "firstText": "首页",
+      "previousText": "上一页",
+      "nextText": "下一页",
+      "lastText": "尾页"
+    },
+    "uibDatepickerPopup":{
+      "clearText":"清除",
+      "closeText":"确定",
+      "currentText":"今天"
     }
   }
 }

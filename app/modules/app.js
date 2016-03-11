@@ -4,25 +4,20 @@
 var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies', "ui.bootstrap", "ngSanitize", "ngResource"];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
-    
-// 拦截器注入
-baseFontApp.config(function ($httpProvider) {
-    // POST method use x-www-form-urlencoded Content-Type
-    //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
-    $httpProvider.interceptors.push('httpInterceptor');
-});
 
 // 国际化多语言支持
-baseFontApp.run(function ($rootScope, $cookies, $resource) {
+baseFontApp.run(function ($rootScope, $cookies, $resource, uibPaginationConfig, uibDatepickerPopupConfig) {
   if($rootScope.global === undefined){
         $rootScope.global = {};
     }
+    // 加载语言总入口
     $rootScope.loadLangue = function(){
         $resource($rootScope.lang.path).get(function(res){
         	$rootScope.i18n = res.my;
+            $rootScope.initLib(res.lib);
         });
     };
+    // 加载语言列表
     $rootScope.loadLangueList = function(){
         $.ajax({
             type: "get",
@@ -40,6 +35,16 @@ baseFontApp.run(function ($rootScope, $cookies, $resource) {
             }
         });
     };
+    // 加载插件语言
+    $rootScope.initLib = function(lib){
+        // 加载分页控件
+        angular.extend(uibPaginationConfig, lib.uibPagination);
+        // 加载日期控件
+        angular.extend(uibDatepickerPopupConfig, lib.uibDatepickerPopup);
+        
+    };
+
+    //加载语言
     $rootScope.loadLangueList();
 });
 

@@ -1,5 +1,3 @@
-
-
 //$http拦截器
 baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cookies, Flash) {
     var httpInterceptor = {
@@ -49,28 +47,27 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cook
 
 });
 
-
-//确认框
-baseFontApp.factory('popup', function ($uibModal) {
-    return {
-        confim : function(title,msg){
-            return $uibModal.open({
-                animation : true,
-                templateUrl : '/app/modules/base/htmls/confim.part.html',
-                controller : function($scope, $uibModalInstance){
-                    $scope.title = title;
-                    $scope.msg = msg;
-
-                    $scope.ok = function () {
-                        $uibModalInstance.close("ok");
-                    };
-
-                    $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
-                    };
-
-                    }
-            });
-        }
-};
+// 拦截器注入
+baseFontApp.config(function ($httpProvider) {
+    // POST method use x-www-form-urlencoded Content-Type
+    //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+    $httpProvider.interceptors.push('httpInterceptor');
 });
+
+// 分页配置 (ui.bootstrap.datepicker)
+baseFontApp.config(function (uibPaginationConfig) {
+    uibPaginationConfig.boundaryLinkNumbers = true;
+    uibPaginationConfig.rotate = true;
+});
+
+// 时间控件配置
+baseFontApp.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
+    uibDatepickerConfig.showWeeks = false;
+    uibDatepickerPopupConfig.datepickerPopup = 'yyyy-MM-dd';
+});
+
+
+
+
+
