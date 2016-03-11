@@ -35,15 +35,14 @@ baseFontApp.controller("userUpdateController", function ($rootScope, $scope, $lo
 			}
 		});
 		if(noChange){
-			Flash.create("info", $scope.public.label.noChange);
+			Flash.create("info", $rootScope.i18n.public.noChange);
 			$scope.ok();
 		}else{
 			reqParams.id = $scope.entity.id;
 			userService.update(reqParams).success(function(res){
-				Flash.create("info", $scope.public.label.update + $scope.public.label.successed);
+				Flash.create("info",  $rootScope.i18n.public.update +  $rootScope.i18n.public.successed);
 				$scope.ok();
 			}).error(function(rej){
-				Flash.create("danger", rej.data);
 			});
 		}
 
