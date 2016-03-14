@@ -50,6 +50,7 @@ baseFontApp.directive('csHeader', function () {
                     var expireDate = new Date();
                     expireDate.setDate(expireDate.getYear() + 100);
                     $cookies.putObject("lang", $rootScope.lang, {'expires': expireDate});
+
                 }
                 
             };
