@@ -21,11 +21,11 @@ baseFontApp.controller("userCreateController", function ($rootScope, $scope, $lo
 			userBirth : $scope.entity.userBirth.getTime()
 		};
 		userService.create(reqParams).success(function(res){
-			Flash.create('success', "创建成功");
+			Flash.create('success', $rootScope.i18n.public.create + $rootScope.i18n.public.successed);
 			$uibModalInstance.close('ok');
 		}).error(function(rej){
 			if(rej.code === 2){
-				Flash.create('danger', "用户ID已存在");
+				Flash.create('danger', $rootScope.i18n.user.createUserErrorExist);
 			}
 		});
 	};

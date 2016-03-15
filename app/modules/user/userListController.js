@@ -39,13 +39,14 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 
 	//更改状态
 	$scope.changeStatus = function(user, status){
-		var msg = '确定将用户：[<strong>' + user.userName + '</strong>]';
-		if(status === 0){
-			msg = msg + '解冻?';
+		var msg = $rootScope.i18n.user.changeConfirm + '：[<strong>' + user.userName + '</strong>]';
+		if(status === 1){
+			msg = msg + $rootScope.i18n.user.statusOptNormal +'?';
 		}else{
-			msg = msg + '冻结?';
+			msg = msg + $rootScope.i18n.user.statusOptFrozen +'?';
 		}
-		popup.confim('修改状态', msg).result.then(function(res){
+		var title = $rootScope.i18n.public.update + $rootScope.i18n.public.status;
+		popup.confim(title, msg).result.then(function(res){
 			userService.changeStatus(user.userId, status).success(function(res){
 				Flash.create('info', res.message);
 				$scope.query();

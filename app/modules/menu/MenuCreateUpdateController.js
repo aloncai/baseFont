@@ -90,7 +90,7 @@ baseFontApp.controller("menuCreateUpdateController", function ($rootScope, $scop
 			Flash.create('success', $rootScope.i18n.public.update + $rootScope.i18n.public.successed);
 			$uibModalInstance.close();
 		}).error(function(rej){
-			Flash.create('danger',rej.message);
+			//Flash.create('danger',rej.message);
 		});
 	};
 });

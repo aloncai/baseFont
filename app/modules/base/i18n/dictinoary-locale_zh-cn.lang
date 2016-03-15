@@ -72,7 +72,9 @@
       "logTypeUpdate": "更新用户信息",
       "logTypeCreate": "创建用户",
       "userDetail": "用户详情",
-      "userIdCreateHodler": "建议使用邮箱，手机号"
+      "userIdCreateHodler": "建议使用邮箱，手机号",
+      "createUserErrorExist":"用户ID已存在",
+      "changeConfirm": "确定将用户"
     },
     "menu": {
       "menu": "菜单",
