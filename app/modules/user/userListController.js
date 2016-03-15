@@ -93,8 +93,24 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 		}, function () {
 			//q取消按钮
 		});
-
 	};
+
+	//分配权限
+	$scope.authority = function(user){
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: '/app/modules/user/htmls/user_authority.part.html',
+			controller: 'userAuthorityController',
+			resolve: {
+				params: function () {
+					return {
+						user : user
+					};
+				}
+			}
+		});
+	};
+	
 
 
 });

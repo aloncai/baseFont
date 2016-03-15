@@ -87,14 +87,18 @@
 					<td>
 						<a href="#/user/userDetail/{{user.id}}"> {{$root.i18n.public.detail}}</a>
 
+						<span ng-if="user.status == 0">
+							<i class="text-divider">|</i>
+							<a href="javascript:;" ng-click="changeStatus(user,1)"> {{$root.i18n.user.statusOptNormal}}</a>
+						</span>
+						<span ng-if="user.status == 1">
+							<i class="text-divider" >|</i>
+							<a href="javascript:;" ng-click="changeStatus(user,0)"> {{$root.i18n.user.statusOptFrozen}}</a>
+							<i class="text-divider">|</i>
+							<a href="javascript:;" ng-click="update(user)"> {{$root.i18n.public.update}}</a>
+						</span>
 						<i class="text-divider">|</i>
-						<a href="javascript:;" ng-click="update(user)"> {{$root.i18n.public.update}}</a>
-
-						<i class="text-divider" ng-if="user.status == 0">|</i>
-						<a href="javascript:;" ng-if="user.status == 0" ng-click="changeStatus(user,1)"> {{$root.i18n.user.statusOptNormal}}</a>
-
-						<i class="text-divider" ng-if="user.status == 1">|</i>
-						<a href="javascript:;" ng-if="user.status == 1" ng-click="changeStatus(user,0)"> {{$root.i18n.user.statusOptFrozen}}</a>
+						<a href="javascript:;" ng-click="authority(user)"> {{$root.i18n.user.authority}}</a>
 					</td> 
 				</tr>
 			</tbody>

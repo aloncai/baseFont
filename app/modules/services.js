@@ -95,6 +95,14 @@ baseFontApp.service("userService", function ($http) {
                 dataType : 'json',
                 params : params
             });
+        },
+        authority : function(params){
+            return $http({
+                url : '/easyShopping/user/authority.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
+            });
         }
     };
 });
@@ -185,6 +193,15 @@ baseFontApp.service("roleService", function ($http) {
                 dataType : 'json',
                 params : params
             });
+        }, 
+        //用户列表
+        list : function (params) {
+            return $http({
+                url : '/easyShopping/role/list.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
         },
         //删除
         delete : function(id){
@@ -234,6 +251,31 @@ baseFontApp.service("roleService", function ($http) {
                 method : 'post',
                 dataType : 'json',
                 data : params
+            });
+        }
+    };
+});
+
+
+//用户角色关系
+baseFontApp.service("roleUserService", function ($http) {
+    return {
+        //用户列表
+        query : function (params) {
+            return $http({
+                url : '/easyShopping/roleUser/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        }, 
+        //用户列表
+        list : function (params) {
+            return $http({
+                url : '/easyShopping/roleUser/list.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
             });
         }
     };

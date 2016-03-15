@@ -1,0 +1,41 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">{{$root.i18n.user.authority}}</h4>
+</div>
+<div class="modal-body">
+	
+	<form class="form-horizontal">
+		<div class="form-group text-center">{{user.userName + '(' + user.userId + ')'}}</div>
+		<div class="page-breadcrumb breadcrumb">已拥有角色</div>
+		<div class="form-group">
+			<div class="col-sm-2" ng-repeat="role in userRoleList">
+				<input class="btn btn-default" type="button" ng-value="role.name" ng-click="removeRole(role)">
+			</div>
+		</div>
+		<div class="page-breadcrumb breadcrumb">未拥有角色</div>
+		<div class="form-group">
+			<div class="col-sm-2" ng-repeat="role in leftRoleList">
+				<input class="btn btn-default" type="button" ng-value="role.name" ng-click="addRole(role)">
+			</div>
+			
+		</div>
+		<div class="page-breadcrumb breadcrumb">权限菜单预览</div>
+		<div class="col-sm-4 col-sm-offset-1" ng-repeat="parentMenu in relationMenuList">
+			<dl class="list-inline">
+				<dt  ng-class="parentMenu.status === 1 ? 'text-danger' : ''">
+					{{parentMenu.name}}
+					<i ng-if="parentMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
+				</dt>
+				<dd ng-repeat="subMenu in parentMenu.subMenuList" ng-class="subMenu.status === 1 ? 'text-danger' : ''">
+					{{subMenu.name + ' ( ' + subMenu.url + ' )'}}
+					<i ng-if="subMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
+				</dd>
+			</dl>
+		</div>
+		<div class="clearfix"></div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled="form.$invalid">{{$root.i18n.public.ok}}</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">{{$root.i18n.public.cancel}}</button>
+</div>
