@@ -35,13 +35,19 @@
 		<div class="form-group">
 			<label class="control-label col-sm-3">{{$root.i18n.user.userBirth}}:</label>
 			<div class="col-sm-5">
-				<p class="input-group">
-					<input type="text" class="form-control" uib-datepicker-popup ng-model="entity.userBirth" is-open="popup2.opened" ng-required="true" />
-					<span class="input-group-btn">
-						<button type="button" class="btn btn-default" ng-click="popup2.opened=true"><i class="glyphicon glyphicon-calendar"></i></button>
+				<a class="dropdown-toggle " id="dropdown4" role="button" data-toggle="dropdown" >
+					<span class="input-group">
+						<input type="text" class="form-control" value="{{entity.userBirth | date:'yyyy-MM-dd'}}" />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ><i class="icon icon-calendar"></i></button>
+						</span>
 					</span>
-				</p>
-			</div>
+				</a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					<datetimepicker ng-model="entity.userBirth"
+					data-datetimepicker-config="{ dropdownSelector: '#dropdown4', minView:'day' }" ng-required="true" ></datetimepicker>
+				</ul>
+			</div> 
 		</div>
 	</form>
 </div>

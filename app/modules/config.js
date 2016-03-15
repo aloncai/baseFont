@@ -1,10 +1,10 @@
 //$http拦截器
 baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cookies, Flash) {
     var httpInterceptor = {
-            //请求拦截
-            request: function (config) {
-                return $q.when(config);
-          },
+        //请求拦截
+        request: function (config) {
+            return $q.when(config);
+        },
         //相应拦截
         response: function (res) {
             //请求成功
@@ -21,10 +21,10 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cook
             if(returnData.code === undefined || returnData.code === 200){
                 return res; 
             }else{
-                 return $q.reject(res);
-            }
-        },
-        requestError: function (rej) {
+               return $q.reject(res);
+           }
+       },
+       requestError: function (rej) {
             var data = {
                 "code": 500,
                 "data": $rootScope.i18n.network.request_error_tip
@@ -49,7 +49,6 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cook
 
 // 拦截器注入
 baseFontApp.config(function ($httpProvider) {
-    // POST method use x-www-form-urlencoded Content-Type
     //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
     $httpProvider.interceptors.push('httpInterceptor');
@@ -66,5 +65,3 @@ baseFontApp.config(function (uibDatepickerConfig, uibDatepickerPopupConfig) {
     uibDatepickerConfig.showWeeks = false;
     uibDatepickerPopupConfig.datepickerPopup = 'yyyy-MM-dd';
 });
-
-
