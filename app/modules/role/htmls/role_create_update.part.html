@@ -1,0 +1,38 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal" name="form">
+			<div class="form-group">
+				<label class="control-label col-sm-4">{{$root.i18n.role.name}}:</label>
+				<div class="col-sm-6">
+					<input type="text" ng-model="entity.name" class="form-control" maxlength="30" ng-required="true">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4">{{$root.i18n.public.status}}:</label>
+				<div class="col-sm-6">
+					<select class="form-control" ng-model="entity.status" ng-required="true">
+						<option value="0">{{$root.i18n.role.statusNormal}}</option>
+						<option value="1">{{$root.i18n.role.statusStop}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-4">{{$root.i18n.public.type}}:</label>
+				<div class="col-sm-6 ">
+					<label class="radio-inline control-label ">
+						<input type="radio" name="type" ng-model="entity.type" value="0" ng-disabled="!isCreate"> {{$root.i18n.role.typeCommon}}
+					</label>
+					<label class="radio-inline control-label ">
+						<input type="radio" name="type" ng-model="entity.type" value="1" ng-disabled="!isCreate"> {{$root.i18n.role.typeAdmin}}
+					</label>
+				</div>
+			</div>
+		</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled="form.$invalid">{{$root.i18n.public.ok}}</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">{{$root.i18n.public.cancel}}</button>
+</div>

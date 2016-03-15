@@ -1,0 +1,92 @@
+<div class="filter clearfix basis-module">
+	<div class="page-header">
+		<ol class="breadcrumb">
+			<li><a href="#/welcome"><h1><i class="icon icon-home"></i>{{$root.i18n.public.home}}<h1></a></li>
+			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
+			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
+		</ol>
+	</div>
+
+	<div class="page-body">
+		<form class="form-horizontal">
+			<div class="form-group col-sm-4">
+				<label class="control-label col-sm-4">{{$root.i18n.role.name}}:</label>
+				<div class="col-sm-8">
+					<input type="text" ng-model="entity.name" class="form-control" placeholder="{{$root.i18n.public.likeQuery}}">
+				</div>
+			</div>
+			<div class="form-group col-sm-4">
+				<label class="control-label col-sm-4">{{$root.i18n.public.status}}:</label>
+				<div class="col-sm-8">
+					<select class="form-control" ng-model="entity.status">
+						<option value="">&nbsp;</option>
+						<option value="0">{{$root.i18n.role.statusNormal}}</option>
+						<option value="1">{{$root.i18n.role.statusStop}}</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group col-sm-12">
+				<div class="col-sm-2 pull-right">
+					<button type="submit" class="btn btn-primary form-control" ng-click="query()" ng-disabled="entity.querying"><span class="add-on"><i class="icon icon-search"></i></span>{{$root.i18n.public.query}}</button>
+				</div>
+				<div class="col-sm-2 pull-right">
+					<button type="submit" class="btn btn-primary form-control" ng-click="createUpdate()" ><i class="icon icon-plus"></i>{{$root.i18n.public.create}}</button>
+				</div>
+			</div>
+		</form>
+		<br />
+		<table class="table table-striped">
+			<header>
+				<th>#</th>
+				<th>{{$root.i18n.role.name}}</th>
+				<th>{{$root.i18n.public.status}}</th>
+				<th>{{$root.i18n.public.type}}</th>
+				<th>{{$root.i18n.public.createName}}</th>
+				<th>{{$root.i18n.public.createAt}}</th>
+				<th>{{$root.i18n.public.option}}</th>
+			</header>
+			<tbody>
+				<tr ng-if="!result.roleList  && page.totalCount !== 0">
+					<td class="loading-holder" colspan="40">
+						<div class="text-center">
+							<span ><i class="icon icon-spinner icon-spin"></i></span>
+						</div>
+					</td>
+				</tr>
+				<tr ng-if="page.totalCount === 0">
+					<td colspan="40">
+						<div class="text-center">{{$root.i18n.public.noData}}</div>
+					</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr ng-repeat="role in result.roleList">
+					<td >{{$index + 1 + (page.pageNo - 1) * page.pageSize}}</td>
+					<td>{{role.name}}</td>
+					<td>{{role.status | roleStatusFilter }}</td> 
+					<td>{{role.type | roleTypeFilter}}</td> 
+					<td>{{role.createName}}</td> 
+					<td>{{role.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+					<td>
+						<a href="javascript:;"  ng-click="createUpdate(role)">{{$root.i18n.public.update}}</a>
+						<span ng-if="role.status == 0">
+							<i class="text-divider">|</i>
+							<a href="javascript:;"  ng-click="changeStatus(role,1)">{{$root.i18n.role.optStatusStop}}</a>
+						</span>
+						<span ng-if="role.status == 1">
+							<i class="text-divider">|</i>
+							<a href="javascript:;"  ng-click="changeStatus(role,0)">{{$root.i18n.role.optStatusNormal}}</a> 
+							<i class="text-divider">|</i>
+							<a href="javascript:;"  ng-click="delete(role)">删除</a>
+						</span>
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="page-footer">
+		<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="query()"  max-size="5" class="pagination-sm pull-right"></uib-pagination>
+	</div>
+</div>

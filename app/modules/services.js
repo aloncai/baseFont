@@ -172,3 +172,69 @@ baseFontApp.service("menuService", function ($http) {
         }
     };
 });
+
+
+//角色信息
+baseFontApp.service("roleService", function ($http) {
+    return {
+        //用户列表
+        query : function (params) {
+            return $http({
+                url : '/easyShopping/role/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        },
+        //删除
+        delete : function(id){
+            return $http({
+                url : '/easyShopping/role/delete.json',
+                method : 'post',
+                dataType : 'json',
+                data : id
+            });
+        },
+        //创建
+        create : function(params){
+            return $http({
+                url : '/easyShopping/role/create.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
+            });
+        },
+        //获取详情
+        detail : function(id){
+            return $http({
+                url : '/easyShopping/role/getById.json',
+                method : 'get',
+                dataType : 'json',
+                params : {
+                    "id" : id
+                }
+            });
+        },
+        //修改状态 
+        changeStatus : function(roleId, status){
+            return $http({
+                url : '/easyShopping/role/update.json',
+                method : 'post',
+                dataType : 'json',
+                data : {
+                    "id" : roleId,
+                    "status" : status
+                }
+            });
+        },
+        //修改
+        update : function(params){
+            return $http({
+                url : '/easyShopping/role/update.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
+            });
+        }
+    };
+});

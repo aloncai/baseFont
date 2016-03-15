@@ -26,6 +26,10 @@ baseFontApp.config( function ($routeProvider) {
             controller:'menuListController',
             templateUrl:'/app/modules/menu/htmls/menu_list.html'
         })
+        .when('/role/roleList', {
+            controller:'roleListController',
+            templateUrl:'/app/modules/role/htmls/role_list.html'
+        })
         .otherwise({
             templateUrl: "/app/modules/base/htmls/unknow.part.html"
         })

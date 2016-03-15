@@ -97,6 +97,19 @@
       "deleteNotExist": "菜单不存在",
       "deleteCanntNormal": "不允许删除：已启动菜单",
       "deleteCanntSubMenu": "不允许删除：存在子菜单"
+    },
+    "role": {
+      "role":"角色",
+      "name": "角色名",
+      "statusNormal": "已启用",
+      "statusStop": "已停用",
+      "optStatusNormal": "启用",
+      "optStatusStop": "停用",
+      "typeCommon":"普通角色",
+      "typeAdmin":"超级管理员",
+      "changeConfirm":"确定将角色",
+      "deleteConfirm": "删除后将不能恢复",
+      "deleteCanntExistMenu": "用户正在使用该角色，不允许删除."
     }
   },
   "lib": {
