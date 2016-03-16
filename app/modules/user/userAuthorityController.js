@@ -11,7 +11,7 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 		$uibModalInstance.dismiss('cancel');
 	};
 	//获取全部角色
-	roleService.list({status : 0}).success(function(res){
+	roleService.list().success(function(res){
 		$scope.allRoleList = res.data;
 		$scope.userRoleList = [];
 		$scope.leftRoleList = [];

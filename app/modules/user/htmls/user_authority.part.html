@@ -9,13 +9,16 @@
 		<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.ownAuthority}}</div>
 		<div class="form-group">
 			<div class="col-sm-2" ng-repeat="role in userRoleList">
-				<input class="btn btn-default" type="button" ng-value="role.name" ng-click="removeRole(role)">
+				
+				<input class="btn btn-default" type="button" ng-if="role.status == 0" ng-value="role.name" ng-click="removeRole(role)">
+				<input class="btn btn-warning" type="button" ng-if="role.status == 1" ng-value="role.name" ng-click="removeRole(role)" uib-tooltip="{{$root.i18n.menu.statusAbolish}}">
 			</div>
 		</div>
 		<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.notOwnAuthority}}</div>
 		<div class="form-group">
 			<div class="col-sm-2" ng-repeat="role in leftRoleList">
-				<input class="btn btn-default" type="button" ng-value="role.name" ng-click="addRole(role)">
+				<input class="btn btn-default" type="button" ng-if="role.status == 0" ng-value="role.name" ng-click="addRole(role)">
+				<input class="btn btn-warning" type="button" ng-if="role.status == 1" ng-value="role.name" ng-click="addRole(role)" uib-tooltip="{{$root.i18n.menu.statusAbolish}}" ng-disabled="true">
 			</div>
 			
 		</div>
