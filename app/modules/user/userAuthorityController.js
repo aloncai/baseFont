@@ -1,6 +1,6 @@
 /* 用户授权 */
 
-baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, $location, Flash, roleUserService, roleService, $uibModalInstance, params) {
+baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, $location, Flash, roleUserService, menuService, roleService, $uibModalInstance, params) {
 
 	$scope.user = params.user;
 	$scope.ok = function () {
@@ -30,6 +30,7 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 					$scope.leftRoleList.push(role);
 				}
 			});
+			$scope.loadMenu();
 		});
 	});
 	
@@ -45,6 +46,7 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 		}
 		$scope.userRoleList.splice(index, 1);
 		$scope.leftRoleList.push(role);
+		$scope.loadMenu();
 	};
 
 	//分配角色
@@ -58,7 +60,31 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 			}
 		}
 		$scope.leftRoleList.splice(index, 1);
+		$scope.loadMenu();
 	};
+
+	$scope.loadMenu = function(){
+		var roleIds = [];
+		for(var i = 0; i < $scope.userRoleList.length; i++){
+			roleIds.push($scope.userRoleList[i].id);
+		}
+		menuService.getByRoleIds(roleIds).success(function(res){
+			$scope.relationMenuList = [];
+			//目前只支持两级目录
+	        angular.forEach(res.data, function(menu){
+	            if(menu.level === 1){
+	                $scope.relationMenuList.push(menu);
+	                menu.subMenuList = [];
+	                angular.forEach(res.data, function(subMenu){
+	                    if(subMenu.parentId === menu.id){
+	                        menu.subMenuList.push(subMenu);
+	                    }
+	                });
+	            }
+	        });
+		});
+	}
+	
 
 	//保存更改
 	$scope.save = function(){

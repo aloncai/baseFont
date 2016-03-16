@@ -169,6 +169,17 @@ baseFontApp.service("menuService", function ($http) {
                 dataType : 'json',
                 data : params
             });
+        },
+        //根据roleIds获取菜单列表
+        getByRoleIds : function(roleIdList){
+            return $http({
+                url : '/easyShopping/menu/getByRoleIds.json',
+                method : 'get',
+                dataType : 'json',
+                params : {
+                    roleIds : roleIdList
+                }
+            });
         }
     };
 });
