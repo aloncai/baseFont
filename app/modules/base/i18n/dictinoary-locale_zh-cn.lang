@@ -113,7 +113,12 @@
       "typeAdmin":"超级管理员",
       "changeConfirm":"确定将角色",
       "deleteConfirm": "删除后将不能恢复",
-      "deleteCanntExistMenu": "用户正在使用该角色，不允许删除."
+      "deleteCanntExistMenu": "用户正在使用该角色，不允许删除",
+      "distributeMenu":"分配菜单",
+      "ownMenu":"已拥有的菜单",
+      "notOwnMenu":"未拥有的菜单",
+      "distributeAdd":"增加",
+      "distributeDelete":"增加"
     }
   },
   "lib": {

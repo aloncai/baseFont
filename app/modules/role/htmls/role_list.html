@@ -74,6 +74,10 @@
 							<i class="text-divider">|</i>
 							<a href="javascript:;"  ng-click="changeStatus(role,1)">{{$root.i18n.role.optStatusStop}}</a>
 						</span>
+						<span ng-if="role.status == 0 && role.type != 1">
+							<i class="text-divider">|</i>
+							<a href="javascript:;"  ng-click="distributeMenu(role)">{{$root.i18n.role.distributeMenu}}</a>
+						</span>
 						<span ng-if="role.status == 1">
 							<i class="text-divider">|</i>
 							<a href="javascript:;"  ng-click="changeStatus(role,0)">{{$root.i18n.role.optStatusNormal}}</a> 

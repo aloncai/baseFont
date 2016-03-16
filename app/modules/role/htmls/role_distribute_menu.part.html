@@ -1,0 +1,49 @@
+
+<div class="modal-header">
+	<h4 class="modal-title">{{$root.i18n.role.distributeMenu}}</h4>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal">
+		<div class="form-group text-center">{{role.name}}</div>
+
+		<div class="page-breadcrumb breadcrumb">{{$root.i18n.role.distributeMenu}}</div>
+		<div class="col-sm-4 col-sm-offset-1" ng-repeat="parentMenu in relationMenuList">
+			<dl class="list-inline">
+				<dt class="form-group">
+					<span ng-if="parentMenu.status === 1" style="cursor:not-allowed" uib-tooltip="{{$root.i18n.menu.statusAbolish}}" class="text-danger">
+						<span>
+      						<input type="checkbox" ng-disabled="!parentMenu.ok" ng-model="parentMenu.ok"> {{parentMenu.name}}
+							<i class="icon icon-double-angle-up icon-large" ></i>
+    					</span>
+						
+					</span>
+					<span ng-if="parentMenu.status === 0" style="cursor:pointer" ng-click="toggleMenu(parentMenu)"> 
+						<span>
+      						<input type="checkbox" ng-model="parentMenu.ok"> {{parentMenu.name}}
+    					</span>
+					</span>
+					
+				</dt>
+				<dd ng-repeat="subMenu in parentMenu.subMenuList">
+					<span ng-if="subMenu.status === 1" style="cursor:not-allowed" uib-tooltip="{{$root.i18n.menu.statusAbolish}}" class="text-danger">
+						<span>
+      						<input type="checkbox" ng-disabled="!subMenu.ok" ng-model="subMenu.ok"> {{subMenu.name + ' ( ' + subMenu.url + ' )'}}
+							<i class="icon icon-remove-circle icon-large"></i>
+    					</span>
+						
+					</span>
+					<span ng-if="subMenu.status === 0" style="cursor:pointer" ng-click="toggleMenu(subMenu)"> 
+						<span>
+      						<input type="checkbox" ng-model="subMenu.ok"> {{subMenu.name + ' ( ' + subMenu.url + ' )'}}
+    					</span>
+					</span>
+				</dd>
+			</dl>
+		</div>
+		<div class="clearfix"></div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="ok()" ng-disabled="form.$invalid">{{$root.i18n.public.ok}}</button>
+	<button class="btn btn-default" type="button" ng-click="cancel()">{{$root.i18n.public.cancel}}</button>
+</div>

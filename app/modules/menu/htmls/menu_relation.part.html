@@ -6,7 +6,7 @@
 	<form class="form-horizontal">
 		<div class="col-sm-4 col-sm-offset-1" ng-repeat="parentMenu in relationMenuList">
 			<dl class="list-inline">
-				<dt  ng-class="parentMenu.status === 1 ? 'text-danger' : ''">
+				<dt class="form-group"  ng-class="parentMenu.status === 1 ? 'text-danger' : ''">
 					{{parentMenu.name}}
 					<i ng-if="parentMenu.status === 1" class="icon-remove-circle icon-large"  uib-tooltip="{{$root.i18n.menu.statusAbolish}}"></i>
 				</dt>

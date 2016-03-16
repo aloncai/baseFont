@@ -280,3 +280,36 @@ baseFontApp.service("roleUserService", function ($http) {
         }
     };
 });
+
+
+//菜单角色关系
+baseFontApp.service("roleMenuService", function ($http) {
+    return {
+        //用户列表
+        query : function (params) {
+            return $http({
+                url : '/easyShopping/roleMenu/page.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        }, 
+        //用户列表
+        list : function (params) {
+            return $http({
+                url : '/easyShopping/roleMenu/list.json',
+                method : 'get',
+                dataType : 'json',
+                params : params
+            });
+        },
+        distributeMenu : function(params){
+            return $http({
+                url : '/easyShopping/roleMenu/distributeMenu.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
+            });
+        }
+    };
+});

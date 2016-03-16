@@ -85,4 +85,19 @@ baseFontApp.controller("roleListController", function ($rootScope, $scope, $loca
 			$scope.query();
 		});
 	};
+
+	//分配菜单
+	$scope.distributeMenu = function(role){
+		var modalInstance = $uibModal.open({
+			animation: true,
+			templateUrl: '/app/modules/role/htmls/role_distribute_menu.part.html',
+			controller: 'roleDistributeMenuController',
+			size : 'lg',
+			resolve: {
+				params: function () {
+					return role;
+				}
+			}
+		});
+	};
 });
