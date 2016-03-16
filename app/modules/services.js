@@ -95,14 +95,6 @@ baseFontApp.service("userService", function ($http) {
                 dataType : 'json',
                 params : params
             });
-        },
-        authority : function(params){
-            return $http({
-                url : '/easyShopping/user/authority.json',
-                method : 'post',
-                dataType : 'json',
-                data : params
-            });
         }
     };
 });
@@ -276,6 +268,14 @@ baseFontApp.service("roleUserService", function ($http) {
                 method : 'get',
                 dataType : 'json',
                 params : params
+            });
+        },
+        authority : function(params){
+            return $http({
+                url : '/easyShopping/roleUser/authority.json',
+                method : 'post',
+                dataType : 'json',
+                data : params
             });
         }
     };

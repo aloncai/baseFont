@@ -1,6 +1,6 @@
 /* 用户授权 */
 
-baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, $location, Flash, userService, roleUserService, roleService, $uibModalInstance, params) {
+baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, $location, Flash, roleUserService, roleService, $uibModalInstance, params) {
 
 	$scope.user = params.user;
 	$scope.ok = function () {
@@ -66,16 +66,16 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 			userId : $scope.user.userId,
 			userName : $scope.user.userName,
 			roleList : []
-		}
+		};
 		for(var i = 0; i < $scope.userRoleList.length; i++){
 			params.roleList[i] = {
 				id : $scope.userRoleList[i].id,
 				name : $scope.userRoleList[i].name
-			}
+			};
 		}
-		userService.authority(params).success(function(res){
+		roleUserService.authority(params).success(function(res){
 			Flash.create("success", res.message);
 			$uibModalInstance.dismiss('cancel');
 		});	
-	}
+	};
 });
