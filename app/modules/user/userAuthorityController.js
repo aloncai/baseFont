@@ -74,7 +74,7 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 			};
 		}
 		roleUserService.authority(params).success(function(res){
-			Flash.create("success", res.message);
+			Flash.create("success", $rootScope.i18n.user.AuthorityView + $rootScope.i18n.public.successed);
 			$uibModalInstance.dismiss('cancel');
 		});	
 	};

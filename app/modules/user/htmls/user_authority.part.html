@@ -6,20 +6,20 @@
 	
 	<form class="form-horizontal">
 		<div class="form-group text-center">{{user.userName + '(' + user.userId + ')'}}</div>
-		<div class="page-breadcrumb breadcrumb">已拥有角色</div>
+		<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.ownAuthority}}</div>
 		<div class="form-group">
 			<div class="col-sm-2" ng-repeat="role in userRoleList">
 				<input class="btn btn-default" type="button" ng-value="role.name" ng-click="removeRole(role)">
 			</div>
 		</div>
-		<div class="page-breadcrumb breadcrumb">未拥有角色</div>
+		<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.notOwnAuthority}}</div>
 		<div class="form-group">
 			<div class="col-sm-2" ng-repeat="role in leftRoleList">
 				<input class="btn btn-default" type="button" ng-value="role.name" ng-click="addRole(role)">
 			</div>
 			
 		</div>
-		<div class="page-breadcrumb breadcrumb">权限菜单预览</div>
+		<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.AuthorityView}}</div>
 		<div class="col-sm-4 col-sm-offset-1" ng-repeat="parentMenu in relationMenuList">
 			<dl class="list-inline">
 				<dt  ng-class="parentMenu.status === 1 ? 'text-danger' : ''">

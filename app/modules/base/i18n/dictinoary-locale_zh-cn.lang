@@ -75,7 +75,10 @@
       "userIdCreateHodler": "建议使用邮箱，手机号",
       "createUserErrorExist":"用户ID已存在",
       "changeConfirm": "确定将用户",
-      "authority" : "分配权限"
+      "authority" : "分配权限",
+      "ownAuthority" : "已拥有角色",
+      "notOwnAuthority" : "未拥有角色",
+      "AuthorityView" : "权限菜单预览"
     },
     "menu": {
       "menu": "菜单",
