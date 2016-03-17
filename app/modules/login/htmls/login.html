@@ -9,13 +9,13 @@
         <div class="form-group">
             <label class="col-sm-4 control-label">{{$root.i18n.login.userId}}：</label>
             <div class="col-sm-6">
-                <input class="form-control" ng-model="entity.userId" type="text" placeholder="{{$root.i18n.login.userIdHolder}}">
+                <input class="form-control" ng-model="entity.userId" type="text" placeholder="{{$root.i18n.login.userIdHolder}}" maxlength="30">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-4 control-label">{{$root.i18n.login.passwd}}：</label>
             <div class="col-sm-6">
-                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="{{$root.i18n.login.passwdHolder}}">
+                <input class="form-control" ng-model="entity.passwd" type="password" placeholder="{{$root.i18n.login.passwdHolder}}" maxlength="30" ng-keyup="myKeyup($event)">
             </div>
         </div>
         <div class="form-group">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-sm btn-primary col-sm-10 col-sm-offset-1" value="{{$root.i18n.login.loginButton}}"
+            <input type="submit" ng-disabled="entity.userId == undefined || entity.passwd == undefined" class="btn btn-sm btn-primary col-sm-10 col-sm-offset-1" value="{{$root.i18n.login.loginButton}}"
             ng-click="login()">
         </div>
         <div class="form-group clearfix text-center">2016&copy;张凯（970776893@qq.com）</div>

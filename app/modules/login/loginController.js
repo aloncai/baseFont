@@ -13,12 +13,19 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
 
     $scope.entity = {
         logining : false, //避免用户重复请求
-        userId : 'zhangkai',
-        passwd: '123456'
+        //userId : 'zhangkai',
+        //passwd: '123456'
     };
     //背景图片
     $("body").css('background-image', 'url("/app/imgs/background_001.jpg")');
     $("body").addClass('body-img');
+
+    $scope.myKeyup = function(e){
+        var keycode = window.event ? e.keyCode : e.which;
+        if(keycode === 13){
+            $scope.login();
+        }
+    };
 
     //登陆操作
     $scope.login = function () {
@@ -26,6 +33,11 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
 
         var userId = $scope.entity.userId;
         var passwd = $scope.entity.passwd;
+        if(userId === undefined || passwd === undefined){
+            $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_empty;
+            $scope.entity.logining = false;
+            return ;
+        }
 
         loginService.login(userId, passwd).success(function (res) {
             //$scope.alert("登陆成功");
