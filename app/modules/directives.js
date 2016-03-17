@@ -24,7 +24,7 @@ baseFontApp.directive('csHeader', function () {
     return {
         restrict: 'A',
         templateUrl: '/app/modules/base/htmls/header.part.html',
-        controller: function($rootScope, $scope, $cookies, $location, $route, Flash, loginService, userService){
+        controller: function($rootScope, $scope, $cookies, $location, $route, Flash, loginService, menuService){
             //只有在登陆的时候才显示导航栏
             $rootScope.global.header = {};
             $rootScope.global.header.isShow = ($location.path() !== '/login' && $location.path() !== '/');
@@ -55,18 +55,12 @@ baseFontApp.directive('csHeader', function () {
                 
             };
            
-            $rootScope.loadMenu = function(userId){
+            $rootScope.loadMenu = function(){
                  $rootScope.global.menu = {
                     menuList : []
                 };
-                if(userId === undefined){
-                    userId = $cookies.getObject('userId');
-                }
-                var reqParams = {
-                    userId : userId || null,
-                    status : 0
-                };
-                userService.getUserMenu(reqParams).success(function(res){
+                userId = $cookies.getObject('userId');
+                menuService.getValidByUserId(userId).success(function(res){
                     var menuList = res.data;
                     //目前只支持两级目录
                     angular.forEach(menuList, function(menu){

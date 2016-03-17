@@ -87,14 +87,6 @@ baseFontApp.service("userService", function ($http) {
                 dataType : 'json',
                 params : params
             });
-        },
-        getUserMenu : function(params){
-            return $http({
-                url : '/easyShopping/menu/list.json',
-                method : 'get',
-                dataType : 'json',
-                params : params
-            });
         }
     };
 });
@@ -178,6 +170,17 @@ baseFontApp.service("menuService", function ($http) {
                 dataType : 'json',
                 params : {
                     roleIds : roleIdList
+                }
+            });
+        },
+        //根据roleIds获取菜单列表
+        getValidByUserId : function(userId){
+            return $http({
+                url : '/easyShopping/menu/getValidByUserId.json',
+                method : 'get',
+                dataType : 'json',
+                params : {
+                    userId : userId
                 }
             });
         }
