@@ -78,7 +78,8 @@
       "authority" : "分配权限",
       "ownAuthority" : "已拥有角色",
       "notOwnAuthority" : "未拥有角色",
-      "AuthorityView" : "权限菜单预览"
+      "AuthorityView" : "权限菜单预览",
+      "backUserList" : "返回用户列表"
     },
     "menu": {
       "menu": "菜单",

@@ -4,7 +4,7 @@
 			<li><a href="#/welcome"><h1><i class="icon-home"></i>{{$root.i18n.public.home}}<h1></a></li>
 			<li>{{$root.global.menu.nowMenu.parent.name}}</li>
 			<li><a href="#{{$root.global.menu.nowMenu.url}}">{{$root.global.menu.nowMenu.name}}</a></li>
-			<li>{{$root.global.dictionary.user.label.userDetail}}</li>
+			<li>{{$root.i18n.user.userDetail}}</li>
 		</ol>
 	</div>
 
@@ -119,5 +119,8 @@
 				<uib-pagination total-items="page.totalCount" ng-model="page.pageNo" items-per-page="page.pageSize" ng-change="queryLog()"  max-size="5" class="pagination-sm pull-right" ></uib-pagination>
 			</div>
 		</form>
+	</div>
+	<div class="page-footer">
+		<a class="btn btn-primary col-sm-4 col-sm-offset-4" type="button" href="#/user/userList">{{$root.i18n.user.backUserList}}</a>
 	</div>
 </div>
