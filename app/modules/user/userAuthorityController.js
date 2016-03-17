@@ -64,12 +64,15 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 	};
 
 	$scope.loadMenu = function(){
+		$scope.relationMenuList = [];
 		var roleIds = [];
 		for(var i = 0; i < $scope.userRoleList.length; i++){
 			roleIds.push($scope.userRoleList[i].id);
 		}
+		if(roleIds.length === 0){
+			return ;
+		}
 		menuService.getByRoleIds(roleIds).success(function(res){
-			$scope.relationMenuList = [];
 			//目前只支持两级目录
 	        angular.forEach(res.data, function(menu){
 	            if(menu.level === 1){
@@ -100,7 +103,7 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 			};
 		}
 		roleUserService.authority(params).success(function(res){
-			Flash.create("success", $rootScope.i18n.user.AuthorityView + $rootScope.i18n.public.successed);
+			Flash.create("success", $rootScope.i18n.user.authority + $rootScope.i18n.public.successed);
 			$uibModalInstance.dismiss('cancel');
 		});	
 	};
