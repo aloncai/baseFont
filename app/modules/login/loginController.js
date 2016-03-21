@@ -17,7 +17,8 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
         //passwd: '123456'
     };
     //背景图片
-    $("body").css('background-image', 'url("/app/imgs/background_001.jpg")');
+    var picNumber = parseInt(3*Math.random() + 1);
+    $("body").css('background-image', 'url("/app/imgs/background_' + picNumber + '.jpg")');
     $("body").addClass('body-img');
 
     $scope.myKeyup = function(e){

@@ -3,7 +3,7 @@ body {
     background-color: #FDFDFD;
 }
 .body-img {
-    background-image : url("/app/imgs/background_001.jpg");
+    background-image : url("/app/imgs/background_1.jpg");
     background-repeat:no-repeat;
     background-size: cover;
 }
