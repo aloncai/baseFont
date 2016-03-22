@@ -73,7 +73,7 @@
       "logTypeUpdate": "update user info",
       "logTypeCreate": "create user",
       "userDetail": "User Detail",
-      "userIdCreateHodler": "Suggest using mailbox, phone number",
+      "userIdCreateHodler": "Suggest mailbox or mobile",
       "createUserErrorExist":"User ID already exists",
       "changeConfirm": "Confirm set user",
       "authority" : "authority",
