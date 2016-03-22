@@ -20,7 +20,7 @@ baseFontApp.controller("roleDistributeMenuController", function ($rootScope, $sc
 					if(m.id === roleMenu.menuId){
 						m.ok = true;
 					}
-				})
+				});
 			});
 		});
 
@@ -81,11 +81,11 @@ baseFontApp.controller("roleDistributeMenuController", function ($rootScope, $sc
 					id : menu.id,
 					name : menu.name
 				});
-			};
+			}
 		}
 		roleMenuService.distributeMenu(params).success(function(res){
 			Flash.create("success", $rootScope.i18n.role.distributeMenu + $rootScope.i18n.public.successed);
 			$uibModalInstance.dismiss('cancel');
 		});	
-	}
+	};
 });

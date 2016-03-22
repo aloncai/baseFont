@@ -59,7 +59,7 @@ baseFontApp.directive('csHeader', function () {
                  $rootScope.global.menu = {
                     menuList : []
                 };
-                userId = $cookies.getObject('userId');
+                var userId = $cookies.getObject('userId');
                 menuService.getValidByUserId(userId).success(function(res){
                     var menuList = res.data;
                     //目前只支持两级目录

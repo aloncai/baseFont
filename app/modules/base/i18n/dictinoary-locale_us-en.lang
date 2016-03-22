@@ -1,68 +1,139 @@
 {
-
-    "session_timeout_tip":"Session has timeout,please relogin.",
-    "response_error_tip":"Service is unpappy!!!.",
-    "request_error_tip":"Connect error, please check you netword.",
-    "reLogin":"Login",
-    "pagination" : {
-        "label" : {
-            "nextText": "Next",
-            "previousText" :"Previous"
-        }
+  "my": {
+    "system": "DirSale Platform",
+    "footerMsg":"This project is to study, shall not be used for any commercial act, all rights and interests belong to the developer.",
+    "public": {
+      "home": "Home",
+      "noChange": "There's no any change",
+      "unKnow": "Unknow",
+      "ok": "OK",
+      "cancel": "Cancel",
+      "successed": "Successed",
+      "failed": "Failed",
+      "noData": "sorrry, there's no any data",
+      "query": "Query",
+      "update": "Update",
+      "create": "Create",
+      "delete": "Delete",
+      "option": "Option",
+      "status": "Status",
+      "content": "Content",
+      "type": "Type",
+      "detail": "Detail",
+      "createName": "Creator's Name",
+      "createAt": "Create At",
+      "likeQuery": "Fuzzy Query",
+      "notExist": "Not Exist"
     },
-
-    "header":{
-        "label":{
-            "changePasswd":"Change Passward",
-            "logout":"Logou",
-            "persionCenter":"Persion Center",
-            "changeLanguage":"Langue"
-        }
+    "network": {
+      "session_timeout_tip": "The session has timeout, please login Again",
+      "response_error_tip": "service is unhappy",
+      "request_error_tip": "network is off,please check it",
+      "reLogin": "Re-Login"
     },
-
-    "login":{
-        "login_failed_msg":"UserId or password is wrong.",
-        "login_success_msg":"Login success.",
-        "logout_failed_msg":"Logout error.",
-        "label":{
-            "userId":"UserId",
-            "passwd":"Password",
-            "remberMe":"Rember Me",
-            "loginButton":"Login"
-        },
-        "holder":{
-            "userId":"Please input userId",
-            "passwd":"Please input password"
-        }
+    "header": {
+      "changePasswd": "Change Password",
+      "logout": "Logout",
+      "persionCenter": "Persion Center",
+      "changeLanguage": "Change Language"
     },
-    "user":{
-        "label":{
-            "userId":"ID:",
-            "userName":"UserName:",
-            "userMobile":"UserMobile:",
-            "status":"Status:",
-            "statusNormal":"Normal",
-            "statusFrozen":"Frozen",
-            "query":"Search",
-            "table" : {
-                "noData": "sorry, there is nothing",
-                "th":{
-                    "userId":"ID",
-                    "userName":"UserName",
-                    "nickName":"NickName",
-                    "userMobile":"UserMobile",
-                    "status":"Status",
-                    "createBy":"CreateBy",
-                    "createAt":"CreateAt",
-                    "option":"Option"
-                }
-
-            }
-        },
-        "holder":{
-            "userName":"Fuzzy Query",
-            "userId":"Fuzzy Query",
-            "userMobile":"Fuzzy Query"
-        }
+    "login": {
+      "login_failed_msg_empty": "userId or password can't be empty",
+      "login_failed_msg_error": "userId or password is wrong",
+      "login_failed_msg_frozen": "accout has been frozen",
+      "login_success_msg": "login successed",
+      "logout_failed_msg": "logout error",
+      "userId": "UserId",
+      "passwd": "Password",
+      "userIdHolder": "pleanse input userId",
+      "passwdHolder": "pleanse input passowrd",
+      "remberMe": "Rember Me",
+      "loginButton": "Login"
+    },
+    "user": {
+      "userId": "ID",
+      "userName": "UserName",
+      "nickName": "NickName",
+      "userMobile": "Mobile",
+      "userBirth": "Date Of Birth",
+      "userSex": "Sex",
+      "userSexMale": "Male",
+      "userSexFemale": "Female",
+      "userSexSecret": "Secrecy",
+      "statusNormal": "Normal",
+      "statusFrozen": "Frozen",
+      "statusUnknow": "Unknow",
+      "statusOptNormal": "Unfreezing",
+      "statusOptFrozen": "Frozen",
+      "userInfo": "User Info",
+      "registerInfo": "Register Info",
+      "logInfo": "Log Info",
+      "logTypeChangePassword": "change password",
+      "logTypeLogin": "login",
+      "logTypeUpdate": "update user info",
+      "logTypeCreate": "create user",
+      "userDetail": "User Detail",
+      "userIdCreateHodler": "Suggest using mailbox, phone number",
+      "createUserErrorExist":"User ID already exists",
+      "changeConfirm": "Confirm set user",
+      "authority" : "authority",
+      "ownAuthority" : "Role owned",
+      "notOwnAuthority" : "Role not owned",
+      "AuthorityView" : "Menu owned Preview",
+      "backUserList" : "Returns the list of users"
+    },
+    "menu": {
+      "menu": "Menu",
+      "statusNormal": "Already enabled",
+      "statusAbolish": "Already Abolish",
+      "changeConfirm": "Confirm set menu",
+      "deleteConfirm": "Delete will not be restored",
+      "name": "Menu Name",
+      "url": "Menu Path",
+      "urlHolder": "The back part of #(eg:/user/userList)",
+      "level": "Level",
+      "levelOne": "Level one",
+      "levelTwo": "Level Two",
+      "levelRelation": "Level Relation",
+      "parentMenu": "Parent Menu",
+      "optAbolish": "Abolish",
+      "optNormal": "Enabled",
+      "optLevel": "Hierarchy",
+      "thisMenu": "Current menu",
+      "deleteNotExist": "Menu is not exist",
+      "deleteCanntNormal": "Not allowed to delete: Start Menu",
+      "deleteCanntSubMenu": "Not allowed to delete: there is a sub menu"
+    },
+    "role": {
+      "role":"Role",
+      "name": "Role Name",
+      "statusNormal": "Already enabled",
+      "statusStop": "Already stopped",
+      "optStatusNormal": "Enable",
+      "optStatusStop": "Stop",
+      "typeCommon":"Common Type",
+      "typeAdmin":"Admin Type",
+      "changeConfirm":"comfirm set role",
+      "deleteConfirm": "Delete will not be restored",
+      "deleteCanntExistMenu": "Users are using the role, not allowed to delete",
+      "distributeMenu":"Distribute Menu",
+      "ownMenu":"Owned menu",
+      "notOwnMenu":"Not owned menu",
+      "distributeAdd":"Add",
+      "distributeDelete":"Delete"
     }
+  },
+  "lib": {
+    "uibPagination": {
+      "firstText": "Home",
+      "previousText": "Previou",
+      "nextText": "Next",
+      "lastText": "Tail"
+    },
+    "uibDatepickerPopup":{
+      "clearText":"Cleaer",
+      "closeText":"OK",
+      "currentText":"Today"
+    }
+  }
 }

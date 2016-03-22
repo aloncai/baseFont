@@ -86,7 +86,7 @@ baseFontApp.controller("userAuthorityController", function ($rootScope, $scope, 
 	            }
 	        });
 		});
-	}
+	};
 	
 
 	//保存更改
