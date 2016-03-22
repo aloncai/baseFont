@@ -50,15 +50,9 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
             $cookies.putObject("nickName", res.data.nickName);
             $cookies.putObject("userName", res.data.userName);
 
-            //跳转
-            var path = $location.search().path;
-            if(path === undefined || path === '' || path === null){
-                path = "/welcome";
-            }
             //背景图片
             $("body").css('background-image', '');
             $("body").removeClass('body-img');
-            $location.url(path);
             //显示导航栏
             $rootScope.global.header.isShow = true;
             $rootScope.global.session = {
@@ -69,6 +63,13 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
             //加载菜单
             $rootScope.loadMenu();
             $scope.entity.logining = false;
+            
+            //跳转
+            var path = $location.search().path;
+            if(path === undefined || path === '' || path === null){
+                path = "/welcome";
+            }
+            $location.url(path);
         }).error(function (rej) {
             if(rej.code === 1){
                 $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_empty;

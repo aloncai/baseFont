@@ -11,7 +11,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <script src="<%=staticHost %>/js/moment-develop/moment.min.js"></script>
 
     <script src="<%=staticHost %>/js/jquery/1.12.0/jquery.min.js"></script>
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular.min.js"></script>
@@ -27,7 +26,9 @@
     <link rel="stylesheet" href="<%=staticHost %>/js/bootstrap/3.3.5/css/bootstrap.min.css"/>
 
     <link rel="stylesheet" href="<%=staticHost %>/js/font-awesome/3.2.1/font-awesome.min.css"/>
-
+    
+    <script src="<%=staticHost %>/js/moment-master/moment.js"></script>
+    <script src="<%=staticHost %>/js/moment-master/moment-with-locales.js"></script>
     <script src="<%=staticHost %>/js/angular-bootstrap-datetimepicker-master/js/datetimepicker.js"></script>
     <script src="<%=staticHost %>/js/angular-bootstrap-datetimepicker-master/js/datetimepicker.templates.js"></script>
     <link rel="stylesheet" href="<%=staticHost %>/js/angular-bootstrap-datetimepicker-master/css/datetimepicker.css"/>

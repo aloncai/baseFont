@@ -16,6 +16,7 @@
     "confirm": true,
     "prompt": true,
     "alert": true,
-    "console": true
+    "console": true,
+    "moment": true
   }
 }

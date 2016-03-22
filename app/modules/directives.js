@@ -43,7 +43,7 @@ baseFontApp.directive('csHeader', function () {
             };
             //切换语言
             $scope.changeLangue = function (langue) {
-                if($rootScope.lang.name !== langue.name){
+                if($rootScope.lang.id !== langue.id){
                     $rootScope.lang = langue;
                     $rootScope.loadLangue();
                     //cookie存100年,持久化到本地
@@ -56,13 +56,12 @@ baseFontApp.directive('csHeader', function () {
             };
            
             $rootScope.loadMenu = function(){
-                 $rootScope.global.menu = {
-                    menuList : []
-                };
+                 $rootScope.global.menu = {};
                 var userId = $cookies.getObject('userId');
                 menuService.getValidByUserId(userId).success(function(res){
                     var menuList = res.data;
                     //目前只支持两级目录
+                    $rootScope.global.menu.menuList = [];
                     angular.forEach(menuList, function(menu){
                         if(menu.level === 1){
                             $rootScope.global.menu.menuList.push(menu);

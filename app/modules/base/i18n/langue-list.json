@@ -1,9 +1,11 @@
 [
 	{
+		"id":"zh-CN",
 		"name":"简体中文",
 		"path":"/app/modules/base/i18n/dictinoary-locale_zh-cn.lang"
 	},
 	{
+		"id":"en-US",
 		"name":"English",
 		"path":"/app/modules/base/i18n/dictinoary-locale_us-en.lang"
 	}

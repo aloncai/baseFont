@@ -15,6 +15,7 @@ baseFontApp.run(function ($rootScope, $cookies, $resource, uibPaginationConfig, 
         $resource($rootScope.lang.path).get(function(res){
         	$rootScope.i18n = res.my;
             $rootScope.initLib(res.lib);
+            $rootScope.initMoment();
         });
     };
     // 加载语言列表
@@ -42,6 +43,10 @@ baseFontApp.run(function ($rootScope, $cookies, $resource, uibPaginationConfig, 
         // 加载日期控件
         angular.extend(uibDatepickerPopupConfig, lib.uibDatepickerPopup);
         
+    };
+    // 加载moment插件
+    $rootScope.initMoment = function(){
+        moment.locale($rootScope.lang.id);
     };
 
     //加载语言
