@@ -15,3 +15,9 @@
 &nbsp;&nbsp; * npm install<br/>
 4. 运行（grunt）进行构建（这是开发环境，实时监测代码变更并自动更新）<br/>
 5. 运行（grunt dist）进行构建（这是生产环境，取消实时监测，也不会自动更新）<br/>
+<br/>
+效果图：<br/>
+![image](http://git.oschina.net/wjzk/baseFont/raw/master/screenshots/Selection_001.png)<br/>
+![image](http://git.oschina.net/wjzk/baseFont/raw/master/screenshots/Selection_002.png)<br/>
+![image](http://git.oschina.net/wjzk/baseFont/raw/master/screenshots/Selection_003.png)<br/>
+![image](http://git.oschina.net/wjzk/baseFont/raw/master/screenshots/Selection_004.png)<br/>
