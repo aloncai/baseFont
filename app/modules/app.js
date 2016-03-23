@@ -1,7 +1,7 @@
 /* app的总入口，定制angularJS接入总配置  */
 //
 
-var dependencies = ['ngRoute', 'flash', 'ngAnimate', 'ngCookies', "ui.bootstrap", "ngSanitize", "ngResource", "ui.bootstrap.datetimepicker"];
+var dependencies = ['ngRoute', 'flash', 'angularFileUpload', 'ngAnimate', 'ngCookies', "ui.bootstrap", "ngSanitize", "ngResource", "ui.bootstrap.datetimepicker"];
 var baseFontApp = angular.module("baseFontApp", dependencies);
 
 

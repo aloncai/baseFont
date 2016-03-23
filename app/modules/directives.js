@@ -100,28 +100,45 @@ baseFontApp.directive('csHeader', function () {
     };
 });
 
-
-//确认框
-baseFontApp.factory('popup', function ($uibModal) {
+/* 图片上传模板 */
+baseFontApp.directive('imgUploader', function () {
     return {
-        confim : function(title,msg){
-            return $uibModal.open({
-                animation : true,
-                templateUrl : '/app/modules/base/htmls/confim.part.html',
-                controller : function($scope, $uibModalInstance){
-                    $scope.title = title;
-                    $scope.msg = msg;
-
-                    $scope.ok = function () {
-                        $uibModalInstance.close("ok");
-                    };
-
-                    $scope.cancel = function () {
-                        $uibModalInstance.dismiss('cancel');
-                    };
-
-                    }
+        restrict: 'AE',
+        scope: {},
+        require: ['ngModel'],
+        templateUrl: '/app/modules/base/htmls/img_upload.part.html',
+        link : function(scope, element, attrs,ctrls){
+            //console.log(scope);
+            var ngModel = ctrls[0];
+            scope.ngModel = ngModel;
+        },
+        controllerAs: 'imgUploader',
+        controller : function($scope, $rootScope, Flash, FileUploader) {
+            $scope.uploader = new FileUploader({
+                url: 'role/upload.json'
             });
+            $scope.uploader.onAfterAddingFile = function(fileItem) {
+                console.log(fileItem.progress);
+                $scope.fileItem = fileItem;
+                fileItem.upload();
+                $scope.$watch('fileItem.progress', function(value){
+                    if(value % 20 === 0 && value > 0){
+                        Flash.create("info", $rootScope.i18n.public.uploadProgress + value + '%', '1000');
+                    }
+                });
+            };
+            $scope.uploader.onSuccessItem = function(fileItem, response, status, headers) {
+                $scope.ngModel.$setViewValue(response);
+                Flash.create("success", "上传成功");
+            };
+            $scope.uploader.onErrorItem = function(fileItem, response, status, headers) {
+                if(status === 413){
+                    Flash.create("danger", "文件太大");
+                }else{
+                    Flash.create("danger", "上传失败");
+                }
+            };
         }
-};
+    };
 });
+

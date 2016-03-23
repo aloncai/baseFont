@@ -47,6 +47,31 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cook
 
 });
 
+//确认框
+baseFontApp.factory('popup', function ($uibModal) {
+    return {
+        confim : function(title,msg){
+            return $uibModal.open({
+                animation : true,
+                templateUrl : '/app/modules/base/htmls/confim.part.html',
+                controller : function($scope, $uibModalInstance){
+                    $scope.title = title;
+                    $scope.msg = msg;
+
+                    $scope.ok = function () {
+                        $uibModalInstance.close("ok");
+                    };
+
+                    $scope.cancel = function () {
+                        $uibModalInstance.dismiss('cancel');
+                    };
+
+                    }
+            });
+        }
+    };
+});
+
 // 拦截器注入
 baseFontApp.config(function ($httpProvider) {
     //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

@@ -23,7 +23,8 @@
       "createName": "创建人",
       "createAt": "创建时间",
       "likeQuery": "模糊查询",
-      "notExist": "不存在"
+      "notExist": "不存在",
+      "uploadProgress":"上传进度"
     },
     "network": {
       "session_timeout_tip": "回话已失效，请重新登陆。",

@@ -23,7 +23,8 @@
       "createName": "Creator's Name",
       "createAt": "Create At",
       "likeQuery": "Fuzzy Query",
-      "notExist": "Not Exist"
+      "notExist": "Not Exist",
+      "uploadProgress":"Upload Progress"
     },
     "network": {
       "session_timeout_tip": "The session has timeout, please login Again",
