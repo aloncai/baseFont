@@ -4,7 +4,9 @@ body {
 }
 .body-img {
     background-image : url("/app/imgs/background_1.jpg");
-    background-repeat:no-repeat;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
     background-size: cover;
 }
 
@@ -123,9 +125,11 @@ input.ng-invalid.ng-dirty:focus, textarea.ng-invalid.ng-dirty:focus { border-col
     width: 100px; 
     height: 100px;  
     border: dotted 3px lightgray; 
-}
-.upload-img img[src]:hover {
-     border: dotted 3px red; 
+    background-image : url("/app/imgs/pictures.png");
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 .upload-img input { 
     opacity: 0; 
@@ -134,16 +138,7 @@ input.ng-invalid.ng-dirty:focus, textarea.ng-invalid.ng-dirty:focus { border-col
     position: absolute; 
     top: 0; 
     left: 0; 
-    cursor: pointer; 
-}
-.upload-img div { 
-    opacity: 0; 
-    width: 100px; 
-    height: 20px; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .nv-file-over { border: dotted 3px red; }
