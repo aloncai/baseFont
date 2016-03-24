@@ -1,4 +1,4 @@
-<div class="upload-img">
-	<img src="{{ngModel.$viewValue.url}}"/>
-	<input type="file" nv-file-select nv-file-drop uploader="uploader"/>
+<div class="upload-img" style="width: {{width}};">
+	<img ng-src="{{imgUrl}}" style="width: {{width}};height: {{height}}"/>
+	<input type="file" nv-file-select nv-file-drop uploader="uploader" ng-disabled="{{isDisabled}}" style="width: {{width}};height: {{height}}"/>
 </div>

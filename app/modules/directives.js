@@ -100,17 +100,25 @@ baseFontApp.directive('csHeader', function () {
     };
 });
 
-/* 图片上传模板 */
+/* 图片上传模板 
+eg : <img-uploader ng-model="entity.img" width="200px" height="200px" disabled="false" src="/app/imgs/background_1.jpg"></img-uploader>
+*/
 baseFontApp.directive('imgUploader', function () {
     return {
         restrict: 'AE',
-        scope: {},
+        scope: {
+            width : '@width',
+            height : '@height',
+            isDisabled : '@disabled',
+            src : '@src'
+        },
         require: ['ngModel'],
         templateUrl: '/app/modules/base/htmls/img_upload.part.html',
         link : function(scope, element, attrs,ctrls){
             //console.log(scope);
             var ngModel = ctrls[0];
             scope.ngModel = ngModel;
+            scope.imgUrl = scope.src;
         },
         controllerAs: 'imgUploader',
         controller : function($scope, $rootScope, Flash, FileUploader) {
@@ -118,7 +126,6 @@ baseFontApp.directive('imgUploader', function () {
                 url: 'role/upload.json'
             });
             $scope.uploader.onAfterAddingFile = function(fileItem) {
-                console.log(fileItem.progress);
                 $scope.fileItem = fileItem;
                 fileItem.upload();
                 $scope.$watch('fileItem.progress', function(value){
@@ -128,6 +135,7 @@ baseFontApp.directive('imgUploader', function () {
                 });
             };
             $scope.uploader.onSuccessItem = function(fileItem, response, status, headers) {
+                $scope.imgUrl = response;
                 $scope.ngModel.$setViewValue(response);
                 Flash.create("success", "上传成功");
             };
