@@ -11,7 +11,6 @@ baseFontApp.controller("userListController", function ($rootScope, $scope, $loca
 		pageNo : 1,
 		totalCount:0
 	};
-	moment.locale('zh-cn');
 	$scope.buildParams = function(){
 
 		return {

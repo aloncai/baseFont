@@ -123,7 +123,7 @@ baseFontApp.directive('imgUploader', function () {
         controllerAs: 'imgUploader',
         controller : function($scope, $rootScope, Flash, FileUploader) {
             $scope.uploader = new FileUploader({
-                url: 'role/upload.json'
+                url: 'upload/img.json'
             });
             $scope.uploader.onAfterAddingFile = function(fileItem) {
                 $scope.fileItem = fileItem;
@@ -135,8 +135,8 @@ baseFontApp.directive('imgUploader', function () {
                 });
             };
             $scope.uploader.onSuccessItem = function(fileItem, response, status, headers) {
-                $scope.imgUrl = response;
-                $scope.ngModel.$setViewValue(response);
+                $scope.imgUrl = response.data;
+                $scope.ngModel.$setViewValue(response.data);
                 Flash.create("success", "上传成功");
             };
             $scope.uploader.onErrorItem = function(fileItem, response, status, headers) {
