@@ -1,4 +1,4 @@
 <div class="upload-img" style="width: {{width}};">
 	<img ng-src="{{src}}" style="width: {{width}};height: {{height}}"/>
-	<input type="file" nv-file-select nv-file-drop uploader="uploader" ng-disabled="{{isDisabled}}" style="width: {{width}};height: {{height}}" accept="image/*" />
+	<input type="file" nv-file-select nv-file-drop uploader="uploader" ng-disabled="{{isDisabled}}" style="width: {{width}};height: {{height}}" accept="image/*" uib-tooltip='{{$root.i18n.upload.uploadTip}}'/>
 </div>

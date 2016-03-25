@@ -13,8 +13,8 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
 
     $scope.entity = {
         logining : false, //避免用户重复请求
-        //userId : 'zhangkai',
-        //passwd: '123456'
+        userId : 'zhangkai',
+        passwd: '123456'
     };
     //背景图片
     var picNumber = parseInt(3*Math.random() + 1);

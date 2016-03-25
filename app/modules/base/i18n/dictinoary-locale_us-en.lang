@@ -23,8 +23,14 @@
       "createName": "Creator's Name",
       "createAt": "Create At",
       "likeQuery": "Fuzzy Query",
-      "notExist": "Not Exist",
-      "uploadProgress":"Upload Progress"
+      "notExist": "Not Exist"
+    },
+    "upload" : {
+      "uploadProgress":"Upload Progress",
+      "uploadSuccess":"Upload success",
+      "uploadFailed":"Upload failed",
+      "uploadFailedTooLarge":"File is too large",
+      "uploadTip" : "Limit size is 5MB"
     },
     "network": {
       "session_timeout_tip": "The session has timeout, please login Again",

@@ -23,8 +23,14 @@
       "createName": "创建人",
       "createAt": "创建时间",
       "likeQuery": "模糊查询",
-      "notExist": "不存在",
-      "uploadProgress":"上传进度"
+      "notExist": "不存在"
+    },
+    "upload" : {
+      "uploadProgress":"上传进度",
+      "uploadSuccess":"上传成功",
+      "uploadFailed":"上传失败",
+      "uploadFailedTooLarge":"文件过大",
+      "uploadTip" : "文件最大支持5MB"
     },
     "network": {
       "session_timeout_tip": "回话已失效，请重新登陆。",

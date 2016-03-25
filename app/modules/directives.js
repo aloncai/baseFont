@@ -122,19 +122,19 @@ baseFontApp.directive('imgUploader', function () {
                 fileItem.upload();
                 $scope.$watch('fileItem.progress', function(value){
                     if(value % 20 === 0 && value > 0){
-                        Flash.create("info", $rootScope.i18n.public.uploadProgress + value + '%', '1000');
+                        Flash.create("info", $rootScope.i18n.upload.uploadProgress + value + '%', '1000');
                     }
                 });
             };
             $scope.uploader.onSuccessItem = function(fileItem, response, status, headers) {
                 $scope.src = response.data;
-                Flash.create("success", "上传成功");
+                Flash.create("success", $rootScope.i18n.upload.uploadSuccess);
             };
             $scope.uploader.onErrorItem = function(fileItem, response, status, headers) {
                 if(status === 413){
-                    Flash.create("danger", "文件太大");
+                    Flash.create("danger",  $rootScope.i18n.upload.uploadSuccess.uploadFailedTooLarge);
                 }else{
-                    Flash.create("danger", "上传失败");
+                    Flash.create("danger", uploadFailedTooLarge.uploadFailed);
                 }
             };
         }
