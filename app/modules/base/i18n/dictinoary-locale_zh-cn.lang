@@ -55,6 +55,7 @@
       "userId": "ID",
       "userName": "姓名",
       "nickName": "昵称",
+      "userPortrait":"头像",
       "userMobile": "电话",
       "userBirth": "出生年月日",
       "userSex": "性别",

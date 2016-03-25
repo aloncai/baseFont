@@ -18,7 +18,8 @@ baseFontApp.controller("userCreateController", function ($rootScope, $scope, $lo
 			nickName : $scope.entity.nickName,
 			userMobile : $scope.entity.userMobile,
 			userSex : $scope.entity.userSex,
-			userBirth : $scope.entity.userBirth.getTime()
+			userBirth : $scope.entity.userBirth.getTime(),
+			imgUrl : $scope.entity.imgUrl
 		};
 		userService.create(reqParams).success(function(res){
 			Flash.create('success', $rootScope.i18n.public.create + $rootScope.i18n.public.successed);

@@ -23,6 +23,12 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label class="col-sm-3 control-label">{{$root.i18n.user.userPortrait}}:</label>
+			<div class="col-sm-5">
+				<img-uploader src="entity.imgUrl" disabled="false"></img-uploader>
+			</div>
+		</div>
+		<div class="form-group">
 			<label class="col-sm-3 control-label">{{$root.i18n.user.userMobile}}:</label>
 			<div class="col-sm-5">
 				<input type="text" class="form-control" ng-model="entity.userMobile" ng-required="true"  ng-pattern="/^1[3-9]{1}[0-9]{9}$/" />

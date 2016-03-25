@@ -52,6 +52,7 @@
 			<header>
 				<th>#</th>
 				<th>{{$root.i18n.user.userId}}</th>
+				<th>{{$root.i18n.user.userPortrait}}</th>
 				<th>{{$root.i18n.user.userName}}</th>
 				<th>{{$root.i18n.user.nickName}}</th>
 				<th>{{$root.i18n.user.userMobile}}</th>
@@ -78,9 +79,10 @@
 				<tr ng-repeat="user in result.userList">
 					<td>{{$index + 1 + (page.pageNo - 1) * page.pageSize}}</td>
 					<td>{{user.userId}}</td>
+					<td><img-uploader ng-if="user.imgUrl" src="user.imgUrl" width="70px" height="auto" disabled="true"></img-uploader></td> 
 					<td>{{user.userName}}</td> 
-					<td>{{user.nickName}}</td> 
-					<td>{{user.userMobile}}</td> 
+					<td>{{user.nickName}}</td>
+					<td>{{user.userMobile}}</td>
 					<td>{{user.status | userStatusFilter}}</td> 
 					<td>{{user.createName}}</td> 
 					<td>{{user.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>

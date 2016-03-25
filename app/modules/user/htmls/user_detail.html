@@ -12,6 +12,9 @@
 		<form class="form-horizontal">
 			<div class="page-breadcrumb breadcrumb">{{$root.i18n.user.userInfo}}</div>
 			<div class="form-group ">
+				<div class="form-group col-sm-2" ng-if="entity.imgUrl">
+					<img-uploader class="pull-right" width="150px" height="150px" src="entity.imgUrl" disabled="true"></img-uploader>
+				</div>
 				<div class="form-group col-sm-4">
 					<label class="control-label col-sm-4">{{$root.i18n.user.userId}}:</label>
 					<div class="col-sm-8">

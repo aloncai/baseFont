@@ -55,6 +55,7 @@
       "userId": "ID",
       "userName": "UserName",
       "nickName": "NickName",
+      "userPortrait":"Portrait",
       "userMobile": "Mobile",
       "userBirth": "Date Of Birth",
       "userSex": "Sex",

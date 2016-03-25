@@ -24,7 +24,8 @@ baseFontApp.controller("userUpdateController", function ($rootScope, $scope, $lo
 			nickName : $scope.entity.nickName === $scope.orgEntity.nickName ? undefined : $scope.entity.nickName,
 			userMobile : $scope.entity.userMobile === $scope.orgEntity.userMobile ? undefined : $scope.entity.userMobile,
 			userSex : $scope.entity.userSex === $scope.orgEntity.userSex ? undefined : $scope.entity.userSex,
-			userBirth : $scope.entity.userBirth.getTime() === $scope.orgEntity.userBirth ? undefined : $scope.entity.userBirth.getTime()
+			userBirth : $scope.entity.userBirth.getTime() === $scope.orgEntity.userBirth ? undefined : $scope.entity.userBirth.getTime(),
+			imgUrl : $scope.entity.imgUrl === $scope.orgEntity.imgUrl ? undefined : $scope.entity.imgUrl
 		};
 		//是否有变更
 		var noChange = true;
