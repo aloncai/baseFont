@@ -21,26 +21,27 @@
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular-sanitize.min.js"></script>
     <script src="<%=staticHost %>/js/angular/1.5.0-rc.1/angular-resource.min.js"></script>
 
-    <script src="<%=staticHost %>/js/angular-ui-bootstrap/1.2.0/ui-bootstrap-tpls.js"></script>
+    <script src="<%=staticHost %>/js/angular-ui-bootstrap/1.2.0/ui-bootstrap-tpls.min.js"></script>
     <script src="<%=staticHost %>/js/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="<%=staticHost %>/js/bootstrap/3.3.5/css/bootstrap.min.css"/>
 
     <link rel="stylesheet" href="<%=staticHost %>/js/font-awesome/3.2.1/font-awesome.min.css"/>
-    
-    <script src="<%=staticHost %>/js/moment-master/moment.js"></script>
-    <script src="<%=staticHost %>/js/moment-master/moment-with-locales.js"></script>
-    <script src="<%=staticHost %>/js/angular-bootstrap-datetimepicker-master/js/datetimepicker.js"></script>
-    <script src="<%=staticHost %>/js/angular-bootstrap-datetimepicker-master/js/datetimepicker.templates.js"></script>
-    <link rel="stylesheet" href="<%=staticHost %>/js/angular-bootstrap-datetimepicker-master/css/datetimepicker.css"/>
+
+    <script src="<%=staticHost %>/js/moment/2.10.6/moment.min.js"></script>
+    <script src="<%=staticHost %>/js/moment/2.10.6/moment-with-locales.min.js"></script>
+    <script src="<%=staticHost %>/js/angular-bootstrap-datetimepicker/1.0.1/js/datetimepicker.js"></script>
+    <script src="<%=staticHost %>/js/angular-bootstrap-datetimepicker/1.0.1/js/datetimepicker.templates.js"></script>
+    <link rel="stylesheet" href="<%=staticHost %>/js/angular-bootstrap-datetimepicker/1.0.1/css/datetimepicker.css"/>
 
 
     <script src="<%=staticHost %>/js/angular-flash/angular-flash.min.js"></script>
     <link rel="stylesheet" href="<%=staticHost %>/js/angular-flash/angular-flash.min.css"/>
 
+    <script src="<%=staticHost %>/js/angular-file-upload/3.0.0-alpha/angular-file-upload.min.js"></script>
+
     <link rel="shortcut icon" href="<%=staticHost %>/app/imgs/favicon_min.jpg" type="image/x-icon" />
 
     <script src="<%=staticHost %>/dist/js/baseFont.js"></script>
-    <link rel="stylesheet" href="<%=staticHost %>/dist/css/baseFont.min.css"/>
-</head>
+    <link rel="stylesheet" href="<%=staticHost %>/dist/css/baseFont.min.css"/></head>
 <body cs-layout></body>
 </html>
