@@ -132,9 +132,9 @@ baseFontApp.directive('imgUploader', function () {
             };
             $scope.uploader.onErrorItem = function(fileItem, response, status, headers) {
                 if(status === 413){
-                    Flash.create("danger",  $rootScope.i18n.upload.uploadSuccess.uploadFailedTooLarge);
+                    Flash.create("danger",  $rootScope.i18n.upload.uploadFailedTooLarge);
                 }else{
-                    Flash.create("danger", uploadFailedTooLarge.uploadFailed);
+                    Flash.create("danger", $rootScope.i18n.upload.uploadFailed);
                 }
             };
         }
