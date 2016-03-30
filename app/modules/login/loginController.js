@@ -45,21 +45,18 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
             $scope.entity.msg = $rootScope.i18n.login.login_success_msg;
             //显示导航栏
             $rootScope.global.showHeader = true;
-            //增加cookie
-            $cookies.putObject("userId", res.data.userId);
-            $cookies.putObject("nickName", res.data.nickName);
-            $cookies.putObject("userName", res.data.userName);
-
             //背景图片
             $("body").css('background-image', '');
             $("body").removeClass('body-img');
             //显示导航栏
             $rootScope.global.header.isShow = true;
             $rootScope.global.session = {
-                userId : $cookies.getObject("userId"),
-                nickName : $cookies.getObject("nickName"),
-                userName : $cookies.getObject("userName")
+                userId : res.data.userId,
+                nickName : res.data.nickName,
+                userName : res.data.userName
             };
+            //增加cookie
+            $cookies.putObject("userInfo", $rootScope.global.session);
             //加载菜单
             $rootScope.loadMenu();
             $scope.entity.logining = false;

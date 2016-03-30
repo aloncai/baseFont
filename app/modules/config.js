@@ -16,12 +16,12 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cook
                 var path = encodeURIComponent(window.location.hash.substring(1));
                 var msg = $rootScope.i18n.network.session_timeout_tip + '<a class="btn btn-warning" href="#/login?path=' + path + '" ng-click="$dismiss()" role="button">' + $rootScope.i18n.login.loginButton + '</a>';
                 Flash.create("warning", msg, 10000);
-                $cookies.remove("userId");
+                $cookies.remove("userInfo");
             }
             if(returnData.code === undefined || returnData.code === 200){
                 return res; 
             }else{
-               return $q.reject(res);
+                return $q.reject(res);
            }
        },
        requestError: function (rej) {

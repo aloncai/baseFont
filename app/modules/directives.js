@@ -28,16 +28,12 @@ baseFontApp.directive('csHeader', function () {
             //只有在登陆的时候才显示导航栏
             $rootScope.global.header = {};
             $rootScope.global.header.isShow = ($location.path() !== '/login' && $location.path() !== '/');
-            $rootScope.global.session = {
-                userId : $cookies.getObject("userId"),
-                nickName : $cookies.getObject("nickName"),
-                userName : $cookies.getObject("userName")
-            };
+            $rootScope.global.session = $cookies.getObject("userInfo");
             //退出登陆
             $scope.logout = function(){
                 loginService.logout().success(function (res) {
                     //消除cookie
-                    $cookies.remove("userId");
+                    $cookies.remove("userInfo");
                     $location.path("/login");
                 });
             };
@@ -50,14 +46,12 @@ baseFontApp.directive('csHeader', function () {
                     var expireDate = new Date();
                     expireDate.setDate(expireDate.getYear() + 100);
                     $cookies.putObject("lang", $rootScope.lang, {'expires': expireDate});
-
                 }
-                
             };
            
             $rootScope.loadMenu = function(){
-                 $rootScope.global.menu = {};
-                var userId = $cookies.getObject('userId');
+                $rootScope.global.menu = {};
+                var userId = $cookies.getObject('userInfo').userId;
                 menuService.getValidByUserId(userId).success(function(res){
                     var menuList = res.data;
                     //目前只支持两级目录
@@ -85,7 +79,7 @@ baseFontApp.directive('csHeader', function () {
             };
 
             //强制刷新
-            if($cookies.getObject('userId') !== undefined){
+            if($cookies.getObject('userInfo') !== undefined){
                 $rootScope.loadMenu();
             }
             
