@@ -4,7 +4,7 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
 
     Flash.clear();
     //已经登陆，跳转到首页
-    if($cookies.getObject("userId") !== undefined){
+    if($cookies.getObject("userInfo") !== undefined){
         $location.path("/welcome");
     }
 

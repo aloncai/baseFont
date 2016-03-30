@@ -17,6 +17,7 @@
     "prompt": true,
     "alert": true,
     "console": true,
-    "moment": true
+    "moment": true,
+    "RSAKey":true
   }
 }

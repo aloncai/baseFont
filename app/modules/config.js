@@ -65,8 +65,7 @@ baseFontApp.factory('popup', function ($uibModal) {
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');
                     };
-
-                    }
+                }
             });
         }
     };
