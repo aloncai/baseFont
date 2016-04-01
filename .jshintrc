@@ -18,6 +18,7 @@
     "alert": true,
     "console": true,
     "moment": true,
-    "RSAKey":true
+    "RSAKey":true,
+    "md5":true
   }
 }

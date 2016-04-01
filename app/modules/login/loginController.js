@@ -1,6 +1,6 @@
 /* 登陆使用的controller */
 
-baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies, $location, $locale, Flash, loginService) {
+baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies, $location, $locale, Flash, loginService, commonService) {
 
     Flash.clear();
     //已经登陆，跳转到首页
@@ -39,44 +39,50 @@ baseFontApp.controller("loginController", function ($rootScope, $scope, $cookies
             $scope.entity.logining = false;
             return ;
         }
+        commonService.getPublicKey(userId).success(function(publicKeyData){
+            var rsa = new RSAKey();
+            rsa.setPublic(publicKeyData.data.modulus, publicKeyData.data.exponent);
+            passwd = rsa.encrypt(md5(passwd));
+            loginService.login(userId, passwd).success(function (res) {
+                //$scope.alert("登陆成功");
+                $scope.entity.msg = $rootScope.i18n.login.login_success_msg;
+                //显示导航栏
+                $rootScope.global.showHeader = true;
+                //背景图片
+                $("body").css('background-image', '');
+                $("body").removeClass('body-img');
+                //显示导航栏
+                $rootScope.global.header.isShow = true;
+                $rootScope.global.session = {
+                    userId : res.data.userId,
+                    nickName : res.data.nickName,
+                    userName : res.data.userName
+                };
+                //增加cookie
+                $cookies.putObject("userInfo", $rootScope.global.session);
+                //加载菜单
+                $rootScope.loadMenu();
+                $scope.entity.logining = false;
+                
+                //跳转
+                var path = $location.search().path;
+                if(path === undefined || path === '' || path === null){
+                    path = "/welcome";
+                }
+                $location.url(path);
+            }).error(function (rej) {
+                if(rej.code === 1){
+                    $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_empty;
+                }else if(rej.code === 2){
+                    $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_error + rej.extaData;
+                }else if(rej.code === 3){
+                    $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_frozen;
+                }else if(rej.code === 4){
+                    $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_exhaust + (rej.extaData / 60).toFixed(1);
+                }
+                $scope.entity.logining = false;
 
-        loginService.login(userId, passwd).success(function (res) {
-            //$scope.alert("登陆成功");
-            $scope.entity.msg = $rootScope.i18n.login.login_success_msg;
-            //显示导航栏
-            $rootScope.global.showHeader = true;
-            //背景图片
-            $("body").css('background-image', '');
-            $("body").removeClass('body-img');
-            //显示导航栏
-            $rootScope.global.header.isShow = true;
-            $rootScope.global.session = {
-                userId : res.data.userId,
-                nickName : res.data.nickName,
-                userName : res.data.userName
-            };
-            //增加cookie
-            $cookies.putObject("userInfo", $rootScope.global.session);
-            //加载菜单
-            $rootScope.loadMenu();
-            $scope.entity.logining = false;
-            
-            //跳转
-            var path = $location.search().path;
-            if(path === undefined || path === '' || path === null){
-                path = "/welcome";
-            }
-            $location.url(path);
-        }).error(function (rej) {
-            if(rej.code === 1){
-                $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_empty;
-            }else if(rej.code === 2){
-                $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_error;
-            }else if(rej.code === 3){
-                $scope.entity.msg = $rootScope.i18n.login.login_failed_msg_frozen;
-            }
-            $scope.entity.logining = false;
-
+            });
         });
     };
 

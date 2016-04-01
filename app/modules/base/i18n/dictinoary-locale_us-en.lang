@@ -46,8 +46,9 @@
     },
     "login": {
       "login_failed_msg_empty": "userId or password can't be empty",
-      "login_failed_msg_error": "userId or password is wrong",
+      "login_failed_msg_error": "userId or password is wrong,left try times:",
       "login_failed_msg_frozen": "accout has been frozen",
+      "login_failed_msg_exhaust":"tried too many times, please wait (minutes):",
       "login_success_msg": "login successed",
       "logout_failed_msg": "logout error",
       "userId": "UserId",

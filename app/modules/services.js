@@ -1,5 +1,23 @@
 /* 注册使用的service */
 
+
+//登陆信息
+baseFontApp.service("commonService", function ($http) {
+    return {
+        //登陆
+        getPublicKey : function (userId) {
+            return $http({
+                url : '/easyShopping/rsa/getPublicKey.json',
+                method : 'get',
+                dataType : 'json',
+                params : {
+                    userId : userId
+                }
+            });
+        }
+    };
+});
+
 //登陆信息
 baseFontApp.service("loginService", function ($http) {
     return {
