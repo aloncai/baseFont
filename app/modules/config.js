@@ -1,11 +1,11 @@
 //$http拦截器
 baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cookies, Flash) {
     var httpInterceptor = {
-        //请求拦截
+        // 请求拦截
         request: function (config) {
             return $q.when(config);
         },
-        //相应拦截
+        // 响应拦截
         response: function (res) {
             //请求成功
             var returnData = res.data;
@@ -47,7 +47,7 @@ baseFontApp.factory('httpInterceptor', function ($q, $rootScope , $locale, $cook
 
 });
 
-//确认框
+// 确认框
 baseFontApp.factory('popup', function ($uibModal) {
     return {
         confim : function(title,msg){
